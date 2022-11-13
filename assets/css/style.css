@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Hind Siliguri', sans-serif;
+    /* font-size: 14px !important; */
+}
+
+#logoutOption{
+  display: none;
+}
+
+.stats-content{
+  gap: 10px;
+}
+
+.table>:not(caption)>*>*{
+  padding: .5rem 0;
+}
+
+th:last-child, td:last-child{
+  text-align: center !important;
+}
+
+.td-units{
+  text-align: center;
+}
+
+#invoiceTable input{
+  border: 0;
+  border-bottom: 2px solid rgb(103, 103, 103) !important;
+}
+
+#invoiceTable input:focus{
+  outline: none !important;
+  border-bottom: 2px solid rgb(115, 61, 217) !important;
+  box-shadow: none;
+}
+
+.calculationRow{
+  display: none;
+}
+
+@media print{
+  #logo{
+    width: 150px;
+  }
+
+  #invoiceContainerDiv{
+    padding: 6rem !important;
+  }
+}
