@@ -13,13 +13,7 @@
   gap: 10px;
 }
 
-.table>:not(caption)>*>*{
-  padding: .5rem 0;
-}
 
-th:last-child, td:last-child{
-  text-align: center !important;
-}
 
 .td-units{
   text-align: center;
