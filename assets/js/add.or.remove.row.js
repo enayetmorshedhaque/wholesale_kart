@@ -1,9 +1,9 @@
 jQuery(document).ready(function () {
     $('#addNewRow').click(function () {
-        table_input_one = '<td><input type="text" class="rounded-0 bookDetail book-name"></td>';
-        table_input_two = '<td><input type="text" class="rounded-0 bookDetail book-quantity"></td>';
-        table_input_three = '<td><input type="text" class="rounded-0 bookDetail book-published-price"></td>';
-        table_input_four = '<td> <input type="text" class="rounded-0 bookDetail book-sell-price"></td>';
+        table_input_one = '<td><input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName"</td>';
+        table_input_two = '<td><input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity"</td>';
+        table_input_three = '<td><input type="text" placeholder="Published Price (Required)" class="rounded-0 bookDetail bookPublishedPrice"></td>';
+        table_input_four = '<td><input type="text" placeholder="Selling Price (Required)" class="rounded-0 bookDetail bookSellPrice"></td>';
         table_input_five = '<td><button class="btn btn-danger deleteThis"><i class="fa-solid fa-trash"></i></button></td>';
 
         markup =

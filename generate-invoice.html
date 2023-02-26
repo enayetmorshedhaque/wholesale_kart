@@ -66,9 +66,43 @@
     <div class="container py-5">
         <div class="row mb-5">
             <div class="col-md-6">
-                <h5>
-                    <strong class="text-uppercase">Customer Details</strong>
-                </h5>
+                <h5><strong class="text-uppercase">Order Details</strong></h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-0" id="orderNumber" placeholder="Enter Order Number">
+                            <label for="orderNumber" class="form-label">Enter Order Number</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control rounded-0" id="orderDate" placeholder="Select Order Date">
+                            <label for="orderDate" class="form-label">Select Order Date</label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <h5><strong class="text-uppercase">Invoice Details</strong></h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0" id="invoiceNumber" placeholder="Enter Invoice Number">
+                                <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control rounded-0" id="invoiceDate" placeholder="Select Invoice Date">
+                                <label for="invoiceDate" class="form-label">Select Invoice Date</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                        <h5>
+                            <strong class="text-uppercase">Customer Details</strong>
+                        </h5>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
@@ -107,7 +141,6 @@
                         <option value="110">Sundarban (Home Delivery - District)</option>
                         <option value="115">redX (Suburb)</option>
                         <option value="120">Steadfast(28685) (Outside Dhaka)</option>
-                        <option value="140">Sundarban (Home Delivery - Thana)</option>
                         <option value="150">redX (Outside Dhaka)</option>
                     </select>
                     <label for="customerContact" class="form-label">Select Courier Company</label>
@@ -140,7 +173,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName" />
+                        <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
                     </td>
                     <td>
                         <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
