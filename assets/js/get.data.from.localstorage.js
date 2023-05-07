@@ -7,7 +7,7 @@ $(document).ready(function () {
   //Getting Courier Name and Slicing the necessary part
   var courierService = localStorage.getItem("courierName");
   courierService = courierService.substring(0, courierService.indexOf(" "));
-  
+
   $("#courier").html(courierService);
   $("#payment").html(localStorage.getItem("paymentOption"));
   $("#deliveryCharge").html(localStorage.getItem("courierCharge"));
@@ -63,6 +63,83 @@ $(document).ready(function () {
   grandTotal =
     parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
   $("#grandTotal").html(grandTotal);
+
+  function numberToWords(grandTotal) {
+    var digit = [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+    ];
+    var elevenSeries = [
+      "ten",
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen",
+      "sixteen",
+      "seventeen",
+      "eighteen",
+      "nineteen",
+    ];
+    var countingByTens = [
+      "twenty",
+      "thirty",
+      "forty",
+      "fifty",
+      "sixty",
+      "seventy",
+      "eighty",
+      "ninety",
+    ];
+    var shortScale = ["", "thousand", "million", "billion", "trillion"];
+
+    grandTotal = grandTotal.toString();
+    grandTotal = grandTotal.replace(/[\, ]/g, "");
+    if (grandTotal != parseFloat(grandTotal)) return "not a number";
+    var x = grandTotal.indexOf(".");
+    if (x == -1) x = grandTotal.length;
+    if (x > 15) return "too big";
+    var n = grandTotal.split("");
+    var str = "";
+    var sk = 0;
+    for (var i = 0; i < x; i++) {
+      if ((x - i) % 3 == 2) {
+        if (n[i] == "1") {
+          str += elevenSeries[grandTotal(n[i + 1])] + " ";
+          i++;
+          sk = 1;
+        } else if (n[i] != 0) {
+          str += countingByTens[n[i] - 2] + " ";
+          sk = 1;
+        }
+      } else if (n[i] != 0) {
+        str += digit[n[i]] + " ";
+        if ((x - i) % 3 == 0) str += "hundred ";
+        sk = 1;
+      }
+      if ((x - i) % 3 == 1) {
+        if (sk) str += shortScale[(x - i - 1) / 3] + " ";
+        sk = 0;
+      }
+    }
+    if (x != grandTotal.length) {
+      var y = grandTotal.length;
+      str += "point ";
+      for (var i = x + 1; i < y; i++) str += digit[n[i]] + " ";
+    }
+    str = str.replace(/\grandTotal+/g, " ");
+    return str.trim();
+  }
+
+  $("#totalAmountInWords").html(numberToWords(grandTotal)); 
 
   // Cash Collection Amount
   var paymentOption = $("#payment").text();

@@ -4,25 +4,24 @@ $(document).ready(function () {
     let orderNumber = $("#orderNumber").val();
     let invoiceNo = $("#invoiceNo").val();
 
-    // Get and format Order Date & Invoice Date
-    let invoiceDate = new Date($("#invoiceDate").val());
-    let invoiceEntryDate = invoiceDate.getDate();
-    let invoiceMonth = invoiceDate.getMonth();
-    invoiceMonth.toLocaleString("en-US", {
+    // Get and format Order Date
+    let getOrderDate = new Date($("#orderDate").val());
+    let orderDate = getOrderDate.getDate();
+    let orderMonth = getOrderDate.toLocaleString("en-US", {
       month: "long",
     });
+    let orderYear = getOrderDate.getFullYear();
+    let orderIssueDate = orderMonth + " " + orderDate + ", " + orderYear;
 
-    let invoiceYear = invoiceDate.getFullYear();
-
+    // Get and format Invoice Date
+    let getInvoiceDate = new Date($("#invoiceDate").val());
+    let invoiceDate = getInvoiceDate.getDate();
+    let invoiceMonth = getInvoiceDate.toLocaleString("en-US", {
+      month: "long",
+    });
+    let invoiceYear = getInvoiceDate.getFullYear();
     let invoiceIssueDate =
-      invoiceMonth +
-      " " +
-      invoiceEntryDate +
-      ", " +
-      invoiceYear;
-    console.log(invoiceIssueDate);
-
-    let orderDate = $("#orderDate").val();
+      invoiceMonth + " " + invoiceDate + ", " + invoiceYear;
 
     // Get customer related data from inputs
     let customerName = $("#customerName").val();
@@ -47,7 +46,15 @@ $(document).ready(function () {
         courierBaseCharge + (courierWeight - 1) * courierExtraCharge;
     }
 
-    // Save input data to local storage
+    // Save order data to local storage
+    localStorage.setItem("orderNumber", orderNumber);
+    localStorage.setItem("orderIssueDate", orderIssueDate);
+
+    // Save invoice data to local storage
+    localStorage.setItem("invoiceNo", invoiceNo);
+    localStorage.setItem("invoiceIssueDate", orderIssueDate);
+
+    // Save customer data to local storage
     localStorage.setItem("customerName", customerName);
     localStorage.setItem("customerAddress", customerAddress);
     localStorage.setItem("customerContact", customerContact);
@@ -78,6 +85,6 @@ $(document).ready(function () {
     });
 
     // Redirect to invoice page
-    // window.location.replace("invoice-update.html");
+    window.location.replace("invoice-update.html");
   });
 });
