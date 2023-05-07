@@ -70,39 +70,43 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0" id="orderNumber" placeholder="Enter Order Number">
+                            <input type="text" class="form-control rounded-0" id="orderNumber"
+                                placeholder="Enter Order Number">
                             <label for="orderNumber" class="form-label">Enter Order Number</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control rounded-0" id="orderDate" placeholder="Select Order Date">
+                            <input type="date" class="form-control rounded-0" id="orderDate"
+                                placeholder="Select Order Date">
                             <label for="orderDate" class="form-label">Select Order Date</label>
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-6">
-                    <h5><strong class="text-uppercase">Invoice Details</strong></h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="invoiceNumber" placeholder="Enter Invoice Number">
-                                <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
-                            </div>
+            </div>
+            <div class="col-md-6">
+                <h5><strong class="text-uppercase">Invoice Details</strong></h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-0" id="invoiceNumber"
+                                placeholder="Enter Invoice Number">
+                            <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="date" class="form-control rounded-0" id="invoiceDate" placeholder="Select Invoice Date">
-                                <label for="invoiceDate" class="form-label">Select Invoice Date</label>
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control rounded-0" id="invoiceDate"
+                                placeholder="Select Invoice Date">
+                            <label for="invoiceDate" class="form-label">Select Invoice Date</label>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                        <h5>
-                            <strong class="text-uppercase">Customer Details</strong>
-                        </h5>
+            </div>
+            <div class="col-md-6">
+                <h5>
+                    <strong class="text-uppercase">Customer Details</strong>
+                </h5>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
@@ -133,15 +137,14 @@
                 </h5>
                 <div class="form-floating mb-3">
                     <select class="form-select rounded-0" id="selectCourier">
-                        <option value="30">Post-Office</option>
                         <option value="50">Sundarban(O/D) </option>
                         <option value="60">Steadfast(28685) (Inside Dhaka)</option>
-                        <option value="70">redX (Inside Dhaka)</option>
                         <option value="100">Steadfast(28685) (Suburb)</option>
-                        <option value="110">Sundarban (Home Delivery - District)</option>
+                        <option value="100">Steadfast(28685) (Outside Dhaka)</option>
+                        <option value="0">Customize Courier</option>
+                        <!-- <option value="70">redX (Inside Dhaka)</option>
                         <option value="115">redX (Suburb)</option>
-                        <option value="120">Steadfast(28685) (Outside Dhaka)</option>
-                        <option value="150">redX (Outside Dhaka)</option>
+                        <option value="150">redX (Outside Dhaka)</option> -->
                     </select>
                     <label for="customerContact" class="form-label">Select Courier Company</label>
                 </div>
@@ -160,40 +163,79 @@
         <h5>
             <strong class="text-uppercase text-center">add books</strong>
         </h5>
-        <table class="table" id="invoiceTable">
-            <thead>
-                <tr>
-                    <th>Book Name</th>
-                    <th>Unit</th>
-                    <th>Published Price</th>
-                    <th>Sell Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
-                    </td>
-                    <td>
-                        <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
-                    </td>
-                    <td>
-                        <input type="text" placeholder="Published Price (Required)"
-                            class="rounded-0 bookDetail bookPublishedPrice">
-                    </td>
-                    <td>
-                        <input type="text" placeholder="Selling Price (Required)"
-                            class="rounded-0 bookDetail bookSellPrice">
-                    </td>
-                    <td>
-                        <button class="btn btn-danger deleteThis">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table" id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Unit</th>
+                        <th>Published Price</th>
+                        <th>Sell Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Published Price (Required)"
+                                class="rounded-0 bookDetail bookPublishedPrice">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Selling Price (Required)"
+                                class="rounded-0 bookDetail bookSellPrice">
+                        </td>
+                        <td>
+                            <button class="btn btn-danger deleteThis">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <label for="totalWeight" class="col-form-label">Enter Total Weight (KG)</label>
+                    <div class="">
+                        <input type="number" placeholder="Enter Total Weight in KG" class="form-control rounded-0 p-0"
+                            id="totalWeight">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <label for="customCourierCharge" class="col-form-label">Enter Custom Courier Charge</label>
+                    <div class="">
+                        <input type="number" placeholder="Enter Custom Courier Charge"
+                            class="form-control rounded-0 p-0" id="customCourierCharge">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="float-end">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="freeShiping">
+                        <label class="form-check-label" for="freeShiping">
+                            <strong>Free Shipping, No Courier Charge</strong>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-8"></div>
             <div class="col-md-4">
@@ -207,8 +249,6 @@
         </div>
     </div>
 
-    <iframe id="frame" src="invoice.html" style="width: 100%; height: 0;" frameborder="0"></iframe>
-
     <!-- Bootstrap JS CDN Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -216,13 +256,11 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
-
     <!-- CRUD Table Row JS -->
     <script src="./assets/js/add.or.remove.row.js"></script>
 
-    <!-- Theme JS -->
-    <script src="./assets/js/script.js"></script>
+    <!-- Save To Local Storage JS -->
+    <script src="./assets/js/save.to.localstorage.js"></script>
 </body>
 
 </html>

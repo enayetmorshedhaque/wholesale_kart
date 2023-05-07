@@ -5,6 +5,10 @@
     /* font-size: 14px !important; */
 }
 
+#invoiceContainerDiv{
+  position: relative;
+}
+
 .register-login-section {
   height: 100vh;
   display: flex;
@@ -49,27 +53,83 @@
   text-align: center;
 }
 
-#invoiceTable input{
+#invoiceTable input, #totalWeight, #customCourierCharge{
   border: 0;
   border-bottom: 2px solid rgb(103, 103, 103) !important;
 }
 
-#invoiceTable input:focus{
+#invoiceTable input:focus,
+#totalWeight:focus,
+#customCourierCharge:focus{
   outline: none !important;
   border-bottom: 2px solid rgb(115, 61, 217) !important;
   box-shadow: none;
 }
 
-.calculationRow{
-  display: none;
+#invoice {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#invoice thead tr{
+  background-color: #6739c0;
+  color: white;
+}
+
+#invoice tbody tr:nth-child(even){
+  background-color: #efebf9;
+}
+
+.title{
+  color: #653bbc;
+}
+
+.invoice-text{
+  color: #838383;
+}
+
+#customerDetails .card{
+  background-color: #efebf9;
+}
+
+footer{
+  bottom: 0;
+  height: 60px;
+}
+
+hr{
+    border: 1px dashed black;
+}
+
+@media (max-width: 768px) {
+  #invoiceTable tr td{
+    padding-right: 20px;
+  }
+
+  #invoiceTable tr td:last-child{
+    padding-right: 0px;
+  }
 }
 
 @media print{
   #logo{
-    width: 150px;
+    width: 200px;
   }
 
   #invoiceContainerDiv{
-    padding: 6rem !important;
+    padding: 4rem 2.5rem 0!important;
   }
+
+  .customer-details-card{
+    padding: 5px;
+    font-size: 13px;
+  }
+
+  #qrCode{
+    height: 100px;
+    vertical-align: middle;
+  }
+
+  
 }
