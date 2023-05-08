@@ -46,6 +46,14 @@ $(document).ready(function () {
         courierBaseCharge + (courierWeight - 1) * courierExtraCharge;
     }
 
+    // Check free shipping option and update courier charge
+    if ($("#freeShipping").prop("checked")) {
+      courierCharge = 0;
+      console.log(courierCharge);
+    } else {
+      courierCharge = courierCharge;
+      console.log(courierCharge);
+    }
     // Save order data to local storage
     localStorage.setItem("orderNumber", orderNumber);
     localStorage.setItem("orderIssueDate", orderIssueDate);
@@ -85,6 +93,6 @@ $(document).ready(function () {
     });
 
     // Redirect to invoice page
-    window.location.replace("invoice-update.html");
+    // window.location.replace("invoice-update.html");
   });
 });

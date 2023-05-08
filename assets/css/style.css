@@ -53,14 +53,12 @@
   text-align: center;
 }
 
-#invoiceTable input, #totalWeight, #customCourierCharge{
+#invoiceTable input{
   border: 0;
   border-bottom: 2px solid rgb(103, 103, 103) !important;
 }
 
-#invoiceTable input:focus,
-#totalWeight:focus,
-#customCourierCharge:focus{
+#invoiceTable input:focus{
   outline: none !important;
   border-bottom: 2px solid rgb(115, 61, 217) !important;
   box-shadow: none;
@@ -91,6 +89,10 @@
 
 #customerDetails .card{
   background-color: #efebf9;
+}
+
+.replacedFields{
+  display: none;
 }
 
 footer{
