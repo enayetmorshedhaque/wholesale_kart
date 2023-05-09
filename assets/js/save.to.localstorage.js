@@ -54,13 +54,23 @@ $(document).ready(function () {
       courierCharge = courierCharge;
       console.log(courierCharge);
     }
+
+    // Check if Customize Courier selected
+    let customGrandTotal;
+    if (parseInt($("#selectCourier").find(":selected").val()) == 0){
+      courierName = $("#customCourierName").val();
+      customGrandTotal = $("#customCourierBill").val();
+      $("#grandTotal").html(customGrandTotal);
+      console.log("Courier Name: " + courierName + "\nCourier Charge: " + customGrandTotal);
+    }
+    
     // Save order data to local storage
     localStorage.setItem("orderNumber", orderNumber);
     localStorage.setItem("orderIssueDate", orderIssueDate);
 
     // Save invoice data to local storage
     localStorage.setItem("invoiceNo", invoiceNo);
-    localStorage.setItem("invoiceIssueDate", orderIssueDate);
+    localStorage.setItem("invoiceIssueDate", invoiceIssueDate);
 
     // Save customer data to local storage
     localStorage.setItem("customerName", customerName);
@@ -69,8 +79,10 @@ $(document).ready(function () {
 
     localStorage.setItem("courierCharge", courierCharge);
     localStorage.setItem("courierName", courierName);
+    localStorage.setItem("customGrandTotal", customGrandTotal);
     localStorage.setItem("paymentOption", paymentOption);
 
+    console.log("Custom Grand Total Data is: " + (localStorage.getItem("customGrandTotal")).length);
     // Declare array for book details
     var booksDetails = [];
 

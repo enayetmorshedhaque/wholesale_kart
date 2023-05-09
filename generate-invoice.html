@@ -220,7 +220,6 @@
                         <option value="2">bKash</option>
                         <option value="3">Rocket</option>
                         <option value="4">Nagad</option>
-                        <option value="5">Gift</option>
                     </select>
                     <label for="customerContact" class="form-label">Select Payment Option</label>
                 </div>
@@ -267,7 +266,8 @@
     <script src="./assets/js/save.to.localstorage.js"></script>
 
     <script>
-        // Get Customize Courier Data
+        $(document).ready(function () {
+            // Get Customize Courier Data
             $("select").on("change", function () {
                 if (parseInt($("#selectCourier").find(":selected").val()) == 0) {
                     $(".changeableFields").css("display", "none");
@@ -277,6 +277,8 @@
                     $(".changeableFields").css("display", "block");
                 }
             });
+
+        })
     </script>
 </body>
 

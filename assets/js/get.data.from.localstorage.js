@@ -64,6 +64,7 @@ $(document).ready(function () {
     parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
   $("#grandTotal").html(grandTotal);
 
+//   Convert Grand Total in Words
   function numberToWords(grandTotal) {
     var digit = [
       "zero",
@@ -146,8 +147,7 @@ $(document).ready(function () {
   if (
     paymentOption.match("bKash") ||
     paymentOption.match("Rocket") ||
-    paymentOption.match("Nagad") ||
-    paymentOption.match("Gift")
+    paymentOption.match("Nagad")
   ) {
     $("#cashCollectionAmount").html(0);
   } else {
