@@ -3,7 +3,7 @@ $(document).ready(function () {
   $("#orderNumber").html(localStorage.getItem("orderNumber"));
   $("#orderDate").html(localStorage.getItem("orderIssueDate"));
 
-  // Get Invoice realted data from localstorage
+  // Get Invoice related data from localstorage
   $("#invoiceNo").html(localStorage.getItem("invoiceNo"));
   $("#invoiceDate").html(localStorage.getItem("invoiceIssueDate"));
 
@@ -35,14 +35,15 @@ $(document).ready(function () {
                 <span class="unit">${data.bookQuantity}</span> টি
             </td>
             <td class="td-units">
-                <strike>৳ <span class="publishedPrice">${data.bookPublishedPrice
-      }</span></strike> &nbsp; ৳ <span
+                <strike>৳ <span class="publishedPrice">${
+                  data.bookPublishedPrice
+                }</span></strike> &nbsp; ৳ <span
                     class="sellPrice">${data.bookSellingPrice}</span>
             </td>
             <td class="td-units">
                 ৳ <span class="singleTotal">${parseInt(
-        data.bookQuantity * data.bookSellingPrice
-      )}</span>
+                  data.bookQuantity * data.bookSellingPrice
+                )}</span>
             </td>
         </tr>
         `;
@@ -66,9 +67,16 @@ $(document).ready(function () {
   $("#subTotal").html(subtotalPrice);
 
   // Calculate Grand Total
-  var grandTotal = 0;
-  grandTotal =
-    parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
+  var grandTotal;
+  if (localStorage.getItem("customGrandTotal").length > 0) {
+    grandTotal = localStorage.getItem("customGrandTotal");
+    console.log(localStorage.getItem("customGrandTotal").length);
+  } else {
+    grandTotal =
+      parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
+    console.log(grandTotal);
+
+  }
   $("#grandTotal").html(grandTotal);
 
   // Assign grand total to cash collection amount
@@ -163,6 +171,8 @@ $(document).ready(function () {
   } else {
     $("#cashCollectionAmount").html(grandTotal);
   }
+
+  localStorage.clear();
 
   // let wspFrame = document.getElementById('frame').contentWindow;
   // new jsPDF('p', 'mm', [297, 210]);

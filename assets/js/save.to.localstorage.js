@@ -29,7 +29,7 @@ $(document).ready(function () {
     let customerContact = $("#customerContact").val();
 
     // Get courier related data from inputs
-    let courierName = $("#selectCourier").find(":selected").text();
+    let courierName;
     let paymentOption = $("#selectPaymentOption").find(":selected").text();
 
     // Get courier charge data and update charge based on weight
@@ -49,10 +49,8 @@ $(document).ready(function () {
     // Check free shipping option and update courier charge
     if ($("#freeShipping").prop("checked")) {
       courierCharge = 0;
-      console.log(courierCharge);
     } else {
       courierCharge = courierCharge;
-      console.log(courierCharge);
     }
 
     // Check if Customize Courier selected
@@ -60,8 +58,10 @@ $(document).ready(function () {
     if (parseInt($("#selectCourier").find(":selected").val()) == 0){
       courierName = $("#customCourierName").val();
       customGrandTotal = $("#customCourierBill").val();
-      $("#grandTotal").html(customGrandTotal);
-      console.log("Courier Name: " + courierName + "\nCourier Charge: " + customGrandTotal);
+      // Set Custom Grand Total to Localstorage
+      localStorage.setItem("customGrandTotal", customGrandTotal);
+    }else{
+      courierName = $("#selectCourier").find(":selected").text();
     }
     
     // Save order data to local storage
@@ -105,6 +105,6 @@ $(document).ready(function () {
     });
 
     // Redirect to invoice page
-    // window.location.replace("invoice-update.html");
+    window.location.replace("invoice-update.html");
   });
 });
