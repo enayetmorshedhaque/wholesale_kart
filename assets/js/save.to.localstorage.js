@@ -2,7 +2,7 @@ $(document).ready(function () {
   $("#generateInvoice").on("click", function () {
     // Get Order Number & Invoice Number
     let orderNumber = $("#orderNumber").val();
-    let invoiceNo = $("#invoiceNo").val();
+    let invoiceNo = $("#invoiceNumber").val();
 
     // Get and format Order Date
     let getOrderDate = new Date($("#orderDate").val());

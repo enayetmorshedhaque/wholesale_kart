@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  // Get Order related data from localstorage
+  $("#orderNumber").html(localStorage.getItem("orderNumber"));
+  $("#orderDate").html(localStorage.getItem("orderIssueDate"));
+
+  // Get Invoice realted data from localstorage
+  $("#invoiceNo").html(localStorage.getItem("invoiceNo"));
+  $("#invoiceDate").html(localStorage.getItem("invoiceIssueDate"));
+
   // Get Customer and Courier Details From Local Storage and Set Them To HTML
   $("#name").html(localStorage.getItem("customerName"));
   $("#address").html(localStorage.getItem("customerAddress"));
@@ -27,15 +35,14 @@ $(document).ready(function () {
                 <span class="unit">${data.bookQuantity}</span> টি
             </td>
             <td class="td-units">
-                <strike>৳ <span class="publishedPrice">${
-                  data.bookPublishedPrice
-                }</span></strike> &nbsp; ৳ <span
+                <strike>৳ <span class="publishedPrice">${data.bookPublishedPrice
+      }</span></strike> &nbsp; ৳ <span
                     class="sellPrice">${data.bookSellingPrice}</span>
             </td>
             <td class="td-units">
                 ৳ <span class="singleTotal">${parseInt(
-                  data.bookQuantity * data.bookSellingPrice
-                )}</span>
+        data.bookQuantity * data.bookSellingPrice
+      )}</span>
             </td>
         </tr>
         `;
@@ -64,7 +71,10 @@ $(document).ready(function () {
     parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
   $("#grandTotal").html(grandTotal);
 
-//   Convert Grand Total in Words
+  // Assign grand total to cash collection amount
+  $("#totalAmount").html(grandTotal);
+
+  // Convert Grand Total in Words
   function numberToWords(grandTotal) {
     var digit = [
       "zero",
@@ -114,7 +124,7 @@ $(document).ready(function () {
     for (var i = 0; i < x; i++) {
       if ((x - i) % 3 == 2) {
         if (n[i] == "1") {
-          str += elevenSeries[grandTotal(n[i + 1])] + " ";
+          str += elevenSeries[Number(n[i + 1])] + " ";
           i++;
           sk = 1;
         } else if (n[i] != 0) {
@@ -140,7 +150,7 @@ $(document).ready(function () {
     return str.trim();
   }
 
-  $("#totalAmountInWords").html(numberToWords(grandTotal)); 
+  $("#totalAmountInWords").html(numberToWords(grandTotal));
 
   // Cash Collection Amount
   var paymentOption = $("#payment").text();
