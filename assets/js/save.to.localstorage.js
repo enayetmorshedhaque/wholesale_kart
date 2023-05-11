@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  localStorage.clear();
+
   $("#generateInvoice").on("click", function () {
     // Get Order Number & Invoice Number
     let orderNumber = $("#orderNumber").val();
@@ -54,16 +56,26 @@ $(document).ready(function () {
     }
 
     // Check if Customize Courier selected
-    let customGrandTotal;
-    if (parseInt($("#selectCourier").find(":selected").val()) == 0){
-      courierName = $("#customCourierName").val();
-      customGrandTotal = $("#customCourierBill").val();
-      // Set Custom Grand Total to Localstorage
-      localStorage.setItem("customGrandTotal", customGrandTotal);
-    }else{
+    let customCourierName = 0,
+      customCourierBill = 0;
+    if (parseInt($("#selectCourier").find(":selected").val()) == 0) {
+      if (
+        $("#customCourierName").val().length > 0 &&
+        $("#customCourierBill").val().length > 0
+      ) {
+        customCourierName = $("#customCourierName").val();
+        customCourierBill = $("#customCourierBill").val();
+      } else {
+        customCourierName = customCourierName;
+        customCourierBill = customCourierBill;
+      }
+    } else {
       courierName = $("#selectCourier").find(":selected").text();
     }
-    
+    // Set Custom Grand Total to Localstorage
+    localStorage.setItem("customCourierName", customCourierName);
+    localStorage.setItem("customCourierBill", customCourierBill);
+
     // Save order data to local storage
     localStorage.setItem("orderNumber", orderNumber);
     localStorage.setItem("orderIssueDate", orderIssueDate);
@@ -79,10 +91,8 @@ $(document).ready(function () {
 
     localStorage.setItem("courierCharge", courierCharge);
     localStorage.setItem("courierName", courierName);
-    localStorage.setItem("customGrandTotal", customGrandTotal);
     localStorage.setItem("paymentOption", paymentOption);
 
-    console.log("Custom Grand Total Data is: " + (localStorage.getItem("customGrandTotal")).length);
     // Declare array for book details
     var booksDetails = [];
 
@@ -105,6 +115,6 @@ $(document).ready(function () {
     });
 
     // Redirect to invoice page
-    window.location.replace("invoice-update.html");
+    // window.location.replace("invoice-update.html");
   });
 });

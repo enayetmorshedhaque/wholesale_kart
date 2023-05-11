@@ -12,13 +12,23 @@ $(document).ready(function () {
   $("#address").html(localStorage.getItem("customerAddress"));
   $("#contact").html(localStorage.getItem("customerContact"));
 
-  //Getting Courier Name and Slicing the necessary part
-  var courierService = localStorage.getItem("courierName");
-  courierService = courierService.substring(0, courierService.indexOf(" "));
+  // Check if Custom Courier Name and Courier Charge is available
+  let courierName, courierCharge;
+  if(localStorage.getItem("customCourierName").length > 1 && localStorage.getItem("customCourierBill").length > 1){
+    courierName = localStorage.getItem("customCourierName");
+    courierCharge = localStorage.getItem("customCourierBill");
+  }else{
+    //Getting Courier Name and Slicing the necessary part
+    courierName = localStorage.getItem("courierName");
+    courierName = courierName.substring(0, courierName.indexOf(" "));
+    courierCharge = localStorage.getItem("courierCharge");
+  }
+  console.log(courierName + ": " + courierCharge);
 
-  $("#courier").html(courierService);
+  // Assigning Courier Information to
+  $("#courier").html(courierName);
   $("#payment").html(localStorage.getItem("paymentOption"));
-  $("#deliveryCharge").html(localStorage.getItem("courierCharge"));
+  $("#deliveryCharge").html(courierCharge);
 
   // Get Array of Books from Local Storage
   var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
@@ -68,15 +78,8 @@ $(document).ready(function () {
 
   // Calculate Grand Total
   var grandTotal;
-  if (localStorage.getItem("customGrandTotal").length > 0) {
-    grandTotal = localStorage.getItem("customGrandTotal");
-    console.log(localStorage.getItem("customGrandTotal").length);
-  } else {
-    grandTotal =
-      parseInt($("#subTotal").text()) + parseInt($("#deliveryCharge").text());
-    console.log(grandTotal);
-
-  }
+  grandTotal = parseInt($("#subTotal").text()) + parseInt(courierCharge);
+  console.log(grandTotal);
   $("#grandTotal").html(grandTotal);
 
   // Assign grand total to cash collection amount
@@ -171,8 +174,6 @@ $(document).ready(function () {
   } else {
     $("#cashCollectionAmount").html(grandTotal);
   }
-
-  localStorage.clear();
 
   // let wspFrame = document.getElementById('frame').contentWindow;
   // new jsPDF('p', 'mm', [297, 210]);
