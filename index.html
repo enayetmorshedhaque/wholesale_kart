@@ -29,30 +29,34 @@
                         <h3 class="mb-4">Welcome back, Login Here</h3>
                     </div>
                     <div class="w-75">
-                        <form>
+                        <form method="POST" action="./assets/db/login-register.php" class="needs-validation" novalidate>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="customerName" placeholder="Enter Customer Name">
-                                <label for="customerName" class="form-label">Enter Customer Name</label>
+                                <input type="text" class="form-control rounded-0" id="loginEmail"
+                                    placeholder="Enter Customer Name" required>
+                                <label for="loginEmail" class="form-label">Enter Your Email</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="customerName" placeholder="Enter Customer Name">
-                                <label for="customerName" class="form-label">Enter Customer Name</label>
+                                <input type="password" class="form-control rounded-0" id="loginPassword"
+                                    placeholder="Enter Customer Name" required>
+                                <label for="loginPassword" class="form-label">Enter Your Password</label>
                             </div>
                             <div class="d-grid mb-4">
-                                <button class="btn btn-primary rounded-0" type="button">Button</button>
+                                <button class="btn btn-primary rounded-0" type="submit">Login Now</button>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <p class="mb-sm-2">
-                                        <a href="forgot-password.html" class="text-decoration-none text-black">Forgot Password?</a>
+                                        <a href="forgot-password.html" class="text-decoration-none text-black">Forgot
+                                            Password?</a>
                                     </p>
                                 </div>
                                 <div class="col-md-6">
                                     <p class="float-lg-end float-sm-start">
-                                        No account? <a href="register.html" class="text-decoration-none text-danger fw-bold">Register</a> Now.
+                                        No account? <a href="register.html"
+                                            class="text-decoration-none text-danger fw-bold">Register</a> Now.
                                     </p>
                                 </div>
-                                </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -73,6 +77,9 @@
 
     <!-- Theme JS -->
     <script src="./assets/js/script.js"></script>
+
+    <!-- Form Validation JS -->
+    <script src="./assets/js/form.validation.js"></script>
 </body>
 
 </html>

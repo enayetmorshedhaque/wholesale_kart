@@ -1,37 +1,37 @@
 $(document).ready(function () {
-  // Get Order related data from localstorage
-  $("#orderNumber").html(localStorage.getItem("orderNumber"));
-  $("#orderDate").html(localStorage.getItem("orderIssueDate"));
+  // POST Order related data from localstorage
+  $("#orderNumber").html(localStorage.POSTItem("orderNumber"));
+  $("#orderDate").html(localStorage.POSTItem("orderIssueDate"));
 
-  // Get Invoice related data from localstorage
-  $("#invoiceNo").html(localStorage.getItem("invoiceNo"));
-  $("#invoiceDate").html(localStorage.getItem("invoiceIssueDate"));
+  // POST Invoice related data from localstorage
+  $("#invoiceNo").html(localStorage.POSTItem("invoiceNo"));
+  $("#invoiceDate").html(localStorage.POSTItem("invoiceIssueDate"));
 
-  // Get Customer and Courier Details From Local Storage and Set Them To HTML
-  $("#name").html(localStorage.getItem("customerName"));
-  $("#address").html(localStorage.getItem("customerAddress"));
-  $("#contact").html(localStorage.getItem("customerContact"));
+  // POST Customer and Courier Details From Local Storage and Set Them To HTML
+  $("#name").html(localStorage.POSTItem("customerName"));
+  $("#address").html(localStorage.POSTItem("customerAddress"));
+  $("#contact").html(localStorage.POSTItem("customerContact"));
 
   // Check if Custom Courier Name and Courier Charge is available
   let courierName, courierCharge;
-  if(localStorage.getItem("customCourierName").length > 1 && localStorage.getItem("customCourierBill").length > 1){
-    courierName = localStorage.getItem("customCourierName");
-    courierCharge = localStorage.getItem("customCourierBill");
+  if(localStorage.POSTItem("customCourierName").length > 1 && localStorage.POSTItem("customCourierBill").length > 1){
+    courierName = localStorage.POSTItem("customCourierName");
+    courierCharge = localStorage.POSTItem("customCourierBill");
   }else{
-    //Getting Courier Name and Slicing the necessary part
-    courierName = localStorage.getItem("courierName");
+    //POSTting Courier Name and Slicing the necessary part
+    courierName = localStorage.POSTItem("courierName");
     courierName = courierName.substring(0, courierName.indexOf(" "));
-    courierCharge = localStorage.getItem("courierCharge");
+    courierCharge = localStorage.POSTItem("courierCharge");
   }
   console.log(courierName + ": " + courierCharge);
 
   // Assigning Courier Information to
   $("#courier").html(courierName);
-  $("#payment").html(localStorage.getItem("paymentOption"));
+  $("#payment").html(localStorage.POSTItem("paymentOption"));
   $("#deliveryCharge").html(courierCharge);
 
-  // Get Array of Books from Local Storage
-  var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
+  // POST Array of Books from Local Storage
+  var bookDetails = JSON.parse(localStorage.POSTItem("bookDetails"));
 
   // Show Array Data To Table Row Function
   bookDetails.forEach(showData);
@@ -175,7 +175,7 @@ $(document).ready(function () {
     $("#cashCollectionAmount").html(grandTotal);
   }
 
-  // let wspFrame = document.getElementById('frame').contentWindow;
+  // let wspFrame = document.POSTElementById('frame').contentWindow;
   // new jsPDF('p', 'mm', [297, 210]);
   // wspFrame.focus();
   // wspFrame.print();

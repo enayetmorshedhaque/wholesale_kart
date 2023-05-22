@@ -29,25 +29,30 @@
                         <h3 class="mb-4">Register Now</h3>
                     </div>
                     <div class="w-75">
-                        <form>
+                        <form action="./assets/db/register.php" method="POST" class="needs-validation" novalidate>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="name" placeholder="Enter Your Name">
-                                <label for="name" class="form-label">Enter Your Name</label>
+                                <input type="text" class="form-control rounded-0" name="registrationName"
+                                    id="registrationName" placeholder="Enter Your Name" required>
+                                <label for="registrationName" class="form-label">Enter Your Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="email" placeholder="Enter Your Email">
-                                <label for="email" class="form-label">Enter Your Email</label>
+                                <input type="text" class="form-control rounded-0" name="registrationEmail"
+                                    id="registrationEmail" placeholder="Enter Your Email" required>
+                                <label for="registrationEmail" class="form-label">Enter Your Email</label>
                             </div>
                             <div class="form-floating mb-3">
-                                    <input type="text" class="form-control rounded-0" id="password" placeholder="Enter Your Password">
-                                    <label for="password" class="form-label">Enter Your Password</label>
+                                <input type="password" class="form-control rounded-0" name="registrationPassword"
+                                    id="registrationPassword" placeholder="Enter Your Password" required>
+                                <label for="registrationPassword" class="form-label">Enter Your Password</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="repeatPassword" placeholder="Re-enter Your Password">
+                                <input type="password" class="form-control rounded-0" name="repeatPassword"
+                                    id="repeatPassword" placeholder="Re-enter Your Password" required>
                                 <label for="repeatPassword" class="form-label">Re-enter Your Password</label>
                             </div>
                             <div class="d-grid mb-4">
-                                <button class="btn btn-primary rounded-0" type="button" id="register">Register Now</button>
+                                <button class="btn btn-primary rounded-0" type="user_register" name="user_register"
+                                    id="user_register">Register Now</button>
                             </div>
                             <div class="row">
                                 <div class="col-md-5">
@@ -84,6 +89,9 @@
 
     <!-- Theme JS -->
     <script src="./assets/js/script.js"></script>
+
+    <!-- Form Validation JS -->
+    <script src="./assets/js/form.validation.js"></script>
 </body>
 
 </html>

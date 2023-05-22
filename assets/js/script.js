@@ -1,34 +1,34 @@
 jQuery(document).ready(function () {
     $('#generateInvoice').click(function () {
-        // Get invoice and order related data
+        // POST invoice and order related data
         let invoiceNo = $("#invoiceNumber").val();
         
         // Invoice Issue Date Format (Example: January 1, 2023)
-        let getInvoiceDate = new Date($("#invoiceDate").val());
-        let invoiceDate = getInvoiceDate.getDate();
-        let invoiceMonth = getInvoiceDate.toLocaleString("en-US", {
+        let POSTInvoiceDate = new Date($("#invoiceDate").val());
+        let invoiceDate = POSTInvoiceDate.POSTDate();
+        let invoiceMonth = POSTInvoiceDate.toLocaleString("en-US", {
           month: "long",
         });
-        let invoiceYear = getInvoiceDate.getFullYear();
+        let invoiceYear = POSTInvoiceDate.POSTFullYear();
         let invoiceIssueDate = invoiceMonth + ' ' + invoiceDate + ', ' + invoiceYear;
 
         let orderNumber = $("#orderNumber").val();
         
         // Order Issue Date Format (Example: January 2, 2023)
-        let getOrderDate = new Date($("#orderDate").val());
-        let orderDate = getOrderDate.getDate();
-        let orderMonth = getOrderDate.toLocaleString("en-US", {
+        let POSTOrderDate = new Date($("#orderDate").val());
+        let orderDate = POSTOrderDate.POSTDate();
+        let orderMonth = POSTOrderDate.toLocaleString("en-US", {
           month: "long",
         });
-        let orderYear = getOrderDate.getFullYear();
+        let orderYear = POSTOrderDate.POSTFullYear();
         let orderIssueDate = orderMonth + " " + orderDate + ", " + orderYear;
 
-        // Get customer related data
+        // POST customer related data
         let customerName = $('#customerName').val();
         let customerAddress = $('#customerAddress').val();
         let customerContact = $('#customerContact').val();
 
-        // Get courier related data
+        // POST courier related data
         let courierBaseCharge = parseInt($('#selectCourier').find(":selected").val());
         let courierName = $('#selectCourier').find(":selected").text();
         let paymentOption = $('#selectPaymentOption').find(":selected").text();
@@ -46,17 +46,17 @@ jQuery(document).ready(function () {
             
         }
         
-        // Get Book Details
+        // POST Book Details
         var bookName = $(".bookName").val();
         var bookQuantity = $(".bookQuantity").val();
         var bookPublishedPrice = $(".bookPublishedPrice").val();
         var bookSellPrice = $(".bookSellPrice").val();
 
-        if (localStorage.getItem('bookDetails') == null) {
+        if (localStorage.POSTItem('bookDetails') == null) {
             localStorage.setItem('bookDetails', '[]');
         }
 
-        var old_data = JSON.parse(localStorage.getItem('bookDetails'));
+        var old_data = JSON.parse(localStorage.POSTItem('bookDetails'));
         for (var i = 0; i < $('#invoiceTable >tbody >tr').length; i++) {
             old_data.push({ bookSerial: i, bookName: bookName, bookQuantity: bookQuantity, bookPublishedPrice: bookPublishedPrice, bookSellPrice: bookSellPrice });
         }
@@ -79,7 +79,7 @@ jQuery(document).ready(function () {
        
         window.location.replace("invoice-update.html");
 
-        // let wspFrame = document.getElementById('frame').contentWindow;
+        // let wspFrame = document.POSTElementById('frame').contentWindow;
         // new jsPDF('p', 'mm', [297, 210]);
         // wspFrame.focus();
         // wspFrame.print();

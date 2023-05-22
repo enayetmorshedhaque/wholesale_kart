@@ -1,17 +1,17 @@
 $(document).ready(function () {
-  // Get Customer and Courier Details From Local Storage and Set Them To HTML
-  $("#name").html(localStorage.getItem("customerName"));
-  $("#address").html(localStorage.getItem("customerAddress"));
-  $("#contact").html(localStorage.getItem("customerContact"));
+  // POST Customer and Courier Details From Local Storage and Set Them To HTML
+  $("#name").html(localStorage.POSTItem("customerName"));
+  $("#address").html(localStorage.POSTItem("customerAddress"));
+  $("#contact").html(localStorage.POSTItem("customerContact"));
 
-  var courierService = localStorage.getItem("courierName");
+  var courierService = localStorage.POSTItem("courierName");
   courierService = courierService.substring(0, courierService.indexOf(" "));
   $("#courier").html(courierService);
-  $("#payment").html(localStorage.getItem("paymentOption"));
-  $("#deliveryCharge").html(localStorage.getItem("courierCharge"));
+  $("#payment").html(localStorage.POSTItem("paymentOption"));
+  $("#deliveryCharge").html(localStorage.POSTItem("courierCharge"));
 
-  // Get Array of Books from Local Storage
-  var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
+  // POST Array of Books from Local Storage
+  var bookDetails = JSON.parse(localStorage.POSTItem("bookDetails"));
 
   // Show Array Data To Table Row Function
   bookDetails.forEach(showData);
@@ -75,7 +75,7 @@ $(document).ready(function () {
     $("#cashCollectionAmount").html(grandTotal);
   }
 
-  // let wspFrame = document.getElementById('frame').contentWindow;
+  // let wspFrame = document.POSTElementById('frame').contentWindow;
   // new jsPDF('p', 'mm', [297, 210]);
   // wspFrame.focus();
   // wspFrame.print();

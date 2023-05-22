@@ -2,39 +2,39 @@ $(document).ready(function () {
   localStorage.clear();
 
   $("#generateInvoice").on("click", function () {
-    // Get Order Number & Invoice Number
+    // POST Order Number & Invoice Number
     let orderNumber = $("#orderNumber").val();
     let invoiceNo = $("#invoiceNumber").val();
 
-    // Get and format Order Date
-    let getOrderDate = new Date($("#orderDate").val());
-    let orderDate = getOrderDate.getDate();
-    let orderMonth = getOrderDate.toLocaleString("en-US", {
+    // POST and format Order Date
+    let POSTOrderDate = new Date($("#orderDate").val());
+    let orderDate = POSTOrderDate.POSTDate();
+    let orderMonth = POSTOrderDate.toLocaleString("en-US", {
       month: "long",
     });
-    let orderYear = getOrderDate.getFullYear();
+    let orderYear = POSTOrderDate.POSTFullYear();
     let orderIssueDate = orderMonth + " " + orderDate + ", " + orderYear;
 
-    // Get and format Invoice Date
-    let getInvoiceDate = new Date($("#invoiceDate").val());
-    let invoiceDate = getInvoiceDate.getDate();
-    let invoiceMonth = getInvoiceDate.toLocaleString("en-US", {
+    // POST and format Invoice Date
+    let POSTInvoiceDate = new Date($("#invoiceDate").val());
+    let invoiceDate = POSTInvoiceDate.POSTDate();
+    let invoiceMonth = POSTInvoiceDate.toLocaleString("en-US", {
       month: "long",
     });
-    let invoiceYear = getInvoiceDate.getFullYear();
+    let invoiceYear = POSTInvoiceDate.POSTFullYear();
     let invoiceIssueDate =
       invoiceMonth + " " + invoiceDate + ", " + invoiceYear;
 
-    // Get customer related data from inputs
+    // POST customer related data from inputs
     let customerName = $("#customerName").val();
     let customerAddress = $("#customerAddress").val();
     let customerContact = $("#customerContact").val();
 
-    // Get courier related data from inputs
+    // POST courier related data from inputs
     let courierName;
     let paymentOption = $("#selectPaymentOption").find(":selected").text();
 
-    // Get courier charge data and update charge based on weight
+    // POST courier charge data and update charge based on weight
     let courierBaseCharge = parseInt(
       $("#selectCourier").find(":selected").val()
     );
@@ -96,7 +96,7 @@ $(document).ready(function () {
     // Declare array for book details
     var booksDetails = [];
 
-    // Get table data and store to local storage
+    // POST table data and store to local storage
     $("#invoiceTable tbody tr").each(function () {
       var currentRow = $(this);
       var bookName = currentRow.find(".bookName").val();

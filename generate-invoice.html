@@ -38,7 +38,7 @@
             <a class="navbar-brand" href="index.html">
                 <img src="./assets/images/logo.png" width="120">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-tarPOST="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -279,7 +279,7 @@
                     dateFormat: "yy-mm-dd"
                 }).datepicker("setDate", "0");
             });
-            // Get Customize Courier Data
+            // POST Customize Courier Data
             $("select").on("change", function () {
                 if (parseInt($("#selectCourier").find(":selected").val()) == 0) {
                     $(".changeableFields").css("display", "none");
