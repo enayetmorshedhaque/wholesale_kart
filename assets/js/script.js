@@ -52,11 +52,11 @@ jQuery(document).ready(function () {
         var bookPublishedPrice = $(".bookPublishedPrice").val();
         var bookSellPrice = $(".bookSellPrice").val();
 
-        if (localStorage.POSTItem('bookDetails') == null) {
+        if (localStorage.getItem('bookDetails') == null) {
             localStorage.setItem('bookDetails', '[]');
         }
 
-        var old_data = JSON.parse(localStorage.POSTItem('bookDetails'));
+        var old_data = JSON.parse(localStorage.getItem('bookDetails'));
         for (var i = 0; i < $('#invoiceTable >tbody >tr').length; i++) {
             old_data.push({ bookSerial: i, bookName: bookName, bookQuantity: bookQuantity, bookPublishedPrice: bookPublishedPrice, bookSellPrice: bookSellPrice });
         }

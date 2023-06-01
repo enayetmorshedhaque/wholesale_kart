@@ -1,37 +1,37 @@
 $(document).ready(function () {
   // POST Order related data from localstorage
-  $("#orderNumber").html(localStorage.POSTItem("orderNumber"));
-  $("#orderDate").html(localStorage.POSTItem("orderIssueDate"));
+  $("#orderNumber").html(localStorage.getItem("orderNumber"));
+  $("#orderDate").html(localStorage.getItem("orderIssueDate"));
 
   // POST Invoice related data from localstorage
-  $("#invoiceNo").html(localStorage.POSTItem("invoiceNo"));
-  $("#invoiceDate").html(localStorage.POSTItem("invoiceIssueDate"));
+  $("#invoiceNo").html(localStorage.getItem("invoiceNo"));
+  $("#invoiceDate").html(localStorage.getItem("invoiceIssueDate"));
 
   // POST Customer and Courier Details From Local Storage and Set Them To HTML
-  $("#name").html(localStorage.POSTItem("customerName"));
-  $("#address").html(localStorage.POSTItem("customerAddress"));
-  $("#contact").html(localStorage.POSTItem("customerContact"));
+  $("#name").html(localStorage.getItem("customerName"));
+  $("#address").html(localStorage.getItem("customerAddress"));
+  $("#contact").html(localStorage.getItem("customerContact"));
 
   // Check if Custom Courier Name and Courier Charge is available
   let courierName, courierCharge;
-  if(localStorage.POSTItem("customCourierName").length > 1 && localStorage.POSTItem("customCourierBill").length > 1){
-    courierName = localStorage.POSTItem("customCourierName");
-    courierCharge = localStorage.POSTItem("customCourierBill");
+  if(localStorage.getItem("customCourierName").length > 1 && localStorage.getItem("customCourierBill").length > 1){
+    courierName = localStorage.getItem("customCourierName");
+    courierCharge = localStorage.getItem("customCourierBill");
   }else{
     //POSTting Courier Name and Slicing the necessary part
-    courierName = localStorage.POSTItem("courierName");
+    courierName = localStorage.getItem("courierName");
     courierName = courierName.substring(0, courierName.indexOf(" "));
-    courierCharge = localStorage.POSTItem("courierCharge");
+    courierCharge = localStorage.getItem("courierCharge");
   }
   console.log(courierName + ": " + courierCharge);
 
   // Assigning Courier Information to
   $("#courier").html(courierName);
-  $("#payment").html(localStorage.POSTItem("paymentOption"));
+  $("#payment").html(localStorage.getItem("paymentOption"));
   $("#deliveryCharge").html(courierCharge);
 
   // POST Array of Books from Local Storage
-  var bookDetails = JSON.parse(localStorage.POSTItem("bookDetails"));
+  var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
 
   // Show Array Data To Table Row Function
   bookDetails.forEach(showData);

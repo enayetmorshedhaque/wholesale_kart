@@ -1,18 +1,18 @@
 jQuery(document).ready(function () {
     // Replace demo data with local storage data
-    $("#name").html(localStorage.POSTItem('customerName'));
-    $("#address").html(localStorage.POSTItem('customerAddress'));
-    $("#contact").html(localStorage.POSTItem('customerContact'));
+    $("#name").html(localStorage.getItem('customerName'));
+    $("#address").html(localStorage.getItem('customerAddress'));
+    $("#contact").html(localStorage.getItem('customerContact'));
 
-    var courierService = localStorage.POSTItem('courierName');
+    var courierService = localStorage.getItem('courierName');
     courierService = courierService.substring(0, courierService.indexOf(' '));
     $("#courier").html(courierService);
-    $("#payment").html(localStorage.POSTItem('paymentOption'));
-    $("#deliveryCharge").html(localStorage.POSTItem('courierCharge'));
+    $("#payment").html(localStorage.getItem('paymentOption'));
+    $("#deliveryCharge").html(localStorage.getItem('courierCharge'));
 
 
     // Retrieve Array of Books from local storage
-    var bookDetails = JSON.parse(localStorage.POSTItem("bookDetails"));
+    var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
 
 
 

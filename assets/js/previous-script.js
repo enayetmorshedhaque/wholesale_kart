@@ -1,17 +1,17 @@
 $(document).ready(function () {
   // POST Customer and Courier Details From Local Storage and Set Them To HTML
-  $("#name").html(localStorage.POSTItem("customerName"));
-  $("#address").html(localStorage.POSTItem("customerAddress"));
-  $("#contact").html(localStorage.POSTItem("customerContact"));
+  $("#name").html(localStorage.getItem("customerName"));
+  $("#address").html(localStorage.getItem("customerAddress"));
+  $("#contact").html(localStorage.getItem("customerContact"));
 
-  var courierService = localStorage.POSTItem("courierName");
+  var courierService = localStorage.getItem("courierName");
   courierService = courierService.substring(0, courierService.indexOf(" "));
   $("#courier").html(courierService);
-  $("#payment").html(localStorage.POSTItem("paymentOption"));
-  $("#deliveryCharge").html(localStorage.POSTItem("courierCharge"));
+  $("#payment").html(localStorage.getItem("paymentOption"));
+  $("#deliveryCharge").html(localStorage.getItem("courierCharge"));
 
   // POST Array of Books from Local Storage
-  var bookDetails = JSON.parse(localStorage.POSTItem("bookDetails"));
+  var bookDetails = JSON.parse(localStorage.getItem("bookDetails"));
 
   // Show Array Data To Table Row Function
   bookDetails.forEach(showData);
