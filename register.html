@@ -29,30 +29,39 @@
                         <h3 class="mb-4">Register Now</h3>
                     </div>
                     <div class="w-75">
-                        <form action="./assets/db/register.php" method="POST" class="needs-validation" novalidate>
+                        <form action="./assets/db/register.php" method="POST" class="needs-validation" novalidate id="userRegistrationForm">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0" name="registrationName"
                                     id="registrationName" placeholder="Enter Your Name" required>
-                                <label for="registrationName" class="form-label">Enter Your Name</label>
+                                <label for="registrationName" class="form-label" id="registrationNameInput">Enter Your Name</label>
+                                <div id="greetUser"></div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" name="registrationEmail"
+                                <input type="email" class="form-control rounded-0 checking_email" name="registrationEmail"
                                     id="registrationEmail" placeholder="Enter Your Email" required>
                                 <label for="registrationEmail" class="form-label">Enter Your Email</label>
+                                <div id="emailValidation"></div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control rounded-0" name="registrationPassword"
                                     id="registrationPassword" placeholder="Enter Your Password" required>
                                 <label for="registrationPassword" class="form-label">Enter Your Password</label>
+                                <div class="indicate">
+                                    <span class="span1"></span>
+                                    <span class="span2"></span>
+                                    <span class="span3"></span>
+                                </div>
+                                <div id="passwordStrength"></div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control rounded-0" name="repeatPassword"
                                     id="repeatPassword" placeholder="Re-enter Your Password" required>
                                 <label for="repeatPassword" class="form-label">Re-enter Your Password</label>
+                                <div id="repeatPasswordFeedback"></div>
                             </div>
                             <div class="d-grid mb-4">
                                 <button class="btn btn-primary rounded-0" type="user_register" name="user_register"
-                                    id="user_register">Register Now</button>
+                                    id="user_registration">Register Now</button>
                             </div>
                             <div class="row">
                                 <div class="col-md-5">
@@ -82,6 +91,9 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
+    <!-- jQuery Form Validation CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 
     <!-- CRUD Table Row JS -->
@@ -92,6 +104,7 @@
 
     <!-- Form Validation JS -->
     <script src="./assets/js/form.validation.js"></script>
+
 </body>
 
 </html>

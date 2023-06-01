@@ -1,27 +1,27 @@
 $(document).ready(function () {
-  localStorage.clear();
+  window.localStorage.clear();
 
   $("#generateInvoice").on("click", function () {
     // POST Order Number & Invoice Number
     let orderNumber = $("#orderNumber").val();
     let invoiceNo = $("#invoiceNumber").val();
 
-    // POST and format Order Date
-    let POSTOrderDate = new Date($("#orderDate").val());
-    let orderDate = POSTOrderDate.POSTDate();
-    let orderMonth = POSTOrderDate.toLocaleString("en-US", {
+    // Get and format Order Date
+    let getOrderDate = new Date($("#orderDate").val());
+    let orderDate = getOrderDate.getDate();
+    let orderMonth = getOrderDate.toLocaleString("en-US", {
       month: "long",
     });
-    let orderYear = POSTOrderDate.POSTFullYear();
+    let orderYear = getOrderDate.getFullYear();
     let orderIssueDate = orderMonth + " " + orderDate + ", " + orderYear;
 
-    // POST and format Invoice Date
-    let POSTInvoiceDate = new Date($("#invoiceDate").val());
-    let invoiceDate = POSTInvoiceDate.POSTDate();
-    let invoiceMonth = POSTInvoiceDate.toLocaleString("en-US", {
+    // Get and format Invoice Date
+    let getInvoiceDate = new Date($("#invoiceDate").val());
+    let invoiceDate = getInvoiceDate.getDate();
+    let invoiceMonth = getInvoiceDate.toLocaleString("en-US", {
       month: "long",
     });
-    let invoiceYear = POSTInvoiceDate.POSTFullYear();
+    let invoiceYear = getInvoiceDate.getFullYear();
     let invoiceIssueDate =
       invoiceMonth + " " + invoiceDate + ", " + invoiceYear;
 
@@ -73,25 +73,25 @@ $(document).ready(function () {
       courierName = $("#selectCourier").find(":selected").text();
     }
     // Set Custom Grand Total to Localstorage
-    localStorage.setItem("customCourierName", customCourierName);
-    localStorage.setItem("customCourierBill", customCourierBill);
+    window.localStorage.setItem("customCourierName", customCourierName);
+    window.localStorage.setItem("customCourierBill", customCourierBill);
 
     // Save order data to local storage
-    localStorage.setItem("orderNumber", orderNumber);
-    localStorage.setItem("orderIssueDate", orderIssueDate);
+    window.localStorage.setItem("orderNumber", orderNumber);
+    window.localStorage.setItem("orderIssueDate", orderIssueDate);
 
     // Save invoice data to local storage
-    localStorage.setItem("invoiceNo", invoiceNo);
-    localStorage.setItem("invoiceIssueDate", invoiceIssueDate);
+    window.localStorage.setItem("invoiceNo", invoiceNo);
+    window.localStorage.setItem("invoiceIssueDate", invoiceIssueDate);
 
     // Save customer data to local storage
-    localStorage.setItem("customerName", customerName);
-    localStorage.setItem("customerAddress", customerAddress);
-    localStorage.setItem("customerContact", customerContact);
+    window.localStorage.setItem("customerName", customerName);
+    window.localStorage.setItem("customerAddress", customerAddress);
+    window.localStorage.setItem("customerContact", customerContact);
 
-    localStorage.setItem("courierCharge", courierCharge);
-    localStorage.setItem("courierName", courierName);
-    localStorage.setItem("paymentOption", paymentOption);
+    window.localStorage.setItem("courierCharge", courierCharge);
+    window.localStorage.setItem("courierName", courierName);
+    window.localStorage.setItem("paymentOption", paymentOption);
 
     // Declare array for book details
     var booksDetails = [];
@@ -111,7 +111,7 @@ $(document).ready(function () {
       data.bookSellingPrice = bookSellingPrice;
 
       booksDetails.push(data);
-      localStorage.setItem("bookDetails", JSON.stringify(booksDetails));
+      window.localStorage.setItem("bookDetails", JSON.stringify(booksDetails));
     });
 
     // Redirect to invoice page
