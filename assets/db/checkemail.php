@@ -12,7 +12,7 @@
             $email_query_run = mysqli_query($conn, $email_query);
             if (mysqli_num_rows($email_query_run) > 0) {
                 echo '
-                    <div id="emailValidation" class="invalid-feedback" style="display: block;">Ooopsss...! This email is already taken.</div>
+                    <div id="emailValidation" class="invalid-feedback">Ooopsss...! This email is already taken.</div>
                     <script>
                         $(".checking_email").removeClass("form-control is-valid");
                         $(".checking_email").addClass("form-control is-invalid");
@@ -20,7 +20,7 @@
                 ';
             } else {
                 echo '
-                    <div id="emailValidation" class="valid-feedback" style="display: block;">Welcome Aboard!</div>
+                    <div id="emailValidation" class="valid-feedback">Welcome Aboard!</div>
                     <script>
                         $(".checking_email").removeClass("form-control is-invalid");
                         $(".checking_email").addClass("form-control is-valid");
