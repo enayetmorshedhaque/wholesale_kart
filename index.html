@@ -37,12 +37,13 @@
                                 <input type="email" class="form-control rounded-0 checking_email" name="loginEmail" id="loginEmail"
                                     placeholder="Enter Your Email" required>
                                 <label for="loginEmail" class="form-label">Enter Your Email</label>
-                                <div id="emailValidation"></div>
+                                <div id="loginEmailValidation" class="feedback"></div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control rounded-0" name="loginPassword" id="loginPassword"
+                                <input type="password" class="form-control rounded-0 checking_password" name="loginPassword" id="loginPassword"
                                     placeholder="Enter Your Password" required>
                                 <label for="loginPassword" class="form-label">Enter Your Password</label>
+                                <div id="loginPasswordValidation" class="feedback"></div>
                             </div>
                             <div class="d-grid mb-4">
                                 <button class="btn btn-primary rounded-0" type="user_login" name="user_login"
@@ -84,7 +85,7 @@
     <script src="./assets/js/script.js"></script>
 
     <!-- Form Validation JS -->
-    <script src="./assets/js/form.validation.js"></script>
+    <script src="./assets/js/login.form.validation.js"></script>
 </body>
 
 </html>

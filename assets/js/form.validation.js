@@ -70,7 +70,7 @@ $(document).ready(function () {
   });
 
   // Validating the registration email
-  $("input[type='email']").on("keyup focusout", function () {
+  $("#registrationEmail").on("keyup focusout", function () {
     if (!$(this).val()) {
       $("#registrationEmail").removeClass("is-valid");
       $("#emailValidation")
