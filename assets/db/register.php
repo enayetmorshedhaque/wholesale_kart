@@ -10,13 +10,16 @@
             $email = $_REQUEST["registrationEmail"];
             $password = md5($_REQUEST["registrationPassword"]);
             $repeatPassword = md5($_REQUEST["repeatPassword"]);
-
-            if ($repeatPassword == $password) {
-                $sql = "INSERT INTO `users` (user_id, user_name, user_email, user_password) VALUES ('','$name', '$email', '$password')";
+            $token = bin2hex(random_bytes(32));
+            
+            if(empty($name) || empty($email) || empty($password) || empty($repeatPassword)){
+                header('Location: ../../register.html');
+            }else if ($repeatPassword == $password) {
+                $sql = "INSERT INTO `users` (user_id, user_name, user_email, user_password, user_token) VALUES ('','$name', '$email', '$password', '$token')";
                 if (mysqli_query($conn, $sql)) {
                     header('Location: ../../dashboard.html');
                 } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                    header('Location: ../../register.html');
                 }
             }else{
                 header('Location: ../../register.html');

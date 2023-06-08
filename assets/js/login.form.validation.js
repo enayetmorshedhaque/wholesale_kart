@@ -4,8 +4,13 @@ $(document).ready(function () {
 
   // Check all input forms are empty or filled
   $("#user_login").on("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+    if (
+      $.trim($("#loginEmail").val()) === "" ||
+      $.trim($("#loginPassword").val()) === ""
+    ){
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     $(".form-control").each(function () {
       var error = false;
@@ -29,6 +34,13 @@ $(document).ready(function () {
         error = true;
         // return;
       }
+      // if (
+        // $.trim($("#loginEmail").val()) === "" ||
+        // $.trim($("#loginPassword").val()) === ""
+      // ) {
+      //   alert("you did not fill out one of the fields");
+      //   error = true;
+      // }
       if (!error) {
         // if not any errors
         $("#user_login").unbind("click"); // you submit form
@@ -62,7 +74,13 @@ $(document).ready(function () {
         .html("Please enter your password")
         .addClass("invalid-feedback");
     } else {
-      checkPasswordMatch();
+      if (!$("#loginEmail").val()) {
+        $("#loginPasswordValidation")
+          .html("Please enter your email first")
+          .addClass("invalid-feedback disable");
+      } else {
+        checkPasswordMatch();
+      }
     }
   });
 
@@ -79,7 +97,7 @@ $(document).ready(function () {
 
   // Check Email Registered or Not
   function checkLoginEmailAvailability() {
-    var email = $(".checking_email").val();
+    var email = $(".checking_login_input_email").val();
     // alert(email);
 
     $.ajax({
@@ -87,17 +105,18 @@ $(document).ready(function () {
       url: "./assets/db/checklogincredentials.php",
       data: {
         checking_login_email: 1,
-        email_id: email,
+        login_email: email,
       },
-      success: function (response) {
-        $("#loginEmailValidation").replaceWith(response);
+      success: function (emailResponse) {
+        $("#loginEmailValidation").replaceWith(emailResponse);
       },
     });
   }
 
   // Check Password Matches or Not
   function checkPasswordMatch() {
-    var password = $(".checking_password").val();
+    var email = $(".checking_login_input_email").val();
+    var password = $(".checking_login_input_password").val();
     // alert(email);
 
     $.ajax({
@@ -105,10 +124,11 @@ $(document).ready(function () {
       url: "./assets/db/checklogincredentials.php",
       data: {
         checking_login_password: 1,
-        user_password: password,
+        login_email: email,
+        login_password: password,
       },
-      success: function (response) {
-        $("#loginEmailValidation").replaceWith(response);
+      success: function (passwordResponse) {
+        $("#loginPasswordValidation").replaceWith(passwordResponse);
       },
     });
   }

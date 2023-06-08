@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!empty($_SESSION['user_token']) && !empty($_SESSION['user_name'])){
+        $username =  $_SESSION['user_name'];
+    }else{
+        header('Location: index.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="dashboard.html">
                 <img src="./assets/images/logo.png" width="120">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-tarPOST="#navbarTogglerDemo02"
@@ -57,7 +65,7 @@
     <div class="container py-5">
         <div class="card bg-white rounded-0 border-0 shadow-sm">
             <div class="p-5">
-                <h1 class="fw-bold mb-0 fs-3">Howdy, Admin!</h1>
+                <h1 class="fw-bold mb-0 fs-3">Howdy, <?php echo $username; ?>!</h1>
                 <p class="mb-4">Welcome Back.</p>
                 <div class="row">
                     <div class="col-md-3 mb-3">
@@ -131,6 +139,16 @@
 
     <!-- Theme JS -->
     <script src="./assets/js/script.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $("#logoutOption").css("display", "block");
+            $("#logoutOption").click(function (e) { 
+                e.preventDefault();
+                
+            });
+        });
+    </script>
 </body>
 
 </html>

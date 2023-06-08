@@ -127,6 +127,7 @@
 footer{
   bottom: 0;
   height: 60px;
+  position: fixed;
 }
 
 hr{

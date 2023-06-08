@@ -4,9 +4,6 @@ $(document).ready(function () {
 
   // Check all input forms are empty or filled
   $("#user_registration").on("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
     $(".form-control").each(function () {
       var error = false;
 
@@ -29,6 +26,17 @@ $(document).ready(function () {
         error = true;
         // return;
       }
+      if (
+        $.trim($("#registrationName").val()) === "" ||
+        $.trim($("#registrationEmail").val()) === "" ||
+        $.trim($("#registrationPassword").val()) === "" ||
+        $.trim($("#repeatPassword").val()) === ""
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        error = true;
+      }
+
       if (!error) {
         // if not any errors
         $("#user_registration").unbind("click"); // you submit form

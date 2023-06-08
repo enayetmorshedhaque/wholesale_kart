@@ -115,6 +115,6 @@ $(document).ready(function () {
     });
 
     // Redirect to invoice page
-    window.location.replace("invoice-update.html");
+    window.location.replace("invoice.html");
   });
 });

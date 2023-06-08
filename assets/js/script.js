@@ -77,7 +77,7 @@ jQuery(document).ready(function () {
         localStorage.setItem('paymentOption', paymentOption);
 
        
-        window.location.replace("invoice-update.html");
+        window.location.replace("invoice.html");
 
         // let wspFrame = document.POSTElementById('frame').contentWindow;
         // new jsPDF('p', 'mm', [297, 210]);

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!empty($_SESSION['user_token']) && !empty($_SESSION['user_name'])){
+        $username =  $_SESSION['user_name'];
+    }else{
+        header('Location: index.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Generator</title>
 
+    <!-- Favicon Link -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    
     <!-- Fontawesome Kit -->
     <script src="https://kit.fontawesome.com/86bc96ac49.js" crossorigin="anonymous"></script>
 
@@ -18,68 +29,66 @@
 </head>
 
 <body>
-
-    <div class="container-fluid py-sm-4" id="invoiceContainerDiv">
-        <div id="invoiceDiv">
-            <div class="row d-flex align-items-end mb-5">
-                <div class="col-md-5 col-sm-4">
-                    <img src="./assets/images/logo.png" alt="BOOKSBD.NET Logo" id="logo" width="200">
-                </div>
-                <div class="col-md-7 col-sm-8">
-                    <div class="float-end">
-                        <span>৫৫/১/এ, শাহ সাহেব লেন, নারিন্দা, ঢাকা-১১০০</span>
-                        <br>
-                        <span>যোগাযোগ: +880-1713-138-707, ইমেইল: info@booksbd.net</span>
-                        <br>
-                        <span>
-                            <strong>বই পড়ুন, জীবন গড়ুন... একটি আলোকিত সমাজের প্রত্যাশায়...</strong>
-                        </span>
+    <div class="container-fluid py-lg-2 py-sm-4" id="invoiceContainerDiv">
+        <div id="invoiceDiv" class="mb-5">
+            <div class="row d-flex align-items-end mb-2">
+                <div class="col-md-6 col-sm-6">
+                    <div>
+                        <h2 class="fw-bold title">INVOICE</h2>
+                        <P class="fw-bold mb-0 invoice-text">
+                            Invoice No # <span id="invoiceNo" class="text-dark"></span>
+                        </P>
+                        <P class="fw-bold invoice-text">
+                            Invoice Date <span id="invoiceDate" class="text-dark"></span>
+                        </P>
                     </div>
+                </div>
+                <div class="col-md-6 col-sm-6 mb-3">
+                    <img class="float-end" src="./assets/images/logo.png" alt="BOOKSBD.NET Logo" id="logo" width="200">
                 </div>
             </div>
 
             <div id="customerDetails">
-                <div class="row mb-5">
-                    <div class="col-md-5 col-sm-5">
-                        <h5>
-                            <strong>কুরিয়ার বিবরণ</strong>
-                        </h5>
-                        <p class="mb-0">
-                            মূল্যপরিশোধ পদ্ধতি: <strong><span id="payment"></span></strong>
-                        </p>
-                        <p class="mb-0">
-                            নগদ সংগ্রহের পরিমাণ:
-                            <span>
-                                <strong>৳
-                                    <span id="cashCollectionAmount"></span>
-                                </strong>
-                            </span>
-                        </p>
-                        <p class="mb-0">
-                            কুরিয়ার সার্ভিস: <strong><span id="courier"></span></strong>
-                        </p>
+                <div class="row justify-content-center align-items-center mb-3">
+                    <div class="col-md-4 col-sm-5">
+                        <div class="card customer-details-card border-0 rounded-4">
+                            <div class="p-4">
+                                <h4 class="fw-bold mb-1 title">Order Details</h4>
+                                <P class="fw-bold mb-0">
+                                    Order ID # <span id="orderNumber"></span>
+                                </P>
+                                <P class="fw-bold mb-0">
+                                    Order Placed: <span id="orderDate" class="fw-normal"></span>
+                                </P>
+                                <P class="fw-bold mb-0">
+                                    Payment Method: <span id="payment" class="fw-normal"></span> <span
+                                        class="fw-normal">(৳ <span id="totalAmount"></span>)</span>
+                                </P>
+                                <P class="fw-bold mb-0">
+                                    Courier Service: <span id="courier" class="fw-normal"></span>
+                                </P>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-7 col-sm-7">
-                        <div class="float-end">
-                            <h5>
-                                <strong>গ্রাহক বিবরণ</strong>
-                            </h5>
-                            <p class="mb-0">
-                                নাম: <strong><span id="name"></span></strong>
-                            </p>
-                            <p class="mb-0">
-                                ঠিকানা: <strong>
-                                    <span id="address"></span></strong>
-                            </p>
-                            <p class="mb-0">
-                                মোবাইল নম্বর: <strong><span id="contact"></span></strong>
-                            </p>
+                    <div class="col-md-4 col-sm-2 text-center">
+                        <img src="./assets/images/frame.png" alt="BOOKS BD QR Code" height="180" id="qrCode">
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <div class="card customer-details-card border-0 rounded-4">
+                            <div class="p-4">
+                                <h4 class="fw-bold mb-1 title">Customer Details</h4>
+                                <P class="fw-bold mb-0" id="name"></P>
+                                <P class="mb-0" id="address"></P>
+                                <P class="fw-bold mb-0">
+                                    Phone: <span id="contact" class="fw-normal"></span>
+                                </P>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <table class="table">
+            <table class="table mb-5" id="invoice">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -100,8 +109,9 @@
                             ৳ <span id="subTotal"></span>
                         </td>
                     </tr>
-                    <tr scope="row" class="calculationRow">
+                    <tr scope="row" class="calculationRow text-center">
                         <td colspan="3">
+                            <strong>অর্ডারকৃত মোট বইয়ের সংখ্যা: <span id="orderedBooks"></span> টি</strong>
                         </td>
                         <td class="td-units">
                             <span>কুরিয়ার চার্জ</span>
@@ -110,9 +120,8 @@
                             ৳ <span id="deliveryCharge"></span>
                         </td>
                     </tr>
-                    <tr scope="row" class="calculationRow">
+                    <tr scope="row" class="calculationRow text-center">
                         <td colspan="3">
-                            <strong>অর্ডারকৃত মোট বইয়ের সংখ্যা: <span id="orderedBooks"></span> টি</strong>
                         </td>
                         <td class="td-units">
                             <span>সর্বমোট</span>
@@ -124,8 +133,25 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="border-0 text-center" colspan="5"><strong class="text-uppercase">Total (in words): <span id="totalAmountInWords"></span> taka only</strong></td>
+                    </tr>
+                </tfoot>
             </table>
+            <div id="termsAndConditions">
+                <h4 class="title">Terms & Conditions</h4>
+                <ol>
+                    <li>fabc</li>
+                </ol>
+            </div>
         </div>
+        
+        <footer>
+            <hr>
+            <p class="text-muted text-center">This is an electronically generated document, no signature is required.
+            </p>
+        </footer>
     </div>
 
     <!-- Bootstrap JS CDN Link -->
@@ -135,9 +161,11 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
+    <!-- JSPDF CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 
-    <script src="./assets/js/save.to.localstorage.js"></script>
+    <!-- POST Data From Local Storage JS -->
+    <script src="./assets/js/get.data.from.localstorage.js"></script>
 </body>
 
 </html>
