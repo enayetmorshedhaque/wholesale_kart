@@ -328,7 +328,6 @@
         $(document).ready(function () {
             $("#customerContact").keyup(function (e) { 
                 var mobile_number_input = $("#customerContact").val();
-                console.log(mobile_number_input);
                 
                 if(!($.trim(mobile_number_input) === "")){
                     $.ajax({
