@@ -70,8 +70,48 @@
   font-size: 20px;
   margin-top: 15px;
 }
+
 #logoutOption{
   display: none;
+}
+
+.autocomplete #contactSuggestionList{
+    list-style: none;
+    padding: 0px;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    background: white;
+}
+
+.autocomplete .results > #contactSuggestionList {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete #contactSuggestionList li{
+  background: white;
+  padding: 10px;
+  margin-bottom: 1px;
+   z-index: 1;
+  transition: all 0.25s ease-in; /* here */
+}
+
+.autocomplete #contactSuggestionList li:nth-child(even){
+    background: white;
+    color: black;
+}
+
+.autocomplete #contactSuggestionList li:hover{
+    cursor: pointer;
+    background: #4a00e0;
+    color: white;
+}
+
+.autocomplete input[type=number]{
+    padding: 5px;
+    width: 100%;
+    letter-spacing: 1px;
 }
 
 .stats-content{

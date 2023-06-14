@@ -49,7 +49,7 @@
             <a class="navbar-brand" href="dashboard.html">
                 <img src="./assets/images/logo.png" width="120">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-tarPOST="#navbarTogglerDemo02"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -122,35 +122,28 @@
                     <strong class="text-uppercase">Customer Details</strong>
                 </h5>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <select class="form-select rounded-0" id="floatingSelect" aria-label="Floating label select example">
-                                        <option value="1">Individual Customer</option>
-                                        <option value="2">Wholesaler</option>
-                                    </select>
-                                    <label for="floatingSelect">Customer Type</label>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control rounded-0 customerContactDetails" id="customerContact" placeholder="Enter Customer Number">
+                            <label for="customerContact" class="form-label">Enter Customer Number</label>
+                            <div class="autocomplete">
+                                <div class="results">
+                                    <ul id="contactSuggestionList"></ul>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control rounded-0" id="customerContact" placeholder="Enter Customer Number">
-                                    <label for="customerContact" class="form-label">Enter Customer Number</label>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control rounded-0" id="customerName" placeholder="Enter Customer Name">
-                                    <label for="customerName" class="form-label">Enter Customer Name</label>
-                                </div>
+                                <!-- <div class="clear"></div> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-floating mb-3">
-                            <textarea type="text" class="form-control rounded-0" id="customerAddress"
-                                placeholder="Enter Customer Address" style="height: 132px;"></textarea>
+                            <input type="text" class="form-control rounded-0 customerContactDetails" id="customerName" placeholder="Enter Customer Name">
+                            <label for="customerName" class="form-label">Enter Customer Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3">
+                            <textarea type="text" class="form-control rounded-0 customerContactDetails" id="customerAddress"
+                                placeholder="Enter Customer Address"></textarea>
                             <label for="customerAddress" class="form-label">Enter Customer Address</label>
                         </div>
                     </div>
@@ -160,7 +153,7 @@
         <h5>
             <strong class="text-uppercase text-center">add books</strong>
         </h5>
-        <div class="table-responsive">
+        <div class="table-responsive mb-3">
             <table class="table" id="invoiceTable">
                 <thead>
                     <tr>
@@ -207,7 +200,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-12">
-                <div class="float-end">
+                <div class="float-md-end">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control rounded-0" id="vatAmount" placeholder="Enter Vat If Applicable">
                         <label for="vatAmount" class="form-label">Enter Vat If Applicable</label>
@@ -256,7 +249,7 @@
                         <option value="3">Rocket</option>
                         <option value="4">Nagad</option>
                     </select>
-                    <label for="customerContact" class="form-label">Select Payment Option</label>
+                    <label for="paymentOption" class="form-label">Select Payment Option</label>
                 </div>
             </div>
             <div class="col-md-3 changeableFields">
@@ -322,7 +315,90 @@
                 }
             });
 
-        })
+        });
+
+        $(document).ready(function () {
+            $("#logoutOption").css("display", "block");
+            $("#logoutOption").click(function (e) {
+                e.preventDefault();
+
+            });
+        });
+
+        $(document).ready(function () {
+            $("#customerContact").keyup(function (e) { 
+                var mobile_number_input = $("#customerContact").val();
+                console.log(mobile_number_input);
+                
+                if(!($.trim(mobile_number_input) === "")){
+                    $.ajax({
+                        type: "POST",
+                        url: "./assets/db/searchcustomer.php",
+                        data: {
+                            checking_customer_number: 1,
+                            mobile_number_input: mobile_number_input,
+                        },
+                        dataType: "json",
+                        success: function (response) {
+                            var len = response.length;
+                            $("#contactSuggestionList").empty();
+                            for (var i = 0; i < len; i++) {
+                                var customer_id = response[i]['customer_id'];
+                                var customer_mobile = response[i]['customer_mobile'];
+
+                                $("#contactSuggestionList").append("<li value='" + customer_id + "'>" + customer_mobile + "</li>");
+
+                            }
+                            // binding click event to li
+                            $("#contactSuggestionList li").bind("click", function () {
+                                setText(this);
+                            });
+                        },
+                    });
+                }else{
+                    if($("#customerContact").val() == ""){
+                        $("#customerContact").val();
+                        $("#customerName").val();
+                        $("#customerAddress").val();
+                    }
+                }
+            });
+        });
+
+        // Set Text to search box and get details
+        function setText(element) {
+
+            var contact_number = $(element).text();
+            var contact_number_id = $(element).val();
+
+            $("#customerContact").val(contact_number);
+            $("#contactSuggestionList").empty();
+
+            // Request User Details
+            $.ajax({
+                url: './assets/db/searchcustomer.php',
+                type: 'post',
+                data: {  
+                    set_customer_details: 1,
+                    contact_number_id: contact_number_id
+                 },
+                dataType: 'json',
+                success: function (response) {
+
+                    var len = response.length;
+                    $("#customerName").empty();
+                    $("#customerAddress").empty();
+                    if (len > 0) {
+                        var name = response[0]['customer_name'];
+                        var address = response[0]['customer_address'];
+                        $("#customerName").val(name);
+                        $("#customerAddress").val(address);
+                    }
+                }
+
+            });
+        }
+
     </script>
 </body>
 
