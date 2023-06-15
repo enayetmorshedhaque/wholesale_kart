@@ -318,14 +318,6 @@
         });
 
         $(document).ready(function () {
-            $("#logoutOption").css("display", "block");
-            $("#logoutOption").click(function (e) {
-                e.preventDefault();
-
-            });
-        });
-
-        $(document).ready(function () {
             $("#customerContact").on("keyup", function (e) { 
                 var mobile_number_input = $("#customerContact").val();
                 
@@ -425,6 +417,9 @@
             });
         });
     </script>
+
+    <!-- Logout JS -->
+    <script src="./assets/js/logout.js"></script>
 </body>
 
 </html>
