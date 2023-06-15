@@ -104,7 +104,7 @@
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-0" id="invoiceNumber"
-                                placeholder="Enter Invoice Number" value="INV-BB-">
+                                placeholder="Enter Invoice Number">
                             <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
                         </div>
                     </div>
@@ -326,7 +326,7 @@
         });
 
         $(document).ready(function () {
-            $("#customerContact").keyup(function (e) { 
+            $("#customerContact").on("keyup", function (e) { 
                 var mobile_number_input = $("#customerContact").val();
                 
                 if(!($.trim(mobile_number_input) === "")){
@@ -355,11 +355,10 @@
                         },
                     });
                 }else{
-                    if($("#customerContact").val() == ""){
-                        $("#customerContact").val("");
-                        $("#customerName").val("");
-                        $("#customerAddress").val("");
-                    }
+                    $("#contactSuggestionList").empty();
+                    $("#customerContact").val("");
+                    $("#customerName").val("");
+                    $("#customerAddress").val("");
                 }
             });
         });
@@ -398,6 +397,33 @@
             });
         }
 
+        // Automatically Set Order Number
+        $(document).ready(function () {
+            $.ajax({
+                url: './assets/db/autogeneratenumber.php',
+                type: 'post',
+                data: {
+                    check_increment_order_number: 1,
+                },
+                success: function (response) {
+                    $("#orderNumber").val(response);
+                }
+            });
+        });
+
+        // Automatically Set Invoice Number
+        $(document).ready(function () {
+            $.ajax({
+                url: './assets/db/autogeneratenumber.php',
+                type: 'post',
+                data: {
+                    check_increment_invoice_number: 1,
+                },
+                success: function (response) {
+                    $("#invoiceNumber").val(response);
+                }
+            });
+        });
     </script>
 </body>
 
