@@ -70,8 +70,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-2 text-center">
-                        <img src="./assets/images/frame.png" alt="BOOKS BD QR Code" height="180" id="qrCode">
+                    <div class="col-md-4 col-sm-2 text-center" id="qrCodeDiv">
+                        <img src="" alt="Customer Qr Code" id="qrCode">
                     </div>
                     <div class="col-md-4 col-sm-5">
                         <div class="card customer-details-card border-0 rounded-4">
@@ -166,6 +166,30 @@
 
     <!-- POST Data From Local Storage JS -->
     <script src="./assets/js/get.data.from.localstorage.js"></script>
+
+    <!-- Generate QR Code -->
+    <script>
+        $(document).ready(function () {
+            var name = 'Name: ' + localStorage.getItem("customerName");
+            var address = localStorage.getItem("customerAddress");
+            
+            // If address contains '&' replacing it with and word 
+            if(address.includes('&')){
+                address = 'Address: ' + (address.replace('&', 'and'));
+            }else{
+                address = 'Address: ' + address;
+            }
+            var contact = 'Contact Number: ' + localStorage.getItem("customerContact");
+            
+            var data = name + ';' + address + ';' + contact;
+
+            console.log(data);
+            var imageSource = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + data + '&choe=ISO-8859-1';
+
+            $("#qrCode").attr("src", imageSource);
+
+        });
+    </script>
 </body>
 
 </html>

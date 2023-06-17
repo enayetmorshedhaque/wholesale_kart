@@ -38,6 +38,10 @@
   position: relative;
 }
 
+#address{
+  font-size: 14px !important;
+}
+
 .register-login-section {
   height: 100vh;
   display: flex;
@@ -206,6 +210,10 @@ hr{
   .customer-details-card{
     padding: 5px;
     font-size: 13px;
+  }
+
+  #address{
+    font-size: 10px !important;
   }
 
   #qrCode{
