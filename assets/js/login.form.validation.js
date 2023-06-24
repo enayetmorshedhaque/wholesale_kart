@@ -29,21 +29,12 @@ $(document).ready(function () {
           $("div.valid-feedback").removeClass("feedback invalid-feedback");
           $(this).removeClass("form-control is-invalid");
           $(this).addClass("form-control is-valid");
-          console.log("else printing");
         }
         error = true;
-        // return;
       }
-      // if (
-        // $.trim($("#loginEmail").val()) === "" ||
-        // $.trim($("#loginPassword").val()) === ""
-      // ) {
-      //   alert("you did not fill out one of the fields");
-      //   error = true;
-      // }
+
       if (!error) {
-        // if not any errors
-        $("#user_login").unbind("click"); // you submit form
+        $("#user_login").unbind("click");
       }
     });
   });
@@ -61,7 +52,7 @@ $(document).ready(function () {
       $("#loginEmailValidation")
         .html("Please enter a valid email")
         .addClass("invalid-feedback");
-      $(this).addClass("form-control is-invalid");
+      $("this").addClass("form-control is-invalid");
     } else {
       checkLoginEmailAvailability();
     }
@@ -69,17 +60,21 @@ $(document).ready(function () {
 
   // Password field strength check
   $("#loginPassword").on("keyup focusout", function () {
-    if (!$("#loginPassword").val()) {
+    if (!$(this).val()) {
+      $("#loginPassword").removeClass("is-valid");
       $("#loginPasswordValidation")
-        .html("Please enter your password")
+        .html("Please enter your Password")
         .addClass("invalid-feedback");
+      $("#loginPassword").addClass("form-control is-invalid");
     } else {
-      if (!$("#loginEmail").val()) {
-        $("#loginPasswordValidation")
-          .html("Please enter your email first")
-          .addClass("invalid-feedback disable");
-      } else {
-        checkPasswordMatch();
+        if (!$("#loginEmail").val()) {
+          $("#loginPassword").removeClass("is-valid");
+          $("#loginPasswordValidation")
+            .html("Please enter your email first")
+            .addClass("invalid-feedback disable");
+        $("#loginPassword").addClass("form-control is-invalid");  
+        } else {
+          checkPasswordMatch();
       }
     }
   });

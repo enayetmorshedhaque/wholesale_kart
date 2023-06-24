@@ -178,6 +178,10 @@
   display: none;
 }
 
+.fa-ellipsis{
+  cursor: pointer;
+}
+
 footer{
   bottom: 0;
   height: 60px;

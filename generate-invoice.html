@@ -78,198 +78,201 @@
         </div>
     </nav>
     <div class="container py-5">
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <h5><strong class="text-uppercase">Order Details</strong></h5>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0" id="orderNumber"
-                                placeholder="Enter Order Number">
-                            <label for="orderNumber" class="form-label">Enter Order Number</label>
+        <form action="">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5><strong class="text-uppercase">Order Details</strong></h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0" id="orderNumber" placeholder="Enter Order Number">
+                                <label for="orderNumber" class="form-label">Enter Order Number</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0 datepicker" id="orderDate"
-                                placeholder="Select Order Date">
-                            <label for="orderDate" class="form-label">Select Order Date</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h5><strong class="text-uppercase">Invoice Details</strong></h5>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0" id="invoiceNumber"
-                                placeholder="Enter Invoice Number">
-                            <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0 datepicker" id="invoiceDate"
-                                placeholder="Select Invoice Date">
-                            <label for="invoiceDate" class="form-label">Select Invoice Date</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <h5>
-                    <strong class="text-uppercase">Customer Details</strong>
-                </h5>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-0 customerContactDetails" id="customerContact" placeholder="Enter Customer Number">
-                            <label for="customerContact" class="form-label">Enter Customer Number</label>
-                            <div class="autocomplete">
-                                <div class="results">
-                                    <ul id="contactSuggestionList"></ul>
-                                </div>
-                                <!-- <div class="clear"></div> -->
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0 datepicker" id="orderDate"
+                                    placeholder="Select Order Date">
+                                <label for="orderDate" class="form-label">Select Order Date</label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-0 customerContactDetails" id="customerName" placeholder="Enter Customer Name">
-                            <label for="customerName" class="form-label">Enter Customer Name</label>
+                </div>
+                <div class="col-md-6">
+                    <h5><strong class="text-uppercase">Invoice Details</strong></h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0" id="invoiceNumber"
+                                    placeholder="Enter Invoice Number">
+                                <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0 datepicker" id="invoiceDate"
+                                    placeholder="Select Invoice Date">
+                                <label for="invoiceDate" class="form-label">Select Invoice Date</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <textarea type="text" class="form-control rounded-0 customerContactDetails" id="customerAddress"
-                                placeholder="Enter Customer Address"></textarea>
-                            <label for="customerAddress" class="form-label">Enter Customer Address</label>
+                </div>
+                <div class="col-md-12">
+                    <h5>
+                        <strong class="text-uppercase">Customer Details</strong>
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control rounded-0 customerContactDetails" id="customerContact"
+                                    placeholder="Enter Customer Number">
+                                <label for="customerContact" class="form-label">Enter Customer Number</label>
+                                <div class="autocomplete">
+                                    <div class="results">
+                                        <ul id="contactSuggestionList"></ul>
+                                    </div>
+                                    <!-- <div class="clear"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-0 customerContactDetails" id="customerName"
+                                    placeholder="Enter Customer Name">
+                                <label for="customerName" class="form-label">Enter Customer Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating mb-3">
+                                <textarea type="text" class="form-control rounded-0 customerContactDetails" id="customerAddress"
+                                    placeholder="Enter Customer Address"></textarea>
+                                <label for="customerAddress" class="form-label">Enter Customer Address</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <h5>
-            <strong class="text-uppercase text-center">add books</strong>
-        </h5>
-        <div class="table-responsive mb-3">
-            <table class="table" id="invoiceTable">
-                <thead>
-                    <tr>
-                        <th>Book Name</th>
-                        <th>Unit</th>
-                        <th>Published Price</th>
-                        <th>Sell Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
-                        </td>
-                        <td>
-                            <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
-                        </td>
-                        <td>
-                            <input type="text" placeholder="Published Price (Required)"
-                                class="rounded-0 bookDetail bookPublishedPrice">
-                        </td>
-                        <td>
-                            <input type="text" placeholder="Selling Price (Required)"
-                                class="rounded-0 bookDetail bookSellPrice">
-                        </td>
-                        <td>
-                            <button class="btn btn-danger deleteThis">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <div class="float-end">
-                    <button class="btn btn-outline-primary" id="addNewRow">
-                        <i class="fa-solid fa-plus"></i> Add Row
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <div class="float-md-end">
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control rounded-0" id="vatAmount" placeholder="Enter Vat If Applicable">
-                        <label for="vatAmount" class="form-label">Enter Vat If Applicable</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center">
             <h5>
-                <strong class="text-uppercase">Delivery Details</strong>
+                <strong class="text-uppercase text-center">add books</strong>
             </h5>
-            <div class="col-md-3">
-                <div class="form-floating mb-3">
-                    <select class="form-select rounded-0" id="selectCourier">
-                        <option value="50">Sundarban(O/D) </option>
-                        <option value="60">Steadfast(28685) (Inside Dhaka)</option>
-                        <option value="100">Steadfast(28685) (Suburb)</option>
-                        <option value="100">Steadfast(28685) (Outside Dhaka)</option>
-                        <option value="0">Customize Courier</option>
-                        <!-- <option value="70">redX (Inside Dhaka)</option>
-                                    <option value="115">redX (Suburb)</option>
-                                    <option value="150">redX (Outside Dhaka)</option> -->
-                    </select>
-                    <label for="customerContact" class="form-label">Select Courier Company</label>
-                </div>
+            <div class="table-responsive mb-3">
+                <table class="table" id="invoiceTable">
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Unit</th>
+                            <th>Published Price</th>
+                            <th>Sell Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Published Price (Required)"
+                                    class="rounded-0 bookDetail bookPublishedPrice">
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Selling Price (Required)"
+                                    class="rounded-0 bookDetail bookSellPrice">
+                            </td>
+                            <td>
+                                <button class="btn btn-danger deleteThis">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-3 replacedFields">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-0" id="customCourierName"
-                        placeholder="Enter Custom Courier Name">
-                    <label for="customCourierName" class="form-label">Enter Custom Courier Name</label>
-                </div>
-            </div>
-            <div class="col-md-3 replacedFields">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-0" id="customCourierBill"
-                        placeholder="Enter Custom Courier Bill">
-                    <label for="customCourierBill" class="form-label">Enter Custom Courier Bill</label>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-floating mb-3">
-                    <select class="form-select rounded-0" id="selectPaymentOption">
-                        <option value="1">COD</option>
-                        <option value="2">bKash</option>
-                        <option value="3">Rocket</option>
-                        <option value="4">Nagad</option>
-                    </select>
-                    <label for="paymentOption" class="form-label">Select Payment Option</label>
-                </div>
-            </div>
-            <div class="col-md-3 changeableFields">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-0" id="totalWeight"
-                        placeholder="Enter Total Weight in KG">
-                    <label for="totalWeight" class="form-label">Enter Total Weight in KG</label>
-                </div>
-            </div>
-            <div class="col-md-3 changeableFields">
-                <div class="float-end">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="freeShipping">
-                        <label class="form-check-label" for="freeShipping">
-                            Free Shipping, No Courier Charge
-                        </label>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="float-end">
+                        <button class="btn btn-outline-primary" id="addNewRow">
+                            <i class="fa-solid fa-plus"></i> Add Row
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="float-md-end">
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control rounded-0" id="vatAmount"
+                                placeholder="Enter Vat If Applicable">
+                            <label for="vatAmount" class="form-label">Enter Vat If Applicable</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <h5>
+                    <strong class="text-uppercase">Delivery Details</strong>
+                </h5>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select rounded-0" id="selectCourier">
+                            <option value="50">Sundarban(O/D) </option>
+                            <option value="60">Steadfast(28685) (Inside Dhaka)</option>
+                            <option value="100">Steadfast(28685) (Suburb)</option>
+                            <option value="100">Steadfast(28685) (Outside Dhaka)</option>
+                            <option value="0">Customize Courier</option>
+                            <!-- <option value="70">redX (Inside Dhaka)</option>
+                                                <option value="115">redX (Suburb)</option>
+                                                <option value="150">redX (Outside Dhaka)</option> -->
+                        </select>
+                        <label for="customerContact" class="form-label">Select Courier Company</label>
+                    </div>
+                </div>
+                <div class="col-md-3 replacedFields">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-0" id="customCourierName"
+                            placeholder="Enter Custom Courier Name">
+                        <label for="customCourierName" class="form-label">Enter Custom Courier Name</label>
+                    </div>
+                </div>
+                <div class="col-md-3 replacedFields">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-0" id="customCourierBill"
+                            placeholder="Enter Custom Courier Bill">
+                        <label for="customCourierBill" class="form-label">Enter Custom Courier Bill</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select rounded-0" id="selectPaymentOption">
+                            <option value="1">COD</option>
+                            <option value="2">bKash</option>
+                            <option value="3">Rocket</option>
+                            <option value="4">Nagad</option>
+                        </select>
+                        <label for="paymentOption" class="form-label">Select Payment Option</label>
+                    </div>
+                </div>
+                <div class="col-md-3 changeableFields">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-0" id="totalWeight" placeholder="Enter Total Weight in KG">
+                        <label for="totalWeight" class="form-label">Enter Total Weight in KG</label>
+                    </div>
+                </div>
+                <div class="col-md-3 changeableFields">
+                    <div class="float-end">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="freeShipping">
+                            <label class="form-check-label" for="freeShipping">
+                                Free Shipping, No Courier Charge
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="row">
             <div class="col-md-8"></div>
             <div class="col-md-4">
@@ -297,6 +300,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script>
+        // Auto Date Selection
         $(document).ready(function () {
             // Auto Select Date
             $(function () {
@@ -317,6 +321,7 @@
 
         });
 
+        // Search Customer Using Contact Number
         $(document).ready(function () {
             $("#customerContact").on("keyup", function (e) { 
                 var mobile_number_input = $("#customerContact").val();
@@ -415,6 +420,11 @@
                     $("#invoiceNumber").val(response);
                 }
             });
+        });
+
+        // 
+        $(document).ready(function () {
+             
         });
     </script>
 

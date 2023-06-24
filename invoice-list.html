@@ -26,6 +26,13 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Page CSS -->
+    <style>
+        table tr, th, td{
+            text-align: center!important;
+        }
+    </style>
 </head>
 
 <body>
@@ -64,36 +71,213 @@
     </nav>
     <div class="container py-5">
         <div class="table-responsive">
-            <table class="table caption-top">
-                <caption class="fw-bold text-black mb-3">List of users</caption>
+            <table class="table caption-top mb-5">
+                <caption class="fw-bold text-black mb-3">Invoices List</caption>
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Invoice Date</th>
-                        <th scope="col">Invoice Number</th>
-                        <th scope="col">Action</th>
+                        <th>#</th>
+                        <th>Invoice Date</th>
+                        <th>Invoice Number</th>
+                        <th>Contact Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th>1</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
+                        </td>
+                        
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <th>2</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712383560</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <th>3</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712383560</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712383560</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                        <th>11</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712383560</td>
+                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>12</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>13</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                        <th>14</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712383560</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>15</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>16</th>
+                        <td>June 24, 2023</td>
+                        <td>INV-BB-0000001</td>
+                        <td>01680843368</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                        <th>17</th>
+                        <td>June 22, 2023</td>
+                        <td>INV-BB-0000002</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>18</th>
+                        <td>June 20, 2023</td>
+                        <td>INV-BB-0000003</td>
+                        <td>01712345678</td>
+                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-title="Tooltip on top"></i>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
@@ -114,6 +298,13 @@
 
     <!-- Logout JS -->
     <script src="./assets/js/logout.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+            // $("data-bs-toggle='tooltip']").tooltip();
+        });
+    </script>
 </body>
 
 </html>

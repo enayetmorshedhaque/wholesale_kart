@@ -36,7 +36,7 @@ if (!$conn) {
         $password_query_run = mysqli_query($conn, $password_query);
         if (mysqli_num_rows($password_query_run) > 0) {
             echo '
-                <div id="loginPasswordValidation" class="valid-feedback">Password Matched</div>
+                <div id="loginPasswordValidation" class="valid-feedback">Hurrah...! Password Matched</div>
                 <script>
                     $(".checking_login_input_password").removeClass("form-control is-invalid");
                     $(".checking_login_input_password").addClass("form-control is-valid");

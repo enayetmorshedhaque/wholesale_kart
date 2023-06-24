@@ -23,7 +23,7 @@ if (!$conn) {
     }
 
     if (isset($_REQUEST['check_increment_invoice_number'])) {
-        $query = "SELECT invoice_no FROM `invoice_table` ORDER BY invoice_no DESC";
+        $query = "SELECT invoice_no FROM `invoices_table` ORDER BY invoice_no DESC";
         $result = mysqli_query($conn, $query);
 
         $row = mysqli_fetch_array($result);
