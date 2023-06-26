@@ -76,8 +76,10 @@
                 <thead class="table-light">
                     <tr>
                         <th>#</th>
-                        <th>Invoice Date</th>
-                        <th>Invoice Number</th>
+                        <th>Date</th>
+                        <th>Invoice#</th>
+                        <th>Billed To</th>
+                        <th>Amount</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -87,8 +89,63 @@
                         <th>1</th>
                         <td>June 24, 2023</td>
                         <td>INV-BB-0000001</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
-                        <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
+                        <td>Enayet Morshed Haque</td>
+                        <td>BDT 250</td>
+                        <td><span class="badge bg-success">Paid</span></td>
+                        <td>
+                            <i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="left"></i>
+                            <!-- <div style="padding: 8px;">
+                                <div class="invoiceListActionDivOne">
+                                    <div class="invoiceListActionDivTwo">
+                                        <div class="invoiceListActionDivThree">
+                                            <div class="invoiceListActionDivFour">
+                                                <ul>
+                                                    <li class="invoiceListAction invoiceListActionLi">
+                                                        <div tabindex="0" role="button" title="Create Credit Note" aria-label="Create Credit Note"
+                                                            class="sc-hrWEMg invoiceListItems">
+                                                            <span class="sc-cMhqgX invoiceListFirstSpan icon">
+                                                                <span class="sc-iuJeZd invoiceListSecondSpan">
+                                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M11.9999 7.71429L11.9999 16.2857M8.11106 12H15.8888M19.7777 13.0407V6.97738C17.9729 5.07692 16.9416 3.99095 15.0509 2H7.31609C5.59724 2 4.22217 3.44796 4.22217 5.25792V18.7421C4.22217 20.552 5.59724 22 7.31609 22H16.6838C18.4026 22 19.7777 20.552 19.7777 18.8326V13.0407Z"
+                                                                            stroke="#161c26" stroke-miterlimit="10" stroke-linecap="round">
+                                                                        </path>
+                                                                    </svg>
+                                                                </span>
+                                                            </span>
+                                                            <span class="sc-bsbRJL ZELdv content">
+                                                                <div>Create Credit Note &nbsp; &nbsp;</div>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="d-flex align-items-center justify-content-around">
+                                <div class="d-grid align-items-center">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span class="mb-0">open</span>
+                                </div>
+                            
+                                <div class="d-grid align-items-center">
+                                    <i class="fa-solid fa-pen"></i>
+                                    <span class="mb-0">Edit</span>
+                                </div>
+                            
+                                <div class="d-grid align-items-center">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span class="mb-0">Download</span>
+                                </div>
+                            
+                                <div class="d-grid align-items-center">
+                                    <i class="fa-solid fa-dollar"></i>
+                                    <span class="mb-0">Mark as Paid</span>
+                                </div>
+                            </div> -->
                         </td>
                         
                     </tr>
@@ -96,7 +153,9 @@
                         <th>2</th>
                         <td>June 22, 2023</td>
                         <td>INV-BB-0000002</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>Md. Anamul Haque</td>
+                        <td>BDT 1050</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
                         </td>
                     </tr>
@@ -104,15 +163,19 @@
                         <th>3</th>
                         <td>June 20, 2023</td>
                         <td>INV-BB-0000003</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 1500</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></i>
                         </td>
                     </tr>
                     <tr>
                         <th>4</th>
                         <td>June 24, 2023</td>
-                        <td>INV-BB-0000001</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000004</td>
+                        <td>Enayet Morshed Haque</td>
+                        <td>BDT 850</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -121,8 +184,10 @@
                     <tr>
                         <th>5</th>
                         <td>June 22, 2023</td>
-                        <td>INV-BB-0000002</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000005</td>
+                        <td>Md. Anamul Haque</td>
+                        <td>BDT 1050</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -130,8 +195,10 @@
                     <tr>
                         <th>6</th>
                         <td>June 20, 2023</td>
-                        <td>INV-BB-0000003</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000006</td>
+                        <td>Enayet Morshed Haque</td>
+                        <td>BDT 455</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -139,8 +206,10 @@
                     <tr>
                         <th>7</th>
                         <td>June 24, 2023</td>
-                        <td>INV-BB-0000001</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000007</td>
+                        <td>Enayet Morshed Haque</td>
+                        <td>BDT 940</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -149,8 +218,10 @@
                     <tr>
                         <th>8</th>
                         <td>June 22, 2023</td>
-                        <td>INV-BB-0000002</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td>INV-BB-0000008</td>
+                        <td>Md. Anamul Haque</td>
+                        <td>BDT 1050</td>
+                        <td><span class="badge bg-warning">COD</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -158,8 +229,10 @@
                     <tr>
                         <th>9</th>
                         <td>June 20, 2023</td>
-                        <td>INV-BB-0000003</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td>INV-BB-0000009</td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 650</td>
+                        <td><span class="badge bg-warning">COD</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -167,8 +240,10 @@
                     <tr>
                         <th>10</th>
                         <td>June 24, 2023</td>
-                        <td>INV-BB-0000001</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000010</td>
+                        <td>Md. Anamul Haque</td>
+                        <td>BDT 1050</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -177,8 +252,10 @@
                     <tr>
                         <th>11</th>
                         <td>June 22, 2023</td>
-                        <td>INV-BB-0000002</td>
-                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td>INV-BB-0000011</td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 1500</td>
+                        <td><span class="badge bg-danger">Unpaid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -186,8 +263,10 @@
                     <tr>
                         <th>12</th>
                         <td>June 20, 2023</td>
-                        <td>INV-BB-0000003</td>
-                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td>INV-BB-0000012</td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 500</td>
+                        <td><span class="badge bg-danger">Unpaid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -195,8 +274,10 @@
                     <tr>
                         <th>13</th>
                         <td>June 24, 2023</td>
-                        <td>INV-BB-0000001</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000013</td>
+                        <td>Enayet Morshed Haque</td>
+                        <td>BDT 100</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -205,8 +286,10 @@
                     <tr>
                         <th>14</th>
                         <td>June 22, 2023</td>
-                        <td>INV-BB-0000002</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000014</td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 520</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
@@ -214,8 +297,10 @@
                     <tr>
                         <th>15</th>
                         <td>June 20, 2023</td>
-                        <td>INV-BB-0000003</td>
-                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>INV-BB-0000015</td>
+                        <td>Dummy Customer</td>
+                        <td>BDT 600</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                         <td><i class="fa-solid fa-ellipsis" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-title="Tooltip on top"></i>
                         </td>
