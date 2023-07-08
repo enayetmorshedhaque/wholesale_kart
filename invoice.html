@@ -139,19 +139,19 @@
                     </tr>
                 </tfoot>
             </table>
-            <div id="termsAndConditions">
+            <!-- <div id="termsAndConditions">
                 <h4 class="title">Terms & Conditions</h4>
                 <ol>
                     <li>fabc</li>
                 </ol>
-            </div>
+            </div> -->
         </div>
         
-        <footer>
+        <!-- <footer>
             <hr>
             <p class="text-muted text-center">This is an electronically generated document, no signature is required.
             </p>
-        </footer>
+        </footer> -->
     </div>
 
     <!-- Bootstrap JS CDN Link -->
@@ -183,7 +183,7 @@
             
             var data = name + ';' + address + ';' + contact;
 
-            console.log(data);
+            // console.log(data);
             var imageSource = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + data + '&choe=ISO-8859-1';
 
             $("#qrCode").attr("src", imageSource);

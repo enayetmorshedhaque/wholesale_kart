@@ -21,7 +21,7 @@ $(document).ready(function () {
           $("div.valid-feedback").removeClass("feedback invalid-feedback");
           $(this).removeClass("form-control is-invalid");
           $(this).addClass("form-control is-valid");
-          console.log("else printing");
+          // console.log("else printing");
         }
         error = true;
         // return;

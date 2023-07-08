@@ -12,12 +12,12 @@ if (!$conn) {
         $row = mysqli_fetch_array($result);
 
         if (empty($row['order_no'])) {
-            $number = "BB-0000001-HO";
+            $number = "BB-HO-0000001";
             echo $number;
         } else {
-            $orderId = str_replace("INV-BB-", "", $row['order_no']);
+            $orderId = str_replace("BB-HO-", "", $row['order_no']);
             $id = str_pad(($orderId + 1), 7, 0, STR_PAD_LEFT);
-            $number = "BB-" . $id . "-HO";
+            $number = "BB-HO-" . $id;
             echo $number;
         }
     }

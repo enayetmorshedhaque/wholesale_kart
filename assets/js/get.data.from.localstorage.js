@@ -23,7 +23,7 @@ $(document).ready(function () {
     courierName = courierName.substring(0, courierName.indexOf(" "));
     courierCharge = localStorage.getItem("courierCharge");
   }
-  console.log(courierName + ": " + courierCharge);
+  // console.log(courierName + ": " + courierCharge);
 
   // Assigning Courier Information to
   $("#courier").html(courierName);
@@ -79,7 +79,7 @@ $(document).ready(function () {
   // Calculate Grand Total
   var grandTotal;
   grandTotal = parseInt($("#subTotal").text()) + parseInt(courierCharge);
-  console.log(grandTotal);
+  // console.log(grandTotal);
   $("#grandTotal").html(grandTotal);
 
   // Assign grand total to cash collection amount

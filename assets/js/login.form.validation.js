@@ -7,7 +7,7 @@ $(document).ready(function () {
     if (
       $.trim($("#loginEmail").val()) === "" ||
       $.trim($("#loginPassword").val()) === ""
-    ){
+    ) {
       e.preventDefault();
       e.stopPropagation();
     }
@@ -67,14 +67,14 @@ $(document).ready(function () {
         .addClass("invalid-feedback");
       $("#loginPassword").addClass("form-control is-invalid");
     } else {
-        if (!$("#loginEmail").val()) {
-          $("#loginPassword").removeClass("is-valid");
-          $("#loginPasswordValidation")
-            .html("Please enter your email first")
-            .addClass("invalid-feedback disable");
-        $("#loginPassword").addClass("form-control is-invalid");  
-        } else {
-          checkPasswordMatch();
+      if (!$("#loginEmail").val()) {
+        $("#loginPassword").removeClass("is-valid");
+        $("#loginPasswordValidation")
+          .html("Please enter your email first")
+          .addClass("invalid-feedback disable");
+        $("#loginPassword").addClass("form-control is-invalid");
+      } else {
+        checkPasswordMatch();
       }
     }
   });

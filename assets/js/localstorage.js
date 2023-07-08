@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
     }
     var $element = this;
     var row = $($element).parents("tr:first");
-    console.log(row);
+    // console.log(row);
     // $("#invoiceTableBody").prepend($(".calculationRow").show().last());
 
 
@@ -54,7 +54,7 @@ jQuery(document).ready(function () {
     $("#invoiceTableBody tr").each(function () {
         var currentRow = $(this);
         var unit = currentRow.find("td:eq(1) .unit").html();
-        console.log("unit is: " + unit);
+        // console.log("unit is: " + unit);
 
     })
     $(".singleTotal").each(function () {

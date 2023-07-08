@@ -17,7 +17,7 @@
 
     <!-- Favicon Link -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    
+
     <!-- Fontawesome Kit -->
     <script src="https://kit.fontawesome.com/86bc96ac49.js" crossorigin="anonymous"></script>
 
@@ -26,7 +26,7 @@
 
     <!-- Datepicker CSS CDN Link -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    
+
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -39,6 +39,14 @@
         th:last-child,
         td:last-child {
             text-align: center !important;
+        }
+
+        .form-control {
+            padding: 1px 2px;
+        }
+
+        td input.form-control {
+            width: 240px;
         }
     </style>
 </head>
@@ -78,14 +86,15 @@
         </div>
     </nav>
     <div class="container py-5">
-        <form action="">
+        <form action="" method="POST" class="needs-validation" novalidate id="generateInvoiceForm">
             <div class="row mb-4">
                 <div class="col-md-6">
                     <h5><strong class="text-uppercase">Order Details</strong></h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0" id="orderNumber" placeholder="Enter Order Number">
+                                <input type="text" class="form-control rounded-0" id="orderNumber"
+                                    placeholder="Enter Order Number">
                                 <label for="orderNumber" class="form-label">Enter Order Number</label>
                             </div>
                         </div>
@@ -124,8 +133,9 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control rounded-0 customerContactDetails" id="customerContact"
-                                    placeholder="Enter Customer Number">
+                                <input type="text"
+                                    class="form-control rounded-0 customerContactDetails formMandatoryFields"
+                                    id="customerContact" placeholder="Enter Customer Number">
                                 <label for="customerContact" class="form-label">Enter Customer Number</label>
                                 <div class="autocomplete">
                                     <div class="results">
@@ -137,15 +147,15 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control rounded-0 customerContactDetails" id="customerName"
-                                    placeholder="Enter Customer Name">
+                                <input type="text" class="form-control rounded-0 customerContactDetails"
+                                    id="customerName" placeholder="Enter Customer Name">
                                 <label for="customerName" class="form-label">Enter Customer Name</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <textarea type="text" class="form-control rounded-0 customerContactDetails" id="customerAddress"
-                                    placeholder="Enter Customer Address"></textarea>
+                                <textarea type="text" class="form-control rounded-0 customerContactDetails"
+                                    id="customerAddress" placeholder="Enter Customer Address"></textarea>
                                 <label for="customerAddress" class="form-label">Enter Customer Address</label>
                             </div>
                         </div>
@@ -166,21 +176,23 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="bookDetailsRow">
+                        <tr class="bookDetails-form-group">
                             <td>
-                                <input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName">
+                                <input type="text" placeholder="Book Name (Required)" class="form-control rounded-0 bookDetail bookName"
+                                    name="bookName[]" id="bookName">
                             </td>
                             <td>
-                                <input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity">
+                                <input type="number" placeholder="Unit (Required)" class="form-control rounded-0 bookDetail bookQuantity"
+                                    name="bookQuantity[]" id="bookQuantity">
                             </td>
                             <td>
-                                <input type="text" placeholder="Published Price (Required)"
-                                    class="rounded-0 bookDetail bookPublishedPrice">
+                                <input type="number" placeholder="Published Price (Required)"
+                                    class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice[]" id="bookPublishedPrice">
                             </td>
                             <td>
-                                <input type="text" placeholder="Selling Price (Required)"
-                                    class="rounded-0 bookDetail bookSellPrice">
+                                <input type="number" placeholder="Selling Price (Required)"
+                                    class="form-control rounded-0 bookDetail bookSellPrice" name="bookSellPrice[]" id="bookSellPrice">
                             </td>
                             <td>
                                 <button class="btn btn-danger deleteThis">
@@ -190,6 +202,32 @@
                         </tr>
                     </tbody>
                 </table>
+                <template id="template-row">
+                    <tr class="bookDetails-form-group" id="template-row-input-fields">
+                        <td>
+                            <input type="text" placeholder="Book Name (Required)" class="form-control rounded-0 bookDetail bookName"
+                                name="bookName[]" id="bookName">
+                        </td>
+                        <td>
+                            <input type="number" placeholder="Unit (Required)" class="form-control rounded-0 bookDetail bookQuantity"
+                                name="bookQuantity[]" id="bookQuantity">
+                        </td>
+                        <td>
+                            <input type="number" placeholder="Published Price (Required)"
+                                class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice[]"
+                                id="bookPublishedPrice">
+                        </td>
+                        <td>
+                            <input type="number" placeholder="Selling Price (Required)"
+                                class="form-control rounded-0 bookDetail bookSellPrice" name="bookSellPrice[]" id="bookSellPrice">
+                        </td>
+                        <td>
+                            <button class="btn btn-danger deleteThis">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </template>
             </div>
             <div class="row mb-3">
                 <div class="col-md-12">
@@ -227,7 +265,7 @@
                                                 <option value="115">redX (Suburb)</option>
                                                 <option value="150">redX (Outside Dhaka)</option> -->
                         </select>
-                        <label for="customerContact" class="form-label">Select Courier Company</label>
+                        <label for="selectCourier" class="form-label">Select Courier Company</label>
                     </div>
                 </div>
                 <div class="col-md-3 replacedFields">
@@ -252,12 +290,13 @@
                             <option value="3">Rocket</option>
                             <option value="4">Nagad</option>
                         </select>
-                        <label for="paymentOption" class="form-label">Select Payment Option</label>
+                        <label for="selectPaymentOption" class="form-label">Select Payment Option</label>
                     </div>
                 </div>
                 <div class="col-md-3 changeableFields">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control rounded-0" id="totalWeight" placeholder="Enter Total Weight in KG">
+                        <input type="text" class="form-control rounded-0" id="totalWeight"
+                            placeholder="Enter Total Weight in KG">
                         <label for="totalWeight" class="form-label">Enter Total Weight in KG</label>
                     </div>
                 </div>
@@ -272,15 +311,16 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <div class="row">
-            <div class="col-md-8"></div>
-            <div class="col-md-4">
-                <div class="d-felx float-end">
-                    <button class="btn btn-outline-success" id="generateInvoice">Generate Pdf</button>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="d-felx float-end">
+                        <button type="generateInvoice" name="generateInvoice" class="btn btn-outline-success"
+                            id="generateInvoice">Generate Pdf</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Bootstrap JS CDN Link -->
@@ -290,24 +330,26 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <!-- CRUD Table Row JS -->
-    <script src="./assets/js/add.or.remove.row.js"></script>
-
-    <!-- Save To Local Storage JS -->
-    <script src="./assets/js/save.to.localstorage.js"></script>
-
     <!-- Datepicker CDN Link -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+    <!-- jQuery Form Validation CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <!-- jQuery Form Validation Additional Methods CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+    <!-- Page JS -->
     <script>
-        // Auto Date Selection
         $(document).ready(function () {
-            // Auto Select Date
+
+            // Auto Date Selection
             $(function () {
                 $(".datepicker").datepicker({
                     dateFormat: "yy-mm-dd"
                 }).datepicker("setDate", "today");
             });
+
             // POST Customize Courier Data
             $("select").on("change", function () {
                 if (parseInt($("#selectCourier").find(":selected").val()) == 0) {
@@ -319,14 +361,11 @@
                 }
             });
 
-        });
-
-        // Search Customer Using Contact Number
-        $(document).ready(function () {
-            $("#customerContact").on("keyup", function (e) { 
+            // Search Customer Using Contact Number
+            $("#customerContact").on("keyup", function (e) {
                 var mobile_number_input = $("#customerContact").val();
-                
-                if(!($.trim(mobile_number_input) === "")){
+
+                if (!($.trim(mobile_number_input) === "")) {
                     $.ajax({
                         type: "POST",
                         url: "./assets/db/searchcustomer.php",
@@ -351,13 +390,38 @@
                             });
                         },
                     });
-                }else{
+                } else {
                     $("#contactSuggestionList").empty();
                     $("#customerContact").val("");
                     $("#customerName").val("");
                     $("#customerAddress").val("");
                 }
             });
+
+            // Automatically Set Order Number
+            $.ajax({
+                url: './assets/db/autogeneratenumber.php',
+                type: 'post',
+                data: {
+                    check_increment_order_number: 1,
+                },
+                success: function (response) {
+                    $("#orderNumber").val(response);
+                }
+            });
+
+            // Automatically Set Invoice Number
+            $.ajax({
+                url: './assets/db/autogeneratenumber.php',
+                type: 'post',
+                data: {
+                    check_increment_invoice_number: 1,
+                },
+                success: function (response) {
+                    $("#invoiceNumber").val(response);
+                }
+            });
+
         });
 
         // Set Text to search box and get details
@@ -373,10 +437,10 @@
             $.ajax({
                 url: './assets/db/searchcustomer.php',
                 type: 'post',
-                data: {  
+                data: {
                     set_customer_details: 1,
                     contact_number_id: contact_number_id
-                 },
+                },
                 dataType: 'json',
                 success: function (response) {
 
@@ -393,40 +457,19 @@
 
             });
         }
-
-        // Automatically Set Order Number
-        $(document).ready(function () {
-            $.ajax({
-                url: './assets/db/autogeneratenumber.php',
-                type: 'post',
-                data: {
-                    check_increment_order_number: 1,
-                },
-                success: function (response) {
-                    $("#orderNumber").val(response);
-                }
-            });
-        });
-
-        // Automatically Set Invoice Number
-        $(document).ready(function () {
-            $.ajax({
-                url: './assets/db/autogeneratenumber.php',
-                type: 'post',
-                data: {
-                    check_increment_invoice_number: 1,
-                },
-                success: function (response) {
-                    $("#invoiceNumber").val(response);
-                }
-            });
-        });
-
-        // 
-        $(document).ready(function () {
-             
-        });
     </script>
+
+    <!-- Invoice Form Validation JS -->
+    <script src="./assets/js/invoice.form.validation.js"></script>
+
+    <!-- CRUD Table Row JS -->
+    <script src="./assets/js/add.or.remove.row.js"></script>
+
+    <!-- Save To Local Storage JS -->
+    <script src="./assets/js/save.to.localstorage.js"></script>
+
+    <!-- Theme JS -->
+    <script src="./assets/js/script.js"></script>
 
     <!-- Logout JS -->
     <script src="./assets/js/logout.js"></script>

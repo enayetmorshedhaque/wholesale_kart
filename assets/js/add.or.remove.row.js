@@ -1,18 +1,43 @@
-jQuery(document).ready(function () {
-    $('#addNewRow').click(function () {
-        table_input_one = '<td><input type="text" placeholder="Book Name (Required)" class="rounded-0 bookDetail bookName"</td>';
-        table_input_two = '<td><input type="text" placeholder="Unit (Required)" class="rounded-0 bookDetail bookQuantity"</td>';
-        table_input_three = '<td><input type="text" placeholder="Published Price (Required)" class="rounded-0 bookDetail bookPublishedPrice"></td>';
-        table_input_four = '<td><input type="text" placeholder="Selling Price (Required)" class="rounded-0 bookDetail bookSellPrice"></td>';
-        table_input_five = '<td><button class="btn btn-danger deleteThis"><i class="fa-solid fa-trash"></i></button></td>';
+// $(document).ready(function () {
 
-        markup =
-            "<tr>" + table_input_one + table_input_two + table_input_three + table_input_four + table_input_five + "</tr>";
-        tableBody = $("table tbody");
-        tableBody.append(markup);
-    })
+// });
 
-    $("#invoiceTable").on('click', '.deleteThis', function () {
-        $(this).closest('tr').remove();
-    });
-});
+(function () {
+  $(document).on("click", "#addNewRow", function (e) {
+    var clone, inputFields;
+    e.preventDefault();
+    e.stopPropagation();
+
+    inputFields = $("#bookDetailsRow");
+    clone = $("#template-row").contents().clone();
+    clone
+      .find("input")
+      .val("")
+      .attr("id", function () {
+        return (
+          $(this).attr("id") +
+          "_" +
+          (inputFields.children(".bookDetails-form-group").length + 1)
+        );
+      });
+    clone
+      .find("input")
+      .val("")
+      .attr("name", function () {
+        return (
+          $(this).attr("name") +
+          (inputFields.children(".bookDetails-form-group").length + 1)
+        );
+      });
+    inputFields.append(clone);
+    addValidationRules();
+  });
+
+  $("#invoiceTable").on("click", ".deleteThis", function () {
+    $(this).closest("tr").remove();
+  });
+}).call(this);
+
+
+
+
