@@ -1,7 +1,3 @@
-// $(document).ready(function () {
-
-// });
-
 (function () {
   $(document).on("click", "#addNewRow", function (e) {
     var clone, inputFields;

@@ -9,7 +9,7 @@ $(document).ready(function () {
         .addClass("error");
     }
 
-    $("#customerContact").blur(function (e) {
+    $("#customerContact").keyUp(function () {
       if (!$("#customerContact").val()) {
         $("#customerContactError")
           .html("This field is required.")

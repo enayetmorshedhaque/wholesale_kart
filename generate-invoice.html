@@ -86,7 +86,7 @@
         </div>
     </nav>
     <div class="container py-5">
-        <form action="" method="POST" class="needs-validation" novalidate id="generateInvoiceForm">
+        <form action="./assets/db/submitinvoice.php" method="POST" class="needs-validation" novalidate id="generateInvoiceForm">
             <div class="row mb-4">
                 <div class="col-md-6">
                     <h5><strong class="text-uppercase">Order Details</strong></h5>
@@ -94,14 +94,14 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0" id="orderNumber"
-                                    placeholder="Enter Order Number">
+                                    placeholder="Enter Order Number" name="orderNumber">
                                 <label for="orderNumber" class="form-label">Enter Order Number</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0 datepicker" id="orderDate"
-                                    placeholder="Select Order Date">
+                                    placeholder="Select Order Date" name="orderDate">
                                 <label for="orderDate" class="form-label">Select Order Date</label>
                             </div>
                         </div>
@@ -113,14 +113,14 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0" id="invoiceNumber"
-                                    placeholder="Enter Invoice Number">
+                                    placeholder="Enter Invoice Number" name="invoiceNumber">
                                 <label for="invoiceNumber" class="form-label">Enter Invoice Number</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0 datepicker" id="invoiceDate"
-                                    placeholder="Select Invoice Date">
+                                    placeholder="Select Invoice Date" name="invoiceDate">
                                 <label for="invoiceDate" class="form-label">Select Invoice Date</label>
                             </div>
                         </div>
@@ -133,9 +133,9 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
-                                <input type="text"
-                                    class="form-control rounded-0 customerContactDetails"
-                                    id="customerContact" placeholder="Enter Customer Number">
+                                <input type="number"
+                                    class="form-control rounded-0"
+                                    id="customerContact" placeholder="Enter Customer Number" name="customerContact">
                                 <label for="customerContact" class="form-label">Enter Customer Number</label>
                                 <div class="autocomplete">
                                     <div class="results">
@@ -149,14 +149,14 @@
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control rounded-0 customerContactDetails"
-                                    id="customerName" placeholder="Enter Customer Name">
+                                    id="customerName" placeholder="Enter Customer Name" name="customerName">
                                 <label for="customerName" class="form-label">Enter Customer Name</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating mb-3">
                                 <textarea type="text" class="form-control rounded-0 customerContactDetails"
-                                    id="customerAddress" placeholder="Enter Customer Address"></textarea>
+                                    id="customerAddress" placeholder="Enter Customer Address" name="customerAddress"></textarea>
                                 <label for="customerAddress" class="form-label">Enter Customer Address</label>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                 </div>
             </div>
             <h5>
-                <strong class="text-uppercase text-center">add books</strong>
+                <strong class="text-uppercase">add books</strong>
             </h5>
             <div class="table-responsive mb-3">
                 <table class="table" id="invoiceTable">
@@ -181,15 +181,15 @@
                         <tr class="bookDetails-form-group">
                             <td>
                                 <input type="text" placeholder="Book Name (Required)" class="form-control rounded-0 bookDetail bookName"
-                                    name="bookName[]" id="bookName">
+                                    name="bookName" id="bookName">
                             </td>
                             <td>
                                 <input type="number" placeholder="Unit (Required)" class="form-control rounded-0 bookDetail bookQuantity"
-                                    name="bookQuantity[]" id="bookQuantity">
+                                    name="bookQuantity" id="bookQuantity">
                             </td>
                             <td>
                                 <input type="number" placeholder="Published Price (Required)"
-                                    class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice[]" id="bookPublishedPrice">
+                                    class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice" id="bookPublishedPrice">
                             </td>
                             <td>
                                 <input type="number" placeholder="Selling Price (Required)"
@@ -207,20 +207,20 @@
                     <tr class="bookDetails-form-group" id="template-row-input-fields">
                         <td>
                             <input type="text" placeholder="Book Name (Required)" class="form-control rounded-0 bookDetail bookName"
-                                name="bookName[]" id="bookName">
+                                name="bookName" id="bookName">
                         </td>
                         <td>
                             <input type="number" placeholder="Unit (Required)" class="form-control rounded-0 bookDetail bookQuantity"
-                                name="bookQuantity[]" id="bookQuantity">
+                                name="bookQuantity" id="bookQuantity">
                         </td>
                         <td>
                             <input type="number" placeholder="Published Price (Required)"
-                                class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice[]"
+                                class="form-control rounded-0 bookDetail bookPublishedPrice" name="bookPublishedPrice"
                                 id="bookPublishedPrice">
                         </td>
                         <td>
                             <input type="number" placeholder="Selling Price (Required)"
-                                class="form-control rounded-0 bookDetail bookSellPrice" name="bookSellPrice[]" id="bookSellPrice">
+                                class="form-control rounded-0 bookDetail bookSellPrice" name="bookSellPrice" id="bookSellPrice">
                         </td>
                         <td>
                             <button class="btn btn-danger deleteThis">
@@ -244,7 +244,7 @@
                     <div class="float-md-end">
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control rounded-0" id="vatAmount"
-                                placeholder="Enter Vat If Applicable">
+                                placeholder="Enter Vat If Applicable" name="vatAmount">
                             <label for="vatAmount" class="form-label">Enter Vat If Applicable</label>
                         </div>
                     </div>
@@ -256,7 +256,7 @@
                 </h5>
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
-                        <select class="form-select rounded-0" id="selectCourier">
+                        <select class="form-select rounded-0" id="selectCourier" name="selectCourier">
                             <option value="50">Sundarban(O/D) </option>
                             <option value="60">Steadfast(28685) (Inside Dhaka)</option>
                             <option value="100">Steadfast(28685) (Suburb)</option>
@@ -272,20 +272,20 @@
                 <div class="col-md-3 replacedFields">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-0" id="customCourierName"
-                            placeholder="Enter Custom Courier Name">
+                            placeholder="Enter Custom Courier Name" name="customCourierName">
                         <label for="customCourierName" class="form-label">Enter Custom Courier Name</label>
                     </div>
                 </div>
                 <div class="col-md-3 replacedFields">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-0" id="customCourierBill"
-                            placeholder="Enter Custom Courier Bill">
+                            placeholder="Enter Custom Courier Bill" name="customCourierBill">
                         <label for="customCourierBill" class="form-label">Enter Custom Courier Bill</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
-                        <select class="form-select rounded-0" id="selectPaymentOption">
+                        <select class="form-select rounded-0" id="selectPaymentOption" name="selectPaymentOption">
                             <option value="1">COD</option>
                             <option value="2">bKash</option>
                             <option value="3">Rocket</option>
@@ -297,14 +297,14 @@
                 <div class="col-md-3 changeableFields">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-0" id="totalWeight"
-                            placeholder="Enter Total Weight in KG">
+                            placeholder="Enter Total Weight in KG" name="totalWeight">
                         <label for="totalWeight" class="form-label">Enter Total Weight in KG</label>
                     </div>
                 </div>
                 <div class="col-md-3 changeableFields">
                     <div class="float-end">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="freeShipping">
+                            <input class="form-check-input" type="checkbox" id="freeShipping" name="freeShipping">
                             <label class="form-check-label" for="freeShipping">
                                 Free Shipping, No Courier Charge
                             </label>
