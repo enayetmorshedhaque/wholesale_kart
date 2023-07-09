@@ -1,6 +1,24 @@
 $(document).ready(function () {
-  $("#generateInvoiceForm").validate();
-  addValidationRules();
+  $("#generateInvoice").click(function () {
+    $("#generateInvoiceForm").validate();
+    addValidationRules();
+
+    if(!$("#customerContact").val()){
+      $("#customerContactError")
+        .html("This field is required.")
+        .addClass("error");
+    }
+
+    $("#customerContact").blur(function (e) {
+      if (!$("#customerContact").val()) {
+        $("#customerContactError")
+          .html("This field is required.")
+          .addClass("error");
+      } else {
+        $("#customerContactError").html("").css("display", "none");
+      }
+    });
+  });
 });
 
 function addValidationRules() {
@@ -10,5 +28,3 @@ function addValidationRules() {
     }
   );
 }
-
-
