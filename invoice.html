@@ -17,7 +17,7 @@
 
     <!-- Favicon Link -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    
+
     <!-- Fontawesome Kit -->
     <script src="https://kit.fontawesome.com/86bc96ac49.js" crossorigin="anonymous"></script>
 
@@ -32,19 +32,32 @@
     <div class="container-fluid py-lg-2 py-sm-4" id="invoiceContainerDiv">
         <div id="invoiceDiv" class="mb-5">
             <div class="row d-flex align-items-end mb-2">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-4 col-sm-4 mb-2">
                     <div>
                         <h2 class="fw-bold title">INVOICE</h2>
-                        <P class="fw-bold mb-0 invoice-text">
+                        <P class="mb-0 invoice-text fw-bold">
                             Invoice No # <span id="invoiceNo" class="text-dark"></span>
                         </P>
-                        <P class="fw-bold invoice-text">
+                        <P class="invoice-text fw-bold">
                             Invoice Date <span id="invoiceDate" class="text-dark"></span>
                         </P>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 mb-3">
-                    <img class="float-end" src="./assets/images/logo.png" alt="BOOKSBD.NET Logo" id="logo" width="200">
+                <div class="col-md-4 col-sm-4 mb-3">
+                    <img class="mx-auto d-block" src="./assets/images/logo-shape.png" alt="BOOKSBD.NET Logo" id="logo"
+                        width="200">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <p class="mb-0"><strong>BOOKSBD.NET</strong></p>
+                    <small class="mb-0 text-break">55/1/A, Shah Shaheb Lane,
+                    <!-- <br> -->
+                    Narinda, Dhaka-1100, Bangladesh</small>
+                    <br>
+                    <small class="mb-0"><strong>Phone:</strong> +880-1713-138707
+                        <br>
+                        <strong>Email:</strong> info@booksbd.net</small>
+                    <!-- <div class="float-end">
+                    </div> -->
                 </div>
             </div>
 
@@ -77,9 +90,9 @@
                         <div class="card customer-details-card border-0 rounded-4">
                             <div class="p-4">
                                 <h4 class="fw-bold mb-1 title">Customer Details</h4>
-                                <P class="fw-bold mb-0" id="name"></P>
+                                <P class="fw-bold mb-0" id="name" style="font-size: 16px;"></P>
                                 <P class="mb-0" id="address"></P>
-                                <P class="fw-bold mb-0">
+                                <P class="fw-bold mb-0" style="font-size: 16px;">
                                     Phone: <span id="contact" class="fw-normal"></span>
                                 </P>
                             </div>
@@ -135,7 +148,8 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td class="border-0 text-center" colspan="5"><strong class="text-uppercase">Total (in words): <span id="totalAmountInWords"></span> taka only</strong></td>
+                        <td class="border-0 text-center" colspan="5"><strong class="text-uppercase">Total (in words):
+                                <span id="totalAmountInWords"></span> taka only</strong></td>
                     </tr>
                 </tfoot>
             </table>
@@ -146,7 +160,7 @@
                 </ol>
             </div> -->
         </div>
-        
+
         <!-- <footer>
             <hr>
             <p class="text-muted text-center">This is an electronically generated document, no signature is required.
@@ -172,15 +186,15 @@
         $(document).ready(function () {
             var name = 'Name: ' + localStorage.getItem("customerName");
             var address = localStorage.getItem("customerAddress");
-            
+
             // If address contains '&' replacing it with and word 
-            if(address.includes('&')){
+            if (address.includes('&')) {
                 address = 'Address: ' + (address.replace('&', 'and'));
-            }else{
+            } else {
                 address = 'Address: ' + address;
             }
             var contact = 'Contact Number: ' + localStorage.getItem("customerContact");
-            
+
             var data = name + ';' + address + ';' + contact;
 
             // console.log(data);

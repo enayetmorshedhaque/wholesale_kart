@@ -9,13 +9,16 @@ $(document).ready(function () {
         .addClass("error");
     }
 
-    $("#customerContact").keyUp(function () {
+    $("#customerContact").on("keyup", function () {
       if (!$("#customerContact").val()) {
         $("#customerContactError")
           .html("This field is required.")
           .addClass("error");
       } else {
-        $("#customerContactError").html("").css("display", "none");
+        $("#customerContactError")
+          .html("")
+          .removeClass("error")
+          .css("display", "none");
       }
     });
   });

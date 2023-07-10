@@ -21,6 +21,14 @@ if (!$conn) {
         $customer_name = $_REQUEST["customerName"];
         $customer_address = $_REQUEST["customerAddress"];
 
+
+        echo 'Order Number: ' . $order_no. '<br/>' . 'Order Date: ' . $order_date . '<br />';
+        echo '=========================================================================================================================' . '<br />';
+        echo 'Invoice Number: ' . $invoice_no . '<br/>' . 'Invoice Date: ' . $invoice_date . '<br />';
+        echo '=========================================================================================================================' . '<br />';
+        echo 'Customer Name: ' . $customer_name . '<br />' . 'Customer Address: ' . $customer_address . '<br />' . 'Customer Contact: '. $customer_mobile . '<br />';
+        echo '=========================================================================================================================' . '<br />';
+
     }
 }
 ?>
