@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require('./assets/db/getinvoices.php');
     if(!empty($_SESSION['user_token']) && !empty($_SESSION['user_name'])){
         $username =  $_SESSION['user_name'];
     }else{
@@ -86,326 +86,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>June 24, 2023</td>
-                        <td>INV-BB-0000001</td>
-                        <td>Enayet Morshed Haque</td>
-                        <td>BDT 250</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>June 22, 2023</td>
-                        <td>INV-BB-0000002</td>
-                        <td>Md. Anamul Haque</td>
-                        <td>BDT 1050</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>June 20, 2023</td>
-                        <td>INV-BB-0000003</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 1500</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <td>June 24, 2023</td>
-                        <td>INV-BB-0000004</td>
-                        <td>Enayet Morshed Haque</td>
-                        <td>BDT 850</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <th>5</th>
-                        <td>June 22, 2023</td>
-                        <td>INV-BB-0000005</td>
-                        <td>Md. Anamul Haque</td>
-                        <td>BDT 1050</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>6</th>
-                        <td>June 20, 2023</td>
-                        <td>INV-BB-0000006</td>
-                        <td>Enayet Morshed Haque</td>
-                        <td>BDT 455</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>7</th>
-                        <td>June 24, 2023</td>
-                        <td>INV-BB-0000007</td>
-                        <td>Enayet Morshed Haque</td>
-                        <td>BDT 940</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <th>8</th>
-                        <td>June 22, 2023</td>
-                        <td>INV-BB-0000008</td>
-                        <td>Md. Anamul Haque</td>
-                        <td>BDT 1050</td>
-                        <td><span class="badge bg-warning">COD</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>9</th>
-                        <td>June 20, 2023</td>
-                        <td>INV-BB-0000009</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 650</td>
-                        <td><span class="badge bg-warning">COD</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>10</th>
-                        <td>June 24, 2023</td>
-                        <td>INV-BB-0000010</td>
-                        <td>Md. Anamul Haque</td>
-                        <td>BDT 1050</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <th>11</th>
-                        <td>June 22, 2023</td>
-                        <td>INV-BB-0000011</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 1500</td>
-                        <td><span class="badge bg-danger">Unpaid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>12</th>
-                        <td>June 20, 2023</td>
-                        <td>INV-BB-0000012</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 500</td>
-                        <td><span class="badge bg-danger">Unpaid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>13</th>
-                        <td>June 24, 2023</td>
-                        <td>INV-BB-0000013</td>
-                        <td>Enayet Morshed Haque</td>
-                        <td>BDT 100</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    
-                    </tr>
-                    <tr>
-                        <th>14</th>
-                        <td>June 22, 2023</td>
-                        <td>INV-BB-0000014</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 520</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>15</th>
-                        <td>June 20, 2023</td>
-                        <td>INV-BB-0000015</td>
-                        <td>Dummy Customer</td>
-                        <td>BDT 600</td>
-                        <td><span class="badge bg-success">Paid</span></td>
-                        <td>
-                            <div class="d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary viewPdf">
-                                    <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary printInvoice">
-                                    <i class="fa-solid fa-print"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php
+                        while($rows=mysqli_fetch_array($result)){
+                    ?>
+                            <tr>
+                                <th><?php echo $rows['invoice_id'] ?></th>
+                                <td><?php echo $rows['invoice_date'] ?></td>
+                                <td>
+                                    <div class="d-flex justify-content-evenly">
+                                        <button type="button" class="btn btn-outline-secondary viewInvoice">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-secondary viewPdf">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-secondary printInvoice">
+                                            <i class="fa-solid fa-print"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
