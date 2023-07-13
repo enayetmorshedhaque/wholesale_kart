@@ -90,18 +90,44 @@
                         while($rows=mysqli_fetch_array($result)){
                     ?>
                             <tr>
-                                <th><?php echo $rows['invoice_id'] ?></th>
+                                <th><?php echo $rows['order_id'] ?></th>
                                 <td><?php echo $rows['invoice_date'] ?></td>
+                                <td><?php echo $rows['invoice_no'] ?></td>
+                                <td><?php echo $rows['customer_name'] ?></td>
+                                <td><?php echo $rows['total_bill'] ?></td>
+                                <td>
+                                    <?php
+                                        if($rows['payment_method'] == 'COD'){
+                                    ?>
+                                    <span class="badge text-bg-danger">
+                                        <?php echo $rows['payment_method'] ?>
+                                    </span>
+                                    <?php        
+                                        }else{
+                                    ?>
+                                    <span class="badge text-bg-success">
+                                        <?php echo $rows['payment_method'] ?>
+                                    </span>
+                                    <?php
+                                        }
+                                    ?>
+                                </td>
                                 <td>
                                     <div class="d-flex justify-content-evenly">
                                         <button type="button" class="btn btn-outline-secondary viewInvoice">
-                                            <i class="fa-solid fa-eye"></i>
+                                            <a href="./invoice.html?id=<?php echo $rows['order_id'] ?>" class="text-decoration-none text-black-50">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                         </button>
                                         <button type="button" class="btn btn-outline-secondary viewPdf">
-                                            <i class="fa-solid fa-file-pdf"></i>
+                                            <a href="./invoice.html?id=<?php echo $rows['order_id'] ?>" class="text-decoration-none text-black-50"></a>
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                            </a>
                                         </button>
                                         <button type="button" class="btn btn-outline-secondary printInvoice">
-                                            <i class="fa-solid fa-print"></i>
+                                            <a href="./invoice.html?id=<?php echo $rows['order_id'] ?>" class="text-decoration-none text-black-50"></a>
+                                                <i class="fa-solid fa-print"></i>
+                                            </a>
                                         </button>
                                     </div>
                                 </td>

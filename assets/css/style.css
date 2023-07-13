@@ -154,8 +154,9 @@
 }
 
 #invoice thead tr{
-  background-color: #6739c0;
-  color: white;
+  /* background-color: #6739c0; */
+  background-color: #efebf9;
+  color: black;
 }
 
 #invoice tbody tr:nth-child(even){
@@ -178,8 +179,14 @@
   display: none;
 }
 
-.fa-ellipsis{
-  cursor: pointer;
+.viewInvoice:hover .fa-eye,
+.viewPdf:hover .fa-file-pdf,
+.printInvoice:hover .fa-print,
+.fa-eye:hover,
+.fa-file-pdf:hover,
+.fa-print:hover
+{
+  color: white;
 }
 
 .invoiceListActionDivOne{
