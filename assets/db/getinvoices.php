@@ -31,7 +31,7 @@
         }
 
         $count = mysqli_num_rows($result);
-        $per_page = 1;
+        $per_page = 20;
         $no_of_pages = ceil($count/$per_page);
         $previous = $no_of_pages - 1;
         $next = $pages + 1;

@@ -10,20 +10,18 @@
       .find("input")
       .val("")
       .attr("id", function () {
-        return (
-          $(this).attr("id") +
+        return;
+        $(this).attr("id") +
           "_" +
-          (inputFields.children(".bookDetails-form-group").length + 1)
-        );
+          (inputFields.children(".bookDetails-form-group").length + 1);
       });
     clone
       .find("input")
       .val("")
       .attr("name", function () {
-        return (
-          $(this).attr("name") +
-          (inputFields.children(".bookDetails-form-group").length + 1)
-        );
+        return;
+        $(this).attr("name") +
+          (inputFields.children(".bookDetails-form-group").length + 1);
       });
     inputFields.append(clone);
     addValidationRules();
@@ -33,7 +31,3 @@
     $(this).closest("tr").remove();
   });
 }).call(this);
-
-
-
-

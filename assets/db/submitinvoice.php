@@ -97,6 +97,27 @@ if (!$conn) {
             $free_shipping = 0;
         }
 
+        //Get the form data as arrays
+        $bookName = $_REQUEST["bookName"];
+        $bookQuantity = $_REQUEST["bookQuantity"];
+        $bookPublishedPrice = $_REQUEST["bookPublishedPrice"];
+        $bookSellPrice = $_REQUEST["bookSellPrice"];
+
+        //Create an empty array to store the rows
+        $rows = array();
+
+        //Loop through the arrays and create an associative array for each row
+        for ($i = 0; $i < count((array) $_REQUEST['bookName']); $i++) {
+            $row = array("bookName" => $bookName[$i], "bookQuantity" => $bookQuantity[$i], "bookPublishedPrice" => $bookPublishedPrice[$i], "bookSellPrice" => $bookSellPrice[$i]);
+            //Push the row to the rows array
+            array_push($rows, $row);
+        }
+        //Convert the rows array to a JSON object
+        $jsonString = json_encode($rows, JSON_PRETTY_PRINT);
+
+        //Print the result
+        print_r("<pre>" . $jsonString . "<pre/>");
+
         echo 'Order Number: ' . $order_no. '<br/>' . 'Order Date: ' . $order_date . '<br />';
         echo '=========================================================================================================================' . '<br />';
         echo 'Invoice Number: ' . $invoice_no . '<br/>' . 'Invoice Date: ' . $invoice_date . '<br />';
