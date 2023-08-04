@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
 
 * {
-  font-family: "Baloo Da 2", cursive;
+  font-family: "Hind Siliguri", sans-serif;
 }
 
 .d-block {
@@ -14,6 +14,10 @@
 
 .custom-text-color:hover {
   color: #070707;
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 400 !important;
 }
 
 @media (max-width: 1023px) {
