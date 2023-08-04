@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome/all.min.css">
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Tempus Dominus Styles -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/css/tempus-dominus.min.css"
+        crossorigin="anonymous">
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="assets/css/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="assets/css/jqvmap/jqvmap.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="assets/css/theme-css/adminlte.min.css">
+
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
+
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="assets/css/daterangepicker/daterangepicker.css">
+
+    <!-- summernote -->
+    <link rel="stylesheet" href="assets/css/summernote/summernote-bs4.min.css">
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+    <div class="container w-100 p-0 m-0">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="./assets/images/login.jpg" alt="login-image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="vh-100 d-flex flex-column justify-content-center align-items-center">
+                    <div>
+                        <h3 class="mb-4">Welcome back, Login Here</h3>
+                    </div>
+                    <div class="w-75">
+                        <form action="./assets/db/login.php" method="POST" class="needs-validation" novalidate>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control rounded-0 checking_login_input_email"
+                                    name="loginEmail" id="loginEmail" placeholder="Enter Your Email" required>
+                                <label for="loginEmail" class="form-label">Enter Your Email</label>
+                                <div id="loginEmailValidation" class="feedback"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control rounded-0 checking_login_input_password"
+                                    name="loginPassword" id="loginPassword" placeholder="Enter Your Password" required>
+                                <label for="loginPassword" class="form-label">Enter Your
+                                    Password</label>
+                                <div id="loginPasswordValidation" class="feedback"></div>
+                            </div>
+                            <div class="d-grid mb-4">
+                                <button class="btn btn-primary rounded-0" type="user_login" name="user_login"
+                                    id="user_login">Login Now</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-sm-2">
+                                        <a href="forgot-password.html" class="text-decoration-none text-black">Forgot
+                                            Password?</a>
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="float-lg-end float-sm-start">
+                                        No account? <a href="register.html"
+                                            class="text-decoration-none text-danger fw-bold">Register</a>
+                                        Now.
+                                    </p>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery/jquery.min.js"></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- ChartJS -->
+    <script src="assets/js/chart.js/Chart.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="assets/js/sparklines/sparkline.js"></script>
+
+    <!-- JQVMap -->
+    <script src="assets/js/jqvmap/jquery.vmap.min.js"></script>
+    <script src="assets/js/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+    <!-- jQuery Knob Chart -->
+    <script src="assets/js/jquery-knob/jquery.knob.min.js"></script>
+
+    <!-- daterangepicker -->
+    <script src="assets/js/moment/moment.min.js"></script>
+    <script src="assets/js/daterangepicker/daterangepicker.js"></script>
+
+    <!-- Tempus Dominus JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/js/tempus-dominus.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- Summernote -->
+    <script src="assets/js/summernote/summernote-bs4.min.js"></script>
+
+    <!-- overlayScrollbars -->
+    <script src="assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="assets/js/theme-js/adminlte.min.js"></script>
+</body>
+
+</html>
