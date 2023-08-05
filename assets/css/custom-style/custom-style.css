@@ -4,6 +4,10 @@
   font-family: "Hind Siliguri", sans-serif;
 }
 
+.custom-background-color {
+  background-color: #f2f3f7 !important;
+}
+
 .d-block {
   color: #c2c7d0;
 }

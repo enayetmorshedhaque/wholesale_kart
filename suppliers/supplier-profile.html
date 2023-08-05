@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/css/fontawesome/all.min.css">
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Tempus Dominus Styles -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/css/tempus-dominus.min.css"
+        crossorigin="anonymous">
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../assets/css/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="../assets/css/jqvmap/jqvmap.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
+
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
+
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.css">
+
+    <!-- summernote -->
+    <link rel="stylesheet" href="../assets/css/summernote/summernote-bs4.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
+
+    <!-- Page CSS -->
+    <style>
+        table tr,
+        table th,
+        table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed custom-background-color">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex justify-content-center">
+                    <div class="image">
+                        <img src="../assets/images/logo.png" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="../dashboard.html" class="d-block">WholesaleKart</a>
+                    </div>
+                </div>
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <!-- <li class="nav-header text-uppercase">dashboard section</li> -->
+                        <li class="nav-item">
+                            <a href="../dashboard.html" class="nav-link">
+                                <i class="nav-icon fa-solid fa-gauge-high"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-header text-uppercase">pos section</li> -->
+                        <li class="nav-item">
+                            <a href="../pos/pos.html" class="nav-link">
+                                <i class="nav-icon fa-solid fa-shopping-bag"></i>
+                                <p>
+                                    POS
+                                </p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-header text-uppercase">suppler section</li> -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-warehouse"></i>
+                                <p>
+                                    Suppliers
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../suppliers/add-supplier.html" class="nav-link">
+                                        <i class="fa-solid fa-house-circle-check nav-icon"></i>
+                                        <p>Add Supplier</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../suppliers/manage-suppliers.html" class="nav-link">
+                                        <i class="fa-solid fa-people-roof nav-icon"></i>
+                                        <p>Manage Supplier</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-header text-uppercase">customer section</li> -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-users"></i>
+                                <p>
+                                    Customers
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../customers/add-customer.html" class="nav-link">
+                                        <i class="fa-solid fa-user-plus nav-icon"></i>
+                                        <p>Add Customer</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../customers/manage-customers.html" class="nav-link">
+                                        <i class="fa-solid fa-people-roof nav-icon"></i>
+                                        <p>Manage Customers</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-header text-uppercase">purchase section</li> -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-cart-shopping"></i>
+                                <p>
+                                    Purchase
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../purchases/add-purchase.html" class="nav-link">
+                                        <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+                                        <p>New Purchase</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../purchases/manage-purchases.html" class="nav-link">
+                                        <i class="fa-solid fa-book nav-icon"></i>
+                                        <p>Manage Purchases</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Bangladesh Defence Journal</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">
+                                    <a href="dashboard.html">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="manage-supplier.html">Manage Supplier</a>
+                                </li>
+                                <li class="breadcrumb-item active">Bangladesh Defence Journal</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <i class="fa-solid fa-book fs-1"></i>
+                                        </div>
+                                        <div class="text-end">
+                                            <p class="mb-0 fw-semibold">Total No. of Books</p>
+                                            <span class="fw-bold fs-1">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <i class="fa-solid fa-tags fs-1"></i>
+                                        </div>
+                                        <div class="text-end">
+                                            <p class="mb-0 fw-semibold">Total No. of Sell</p>
+                                            <span class="fw-bold fs-1">100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <i class="fa-solid fa-receipt fs-1"></i>
+                                        </div>
+                                        <div class="text-end">
+                                            <p class="mb-0 fw-semibold">Total Purchase</p>
+                                            <span class="fw-bold fs-2">৳</span> <span class="fw-bold fs-1">100000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <i class="fa-solid fa-book fs-1"></i>
+                                        </div>
+                                        <div class="text-end">
+                                            <p class="mb-0 fw-semibold">Total Due Amount</p>
+                                            <span class="fw-bold fs-2">৳</span> <span class="fw-bold fs-1">10000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-0 mb-3 fw-bold text-uppercase">supplier profile</h4>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-header bg-white shadow-sm fw-bold">
+                                    Suppler Details
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <p class="mb-1">
+                                            <span class="fw-bold">Bangladesh Defence Journal Publishing</span>
+                                        </p>
+                                        <p class="mb-1">
+                                            <span>Block G, Apartment 4A, House #28, Road No-9, Dhaka-1213</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            Email: <span>info@defencejournalbd.com</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- <div class="card-footer">
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-header bg-white shadow-sm fw-bold">
+                                    Owner Details
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <p class="mb-1">
+                                            <span class="fw-bold">Abu Rushd</span>
+                                        </p>
+                                        <p class="mb-1">
+                                            <span>info@defencejournalbd.com</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            Cell: <span>01954014720</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-header bg-white shadow-sm fw-bold">
+                                    Contact Person Details
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <p class="mb-1">
+                                            <span class="fw-bold">Md Salman Chowdhury</span>
+                                        </p>
+                                        <p class="mb-1">
+                                            <span class="fw-normal">Head
+                                                of International Relations</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            Cell: <span>01954014720</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-header bg-white shadow-sm fw-bold">
+                                    Social Contact Details
+                                </div>
+                                <div class="card-body">
+                                    <p class="fw-bold card-title">Payment Method : <span class="badge fw-normal"
+                                            style="background-color: #d12053;">bKash</span></p>
+                                    <div class="card-text">
+                                        <p class="mb-1">
+                                            Number : <span class="fw-bold">01712345678</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            Acount Type : <span class="fw-bold">Merchant</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                <div class="card-header bg-white shadow-sm fw-bold">
+                                    Payment Method Details
+                                </div>
+                                <div class="card-body">
+                                    <p class="fw-bold card-title">Payment Method : <span class="badge fw-normal"
+                                            style="background-color: #d12053;">bKash</span></p>
+                                    <div class="card-text">
+                                        <p class="mb-1">
+                                            Number : <span class="fw-bold">01712345678</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            Acount Type : <span class="fw-bold">Merchant</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                        <div class="p-2">
+                            <div class="card-header border-0 bg-white fw-bold">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <p class="mb-0 fw-bold card-title">Transaction Table <span
+                                                class="badge bg-warning">2</span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"
+                                                placeholder="Search By Transaction ID" aria-label="Recipient's username"
+                                                aria-describedby="button-addon2">
+                                            <button class="btn btn-outline-success" type="button"
+                                                id="button-addon2">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Transaction ID</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Payment Method</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-group-divider">
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>28-02-2023</td>
+                                                <td>4030-F7M9R-1556630559</td>
+                                                <td>(Tk. Icon) 1000</td>
+                                                <td>Not Paid</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-danger">Pay Now</button>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>22-02-2023</td>
+                                                <td>4030-F7M9R-1665555309</td>
+                                                <td>(Tk. Icon) 5000</td>
+                                                <td>bKash/ Online Payment</td>
+                                                <td>
+                                                    <span class="badge bg-success">Paid</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                        <div class="p-2">
+                            <div class="card-header border-0 bg-white fw-bold">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <p class="mb-0 fw-bold card-title">Total Books <span
+                                                class="badge bg-warning">6</span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"
+                                                placeholder="Search By Transaction ID" aria-label="Recipient's username"
+                                                aria-describedby="button-addon2">
+                                            <button class="btn btn-outline-success" type="button"
+                                                id="button-addon2">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" scope="col">#</th>
+                                                <th scope="col">Book Name</th>
+                                                <th class="text-center" scope="col">Total Purchase</th>
+                                                <th class="text-center" scope="col">Total Sell</th>
+                                                <th class="text-center" scope="col">Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-group-divider">
+                                            <tr>
+                                                <th class="text-center" scope="row">1</th>
+                                                <td>বাংলাদেশে 'র': আগ্রাসী গুপ্তচরবৃত্তির স্বরূপ সন্ধান</td>
+                                                <td class="text-center">500</td>
+                                                <td class="text-center">475</td>
+                                                <td class="text-center">25</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">2</th>
+                                                <td>ইনসাইড র | ভারতীয় গুপ্তচর সংস্থার অজানা অধ্যায়</td>
+                                                <td class="text-center">700</td>
+                                                <td class="text-center">624</td>
+                                                <td class="text-center">76</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">3</th>
+                                                <td>Secret Affidavit Of Yahya Khan On 1971</td>
+                                                <td class="text-center">500</td>
+                                                <td class="text-center">400</td>
+                                                <td class="text-center">100</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">4</th>
+                                                <td>Origins Of The Bangladesh Army</td>
+                                                <td class="text-center">250</td>
+                                                <td class="text-center">245</td>
+                                                <td class="text-center">5</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">5</th>
+                                                <td>পার্বত্য চট্টগ্রাম শান্তিবাহিনী ও মানবাধিকার</td>
+                                                <td class="text-center">200</td>
+                                                <td class="text-center">145</td>
+                                                <td class="text-center">55</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" scope="row">6</th>
+                                                <td>History And Development Of Royal Air Force In Indian Subcontinent
+                                                </td>
+                                                <td class="text-center">150</td>
+                                                <td class="text-center">50</td>
+                                                <td class="text-center">100</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer text-center">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../assets/js/jquery/jquery.min.js"></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../assets/js/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- ChartJS -->
+    <script src="../assets/js/chart.js/Chart.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="../assets/js/sparklines/sparkline.js"></script>
+
+    <!-- JQVMap -->
+    <script src="../assets/js/jqvmap/jquery.vmap.min.js"></script>
+    <script src="../assets/js/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+    <!-- jQuery Knob Chart -->
+    <script src="../assets/js/jquery-knob/jquery.knob.min.js"></script>
+
+    <!-- daterangepicker -->
+    <script src="../assets/js/moment/moment.min.js"></script>
+    <script src="../assets/js/daterangepicker/daterangepicker.js"></script>
+
+    <!-- Tempus Dominus JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/js/tempus-dominus.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- Summernote -->
+    <script src="../assets/js/summernote/summernote-bs4.min.js"></script>
+
+    <!-- overlayScrollbars -->
+    <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="../assets/js/theme-js/adminlte.min.js"></script>
+</body>
+
+</html>
