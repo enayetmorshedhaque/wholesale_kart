@@ -224,18 +224,30 @@
                         <div class="p-4">
                             <form action="">
                                 <div class="row">
-                                    <h5 class="mb-3">
-                                        <strong class="text-uppercase">Supplier Business Information</strong>
+                                    <h5 class="mb-2">
+                                        <strong class="text-uppercase">Business Information</strong>
                                     </h5>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0" name="supplier_name"
-                                                id="supplier_name" placeholder="Supplier Name" required>
-                                            <label for="supplier_name" class="form-label">Supplier Name</label>
+                                            <input type="text" class="form-control rounded-0"
+                                                name="supplier_name_bangla" id="supplier_name_bangla"
+                                                placeholder="Supplier Name (Bangla)" required>
+                                            <label for="supplier_name_bangla" class="form-label">Supplier Name
+                                                (Bangla)</label>
                                             <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0"
+                                                name="supplier_name_english" id="supplier_name_english"
+                                                placeholder="Supplier Name (English)" required>
+                                            <label for="supplier_name_english" class="form-label">Supplier Name
+                                                (English)</label>
+                                            <div id="loginEmailValidation" class="feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <textarea type="text" class="form-control rounded-0" id="supplier_address"
                                                 placeholder="Supplier Address" name="supplier_address"></textarea>
@@ -244,7 +256,7 @@
                                             <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control rounded-0" name="supplier_contact"
                                                 id="supplier_contact" placeholder="Supplier Contact Number" required>
@@ -253,7 +265,14 @@
                                             <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="mb-3">
+                                            <label for="formFileSm" class="form-label mb-0">Supplier Logo</label>
+                                            <input class="form-control form-control-sm" type="file" id="formFile">
+                                            <div id="loginEmailValidation" class="feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <select class="form-select rounded-0" id="suppler_location"
                                                 name="suppler_location">
@@ -261,141 +280,197 @@
                                                 <option value="2">Dhaka Suburb</option>
                                                 <option value="3">Outside Dhaka</option>
                                             </select>
-                                            <label for="suppler_location" class="form-label">Select Supplier
+                                            <label for="suppler_location" class="form-label">Supplier
                                                 Location</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-3">
-                                        <strong class="text-uppercase">Supplier Social Contact Information</strong>
+                                    <h5 class="mb-2">
+                                        <strong class="text-uppercase">Contact Information</strong>
                                     </h5>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0" name="supplier_name"
-                                                id="supplier_name" placeholder="Supplier Name" required>
-                                            <label for="supplier_name" class="form-label">Supplier Name</label>
+                                            <input type="text" class="form-control rounded-0" name="supplier_owner_name"
+                                                id="supplier_owner_name" placeholder="Supplier Owner Name" required>
+                                            <label for="supplier_owner_name" class="form-label">Owner
+                                                Name</label>
                                             <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <textarea type="text" class="form-control rounded-0" id="supplier_address"
-                                                placeholder="Supplier Address" name="supplier_address"></textarea>
-                                            <label for="supplier_address" class="form-label">Supplier
-                                                Address</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control rounded-0" name="supplier_contact"
-                                                id="supplier_contact" placeholder="Supplier Contact Number" required>
-                                            <label for="supplier_contact" class="form-label">Supplier
+                                            <input type="number" class="form-control rounded-0"
+                                                name="supplier_owner_contact" id="supplier_owner_contact"
+                                                placeholder="Owner Contact Number" required>
+                                            <label for="supplier_owner_contact" class="form-label">Owner
                                                 Contact Number</label>
                                             <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <select class="form-select rounded-0" id="suppler_location"
-                                                name="suppler_location">
-                                                <option value="1">Inside Dhaka</option>
-                                                <option value="2">Dhaka Suburb</option>
-                                                <option value="3">Outside Dhaka</option>
-                                            </select>
-                                            <label for="suppler_location" class="form-label">Select Supplier
-                                                Location</label>
+                                            <input type="email" class="form-control rounded-0"
+                                                name="supplier_owner_email" id="supplier_owner_email"
+                                                placeholder="Owner Email" required>
+                                            <label for="supplier_owner_email" class="form-label">Owner Email</label>
+                                            <div id="loginEmailValidation" class="feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0"
+                                                name="supplier_contact_person_name" id="supplier_contact_person_name"
+                                                placeholder="Supplier Owner Name" required>
+                                            <label for="supplier_contact_person_name" class="form-label">Contact Person
+                                                Name</label>
+                                            <div id="loginEmailValidation" class="feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0"
+                                                name="supplier_contact_person_designation"
+                                                id="supplier_contact_person_designation"
+                                                placeholder="Owner Contact Number" required>
+                                            <label for="supplier_contact_person_designation" class="form-label">Contact
+                                                Person Designation</label>
+                                            <div id="loginEmailValidation" class="feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="supplier_contact_person_contact"
+                                                id="supplier_contact_person_contact" placeholder="Contact Person Number"
+                                                required>
+                                            <label for="supplier_contact_person_contact" class="form-label">Contact
+                                                Person Number</label>
+                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-3">
-                                        <strong class="text-uppercase">Supplier Payment Information</strong>
-                                    </h5>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-md-8">
                                         <div class="row">
-                                            <strong class="mb-2">Online Mobile Financial Services (MFS)</strong>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0" id="mfs_service"
-                                                        name="mfs_service">
-                                                        <option value="1">bKash</option>
-                                                        <option value="2">Rocket</option>
-                                                        <option value="3">Nagad</option>
-                                                    </select>
-                                                    <label for="mfs_service" class="form-label">Select MFS
-                                                        Service</label>
+                                            <h5 class="mb-2">
+                                                <strong class="text-uppercase">Payment Information</strong>
+                                            </h5>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select rounded-0" id="mfs_service"
+                                                                name="mfs_service">
+                                                                <option value="1">bKash</option>
+                                                                <option value="2">Rocket</option>
+                                                                <option value="3">Nagad</option>
+                                                            </select>
+                                                            <label for="mfs_service" class="form-label">Select MFS
+                                                                Service</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="number" class="form-control rounded-0"
+                                                                name="mfs_number" id="mfs_number"
+                                                                placeholder="MFS Number" required>
+                                                            <label for="mfs_number" class="form-label">MFS
+                                                                Number</label>
+                                                            <div id="loginEmailValidation" class="feedback"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <select class="form-select rounded-0" id="mfs_type"
+                                                                name="mfs_type">
+                                                                <option value="1">Personal</option>
+                                                                <option value="2">Business</option>
+                                                            </select>
+                                                            <label for="mfs_type" class="form-label">Select MFS
+                                                                Type</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="mfs_number" id="mfs_number" placeholder="MFS Number"
-                                                        required>
-                                                    <label for="mfs_number" class="form-label">MFS Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0" id="mfs_type" name="mfs_type">
-                                                        <option value="1">Personal</option>
-                                                        <option value="2">Business</option>
-                                                    </select>
-                                                    <label for="mfs_type" class="form-label">Select MFS
-                                                        Type</label>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="number" class="form-control rounded-0"
+                                                                name="bank_account_no" id="bank_account_no"
+                                                                placeholder="Bank Account Number" required>
+                                                            <label for="bank_account_no" class="form-label">Bank Account
+                                                                Number</label>
+                                                            <div id="loginEmailValidation" class="feedback"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control rounded-0"
+                                                                name="bank_name" id="bank_name" placeholder="Bank Name"
+                                                                required>
+                                                            <label for="bank_name" class="form-label">Bank Name</label>
+                                                            <div id="loginEmailValidation" class="feedback"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control rounded-0"
+                                                                name="bank_branch_name" id="bank_branch_name"
+                                                                placeholder="Bank Branch Name" required>
+                                                            <label for="bank_branch_name" class="form-label">Branch
+                                                                Name</label>
+                                                            <div id="loginEmailValidation" class="feedback"></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-md-4">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">social contact</strong>
+                                        </h5>
                                         <div class="row">
-                                            <strong class="mb-2">Bank Transfer</strong>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="number" class="form-control rounded-0"
-                                                        name="bank_account_no" id="bank_account_no"
-                                                        placeholder="Bank Account Number" required>
-                                                    <label for="bank_account_no" class="form-label">Bank Account
+                                                        name="social_contact_number" id="social_contact_number"
+                                                        placeholder="Social Contact Number" required>
+                                                    <label for="social_contact_number" class="form-label">Social Contact
                                                         Number</label>
                                                     <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control rounded-0" name="bank_name"
-                                                        id="bank_name" placeholder="Bank Name" required>
-                                                    <label for="bank_name" class="form-label">Bank Name</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
+                                                    <select class="form-select rounded-0" id="mfs_service"
+                                                        name="mfs_service">
+                                                        <option value="1">IMO</option>
+                                                        <option value="2">WhatsApp</option>
+                                                        <option value="3">Viber</option>
+                                                        <option value="4">Telegram</option>
+                                                    </select>
+                                                    <label for="mfs_service" class="form-label">Select Social Messaging
+                                                        Service</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        name="bank_branch_name" id="bank_branch_name"
-                                                        placeholder="Bank Branch Name" required>
-                                                    <label for="bank_branch_name" class="form-label">Bank Branch
-                                                        Name</label>
+                                                    <input type="email" class="form-control rounded-0"
+                                                        name="social_contact_email" id="social_contact_email"
+                                                        placeholder="Social Contact Email" required>
+                                                    <label for="social_contact_email" class="form-label">Social Contact
+                                                        Email</label>
                                                     <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="row">
-                                            <strong class="mb-2">Cash Payment</strong>
-                                            <div class="col-12">
-                                                <div class="form-check ml-1">
-                                                    <input class="form-check-input" type="radio" name="cash_payment"
-                                                        id="cash_payment">
-                                                    <label class="form-check-label" for="cash_payment">
-                                                        Cash
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="float-end">
+                                    <button class="btn btn-outline-primary">Create Supplier</button>
                                 </div>
                             </form>
                         </div>
