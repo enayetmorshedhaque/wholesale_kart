@@ -1,37 +1,33 @@
-<div class="col-lg-4">
-    <div class="text-center card-box">
-        <div class="member-card pt-2 pb-2">
-            <div class="thumb-lg member-thumb mx-auto">
-                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail"
-                    alt="profile-image">
-            </div>
-            <div class="">
-                <h4>Freddie J. Plourde</h4>
-            </div>
-            <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Message
-                Now</button>
-            <div class="mt-4">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="mt-3">
-                            <h4>2563</h4>
-                            <p class="mb-0 text-muted">Wallets Balance</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="mt-3">
-                            <h4>6952</h4>
-                            <p class="mb-0 text-muted">Income amounts</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="mt-3">
-                            <h4>1125</h4>
-                            <p class="mb-0 text-muted">Total Transactions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<html>
+<!-- Bootstrap 5 -->
+<link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+</html>
+
+<body class="bg-dark">
+    <div class="mt-3 container bg-secondary">
+        <div class="p-5 bg-white">
+            <button id="showToast">Show Toast Notification</button>
         </div>
     </div>
-</div>
+
+    <div id="alertContainer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#showToast').on('click', function () {
+                Swal.fire({
+                    toast: true,
+                    icon: 'success', // Change to 'info', 'warning', 'error', etc. as needed
+                    title: 'Toast Notification',
+                    position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
+                    showConfirmButton: false,
+                    timer: 3000 // Duration in milliseconds (3 seconds in this example)
+                });
+            });
+        });
+    </script>
+</body>

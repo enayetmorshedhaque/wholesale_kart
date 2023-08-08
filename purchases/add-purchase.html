@@ -25,6 +25,9 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
 
+    <!-- Sweetalert CSS CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
 </head>
@@ -248,121 +251,108 @@
                                         </div>
                                     </div>
 
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Book Name</th>
-                                                <th>Stock</th>
-                                                <th>Quantity</th>
-                                                <th>Price</th>
-                                                <th>Discount (%)</th>
-                                                <th>Reduced Rate</th>
-                                                <th>Vat (%)</th>
-                                                <th>Vat Amount</th>
-                                                <th>Total</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
+                                    <div class="table-responsive mb-3 overflow-x-auto text-nowrap" id="content_div">
+                                        <table class="table" id="purchase_order_table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center w-35">Book Name</th>
+                                                    <th class="text-center">In-Stock</th>
+                                                    <th class="text-center">Quantity</th>
+                                                    <th class="text-center">Book Price</th>
+                                                    <th class="text-center">Buy(%)</th>
+                                                    <th class="text-center">Total Price</th>
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="purchase_order_row">
+                                                <tr class="purchase_order_form_group">
+                                                    <td>
+                                                        <input type="text"
+                                                            placeholder="বাংলাদেশে 'র' । আগ্রাসী গুপ্তচরবৃত্তির অজানা অধ্যায়"
+                                                            class="form-control rounded-0" name="book_name[]">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" placeholder="5000"
+                                                            class="form-control rounded-0 text-right"
+                                                            name="book_stock[]" disabled>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" placeholder="1000"
+                                                            class="form-control rounded-0 text-right"
+                                                            name="book_quantity[]">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" placeholder="600"
+                                                            class="form-control rounded-0 text-right"
+                                                            name="published_price[]">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" placeholder="50"
+                                                            class="form-control rounded-0 text-right"
+                                                            name="purchase_commission[]">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" placeholder="363000"
+                                                            class="form-control rounded-0 text-right"
+                                                            name="total_price[]" disabled>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger deleteThis">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <template id="purchase_order_template_row">
+                                            <tr class="purchase_order_form_group" id="purchase_order_input_fields">
                                                 <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="text"
-                                                        placeholder=".form-control-sm">
+                                                    <input type="text"
+                                                        placeholder="বাংলাদেশে 'র' । আগ্রাসী গুপ্তচরবৃত্তির অজানা অধ্যায়"
+                                                        class="form-control rounded-0" name="book_name[]">
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control form-control-sm rounded-0"
-                                                        placeholder="100" disabled style="text-align: center;">
+                                                    <input type="number" placeholder="5000"
+                                                        class="form-control rounded-0 text-right" name="book_stock[]"
+                                                        disabled>
                                                 </td>
                                                 <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm">
+                                                    <input type="number" placeholder="1000"
+                                                        class="form-control rounded-0 text-right"
+                                                        name="book_quantity[]">
                                                 </td>
                                                 <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="text"
-                                                        placeholder=".form-control-sm">
+                                                    <input type="number" placeholder="600"
+                                                        class="form-control rounded-0 text-right"
+                                                        name="published_price[]">
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control form-control-sm rounded-0"
-                                                        placeholder="100" disabled style="text-align: center;">
+                                                    <input type="number" placeholder="50"
+                                                        class="form-control rounded-0 text-right"
+                                                        name="purchase_commission[]">
                                                 </td>
                                                 <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm">
+                                                    <input type="number" placeholder="363000"
+                                                        class="form-control rounded-0 text-right" name="total_price[]"
+                                                        disabled>
                                                 </td>
                                                 <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="text"
-                                                        placeholder=".form-control-sm">
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm rounded-0"
-                                                        placeholder="100" disabled style="text-align: center;">
-                                                </td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm" disabled
-                                                        style="text-align: center;">
-                                                </td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-sm btn-danger rounded-0">
-                                                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                                                    <button class="btn btn-danger deleteThis">
+                                                        <i class="fa-solid fa-trash"></i>
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td colspan="7"></td>
-                                                <td class="text-end">Subtotal</td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm" disabled
-                                                        style="text-align: center;">
-                                                </td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-sm btn-primary rounded-0">
-                                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="7"></td>
-                                                <td class="text-end">Total VAT</td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm" disabled
-                                                        style="text-align: center;">
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="7"></td>
-                                                <td class="text-end">Grand Total</td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm" disabled
-                                                        style="text-align: center;">
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="7"></td>
-                                                <td class="text-end">Paid Amount</td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm">
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="7"></td>
-                                                <td class="text-end">Due Amount</td>
-                                                <td>
-                                                    <input class="form-control form-control-sm rounded-0" type="number"
-                                                        placeholder=".form-control-sm" disabled
-                                                        style="text-align: center;">
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        </template>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="float-end">
+                                                <button class="btn btn-outline-primary" id="addNewRow">
+                                                    <i class="fa-solid fa-plus"></i> Add Row
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -381,6 +371,8 @@
         </footer>
     </div>
 
+    <div id="alert_container"></div>
+
     <!-- Bootstrap 5 -->
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
@@ -391,6 +383,13 @@
     <!-- Datepicker CDN Link -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+    <!-- jQuery Form Validation CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <!-- jQuery Form Validation Additional Methods CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -399,10 +398,13 @@
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
 
-    <!-- Page JS -->
+    <!-- Page jQuery -->
     <script>
         // Auto Date Selection
         $(function () {
@@ -411,6 +413,10 @@
             }).datepicker("setDate", "today");
         });
     </script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/custom-js/script.js"></script>
+    <script src="../assets/js/custom-js/add.or.remove.row.js"></script>
 </body>
 
 </html>

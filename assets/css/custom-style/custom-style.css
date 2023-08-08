@@ -4,6 +4,28 @@
   font-family: "Hind Siliguri", sans-serif;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.w-35 {
+  width: 35%;
+}
+
+.w-5 {
+  width: 5%;
+}
+
+.w-9 {
+  width: 9%;
+}
+
+.w-4 {
+  width: 4%;
+}
+
 .custom-background-color {
   background-color: #f2f3f7 !important;
 }
@@ -36,6 +58,16 @@ label:not(.form-check-label):not(.custom-file-label) {
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
+}
+
+.swal2-show {
+  height: 60px;
+  right: 6px !important;
+  border-radius: 0 !important;
+}
+
+.swal2-popup.swal2-toast {
+  padding: 5px 1rem !important;
 }
 
 @media (max-width: 1023px) {
