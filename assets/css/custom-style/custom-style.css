@@ -10,20 +10,15 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px white inset !important;
+}
+
 .w-35 {
   width: 35%;
-}
-
-.w-5 {
-  width: 5%;
-}
-
-.w-9 {
-  width: 9%;
-}
-
-.w-4 {
-  width: 4%;
 }
 
 .custom-background-color {
@@ -68,6 +63,13 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 .swal2-popup.swal2-toast {
   padding: 5px 1rem !important;
+}
+
+.error {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
 }
 
 @media (max-width: 1023px) {

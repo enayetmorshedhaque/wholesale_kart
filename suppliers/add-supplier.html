@@ -222,29 +222,29 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white">
                         <div class="p-4">
-                            <form action="">
+                            <form action="#" class="needs-validation" novalidate id="ValidateForm">
                                 <div class="row">
                                     <h5 class="mb-2">
                                         <strong class="text-uppercase">Business Information</strong>
                                     </h5>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0"
+                                            <input type="text" class="form-control rounded-0 name_bangla"
                                                 name="supplier_name_bangla" id="supplier_name_bangla"
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="supplier_name_bangla" class="form-label">Supplier Name
                                                 (Bangla)</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="supplier-name-bangla-feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0"
+                                            <input type="text" class="form-control rounded-0 name_english"
                                                 name="supplier_name_english" id="supplier_name_english"
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="supplier_name_english" class="form-label">Supplier Name
                                                 (English)</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="supplier-name-english-feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -253,23 +253,22 @@
                                                 placeholder="Supplier Address" name="supplier_address"></textarea>
                                             <label for="supplier_address" class="form-label">Supplier
                                                 Address</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control rounded-0" name="supplier_contact"
-                                                id="supplier_contact" placeholder="Supplier Contact Number" required>
+                                            <input type="number" class="form-control rounded-0 contact_number"
+                                                name="supplier_contact" id="supplier_contact"
+                                                placeholder="Supplier Contact Number" required>
                                             <label for="supplier_contact" class="form-label">Supplier
                                                 Contact Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="supplier-contact-feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="formFileSm" class="form-label mb-0">Supplier Logo</label>
                                             <input class="form-control form-control-sm" type="file" id="formFile">
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -291,7 +290,6 @@
                                                 placeholder="Supplier BIN Number" required>
                                             <label for="supplier_bin_number" class="form-label">Supplier
                                                 BIN Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -301,7 +299,6 @@
                                                 placeholder="Supplier TIN Number" required>
                                             <label for="supplier_tin_number" class="form-label">Supplier
                                                 TIN Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -311,7 +308,6 @@
                                                 placeholder="Supplier VAT Percentage" required>
                                             <label for="supplier_vat_percentage" class="form-label">Supplier VAT
                                                 Percentage</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -325,7 +321,6 @@
                                                 id="supplier_owner_name" placeholder="Supplier Owner Name" required>
                                             <label for="supplier_owner_name" class="form-label">Owner
                                                 Name</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -335,7 +330,6 @@
                                                 placeholder="Owner Contact Number" required>
                                             <label for="supplier_owner_contact" class="form-label">Owner
                                                 Contact Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -344,7 +338,6 @@
                                                 name="supplier_owner_email" id="supplier_owner_email"
                                                 placeholder="Owner Email" required>
                                             <label for="supplier_owner_email" class="form-label">Owner Email</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +352,6 @@
                                                 placeholder="Supplier Owner Name" required>
                                             <label for="supplier_contact_person_name" class="form-label">Contact Person
                                                 Name</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -370,7 +362,6 @@
                                                 placeholder="Owner Contact Number" required>
                                             <label for="supplier_contact_person_designation" class="form-label">Contact
                                                 Person Designation</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -381,7 +372,6 @@
                                                 required>
                                             <label for="supplier_contact_person_contact" class="form-label">Contact
                                                 Person Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -411,7 +401,7 @@
                                                         placeholder="MFS Number" required>
                                                     <label for="supplier_mfs_number" class="form-label">MFS
                                                         Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
+                                                    <div id="supplier-mfs-number-feedback" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -513,7 +503,8 @@
                                     </div>
                                 </div>
                                 <div class="float-lg-end d-grid">
-                                    <button class="btn btn-outline-primary">
+                                    <button class="btn btn-outline-primary" type="createNewSupplier"
+                                        name="createNewSupplier" id="createNewSupplier">
                                         <i class="fas fa-plus"></i>
                                         Create New Supplier</button>
                                 </div>
@@ -526,11 +517,14 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer text-center">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2023 <a href="https://booksbd.net">booksbd.net</a>.</strong>
             All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->
+
+    <!-- Bootstrap 5 -->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
     <!-- jQuery -->
     <script src="../assets/js/jquery/jquery.min.js"></script>
@@ -543,8 +537,11 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
 
-    <!-- Bootstrap 5 -->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- jQuery Form Validation CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <!-- jQuery Form Validation Additional Methods CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 
     <!-- ChartJS -->
     <script src="../assets/js/chart.js/Chart.min.js"></script>
@@ -575,6 +572,9 @@
 
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
+
+    <!-- Form Validation JS -->
+    <script src="../assets/js/custom-js/from.validation.js"></script>
 </body>
 
 </html>
