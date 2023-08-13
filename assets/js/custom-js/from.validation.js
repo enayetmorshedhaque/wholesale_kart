@@ -20,10 +20,11 @@ $(document).ready(function () {
     })()
 
     $("#createNewSupplier").click(function () {
-        $(".form-control").each(function () {
+        $(".mandatory_fields").each(function (e) {
             var error = false;
 
             var data = $(this).val();
+            console.log(data);
             // console.log((i+1) + ': ' + data);
             var len = data.length;
             if (len <= 0) {

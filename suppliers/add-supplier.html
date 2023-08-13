@@ -183,9 +183,50 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../purchases/manage-customers.html" class="nav-link">
+                                    <a href="../purchases/manage-purchases.html" class="nav-link">
                                         <i class="fa-solid fa-book nav-icon"></i>
                                         <p>Manage Purchases</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-bars-progress"></i>
+                                <p>
+                                    Dynamic Settings
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../dynamic-settings/courier-companies.html" class="nav-link">
+                                        <i class="fa-solid fa-truck-ramp-box nav-icon"></i>
+                                        <p>Courier Companies</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../dynamic-settings/customers-type.html" class="nav-link">
+                                        <i class="fa-solid fa-users-rectangle nav-icon"></i>
+                                        <p>Customer Types</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../dynamic-settings/mfs-services.html" class="nav-link">
+                                        <i class="fa-solid fa-money-bill-transfer nav-icon"></i>
+                                        <p>MFS Services</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../dynamic-settings/mfs-types.html" class="nav-link">
+                                        <i class="fa-solid fa-hand-holding-dollar nav-icon"></i>
+                                        <p>MFS Types</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../dynamic-settings/social-messaging.html" class="nav-link">
+                                        <i class="fa-solid fa-circle-nodes nav-icon"></i>
+                                        <p>Social Messaging</p>
                                     </a>
                                 </li>
                             </ul>
@@ -229,7 +270,7 @@
                                     </h5>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0 name_bangla"
+                                            <input type="text" class="form-control rounded-0 mandatory_fields"
                                                 name="supplier_name_bangla" id="supplier_name_bangla"
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="supplier_name_bangla" class="form-label">Supplier Name
@@ -239,7 +280,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0 name_english"
+                                            <input type="text" class="form-control rounded-0 mandatory_fields"
                                                 name="supplier_name_english" id="supplier_name_english"
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="supplier_name_english" class="form-label">Supplier Name
@@ -257,7 +298,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control rounded-0 contact_number"
+                                            <input type="number" class="form-control rounded-0 mandatory_fields"
                                                 name="supplier_contact" id="supplier_contact"
                                                 placeholder="Supplier Contact Number" required>
                                             <label for="supplier_contact" class="form-label">Supplier
@@ -401,7 +442,6 @@
                                                         placeholder="MFS Number" required>
                                                     <label for="supplier_mfs_number" class="form-label">MFS
                                                         Number</label>
-                                                    <div id="supplier-mfs-number-feedback" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -430,7 +470,6 @@
                                                     <label for="supplier_bank_account_no" class="form-label">Bank
                                                         Account
                                                         Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -440,7 +479,6 @@
                                                         placeholder="Bank Name" required>
                                                     <label for="supplier_bank_name" class="form-label">Bank
                                                         Name</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -450,7 +488,6 @@
                                                         placeholder="Bank Branch Name" required>
                                                     <label for="supplier_bank_branch_name" class="form-label">Branch
                                                         Name</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -469,7 +506,6 @@
                                                     <label for="supplier_social_contact_number"
                                                         class="form-label">Social Contact
                                                         Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -496,7 +532,6 @@
                                                     <label for="supplier_social_contact_email" class="form-label">Social
                                                         Contact
                                                         Email</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
                                                 </div>
                                             </div>
                                         </div>

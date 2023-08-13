@@ -72,6 +72,10 @@ label:not(.form-check-label):not(.custom-file-label) {
   color: #dc3545;
 }
 
+.left-padding {
+  padding-left: 0.4rem;
+}
+
 @media (max-width: 1023px) {
   .custom-col-6 {
     width: 50% !important;

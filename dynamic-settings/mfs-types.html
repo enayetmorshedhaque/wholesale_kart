@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WholesaleKart | Dashboard</title>
+    <title>WholesaleKart | MFS Types</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -42,13 +42,18 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../assets/css/summernote/summernote-bs4.min.css">
 
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../assets/css/datatables-bs4/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../assets/css/datatables-responsive/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="../assets/css/datatables-buttons/buttons.bootstrap4.min.css">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
+
+    <style>
+        table,
+        thead,
+        tbody,
+        td,
+        th {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed custom-background-color">
@@ -123,7 +128,7 @@
                                 </p>
                             </a>
                         </li>
-                        <!-- <li class="nav-header text-uppercase">suppler section</li> -->
+                        <!-- <li class="nav-header text-uppercase">supplier section</li> -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-warehouse"></i>
@@ -172,8 +177,8 @@
                             </ul>
                         </li>
                         <!-- <li class="nav-header text-uppercase">purchase section</li> -->
-                        <li class="nav-item menu-is-opening menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-cart-shopping"></i>
                                 <p>
                                     Purchase
@@ -188,15 +193,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../purchases/manage-purchases.html" class="nav-link active">
+                                    <a href="../purchases/manage-purchases.html" class="nav-link">
                                         <i class="fa-solid fa-book nav-icon"></i>
                                         <p>Manage Purchases</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item menu-is-opening menu-open">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fa-solid fa-bars-progress"></i>
                                 <p>
                                     Dynamic Settings
@@ -223,7 +228,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../dynamic-settings/mfs-types.html" class="nav-link">
+                                    <a href="../dynamic-settings/mfs-types.html" class="nav-link active">
                                         <i class="fa-solid fa-hand-holding-dollar nav-icon"></i>
                                         <p>MFS Types</p>
                                     </a>
@@ -250,14 +255,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Manage Suppliers</h1>
+                            <h1 class="m-0">Add New MFS Type</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item">
-                                    <a href="../dashboard.html">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item active">Manage Suppliers</li>
+                                <li class="breadcrumb-item"><a href="../dashboard.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active">MFS Types</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -268,139 +271,66 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
+                    <div class="card shadow-sm rounded-0 bg-white mb-4">
+                        <div class="p-4">
+                            <form action="#" class="needs-validation" novalidate id="ValidateForm">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12"></div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h5 class="mb-2 ps-0">
+                                            <strong class="text-uppercase">MFS Type Information</strong>
+                                        </h5>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0 mandatory_fields"
+                                                name="add_mfs_type" id="add_mfs_type" placeholder="MFS Type" required>
+                                            <label for="add_mfs_type" class="form-label">MFS Type</label>
+                                            <div id="supplier-name-bangla-feedback" class="feedback"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="purchaseTable" class="table table-bordered table-striped">
-                                        <thead>
+                                <div class="float-lg-end d-grid">
+                                    <button class="btn btn-outline-primary" type="addMfsType" name="addMfsType"
+                                        id="addMfsType">
+                                        <i class="fas fa-plus"></i>
+                                        Add New MFS Type</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm rounded-0 bg-white">
+                        <div class="p-4">
+                            <div class="row">
+                                <h5 class="mb-3 left-padding">
+                                    <strong class="text-uppercase">Available MFS types</strong>
+                                </h5>
+                                <div class="col-12">
+                                    <table class="table able-striped table-hover mb-2" id="invoiceList">
+                                        <thead class="table-light">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Challan No</th>
-                                                <th>Invoice No</th>
-                                                <th>Supplier Name</th>
-                                                <th>Date</th>
-                                                <th>Amount</th>
+                                                <th>MFS Type</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>CH-0000001
-                                                </td>
-                                                <td>INV-WSK-0000001</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
+                                                <th>1</th>
+                                                <td>Personal</td>
                                                 <td>Edit</td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
-                                                <td>CH-0000002
-                                                </td>
-                                                <td>INV-WSK-0000002</td>
-                                                <td>Ale-Rasul Publication</td>
-                                                <td>2023-08-07</td>
-                                                <td>500</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>CH-0000003
-                                                </td>
-                                                <td>INV-WSK-0000003</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>CH-0000004
-                                                </td>
-                                                <td>INV-WSK-0000004</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>CH-0000005
-                                                </td>
-                                                <td>INV-WSK-0000005</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>CH-0000006
-                                                </td>
-                                                <td>INV-WSK-0000006</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>CH-0000007
-                                                </td>
-                                                <td>INV-WSK-0000007</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>CH-0000008
-                                                </td>
-                                                <td>INV-WSK-0000008</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>CH-0000009
-                                                </td>
-                                                <td>INV-WSK-0000009</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>CH-0000010
-                                                </td>
-                                                <td>INV-WSK-0000010</td>
-                                                <td>Bangladesh Defence Journal Publishing</td>
-                                                <td>2023-08-06</td>
-                                                <td>50000</td>
+                                                <th>2</th>
+                                                <td>Merchant</td>
                                                 <td>Edit</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
+                </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
         </div>
@@ -410,6 +340,7 @@
             All rights reserved.
         </footer>
     </div>
+    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../assets/js/jquery/jquery.min.js"></script>
@@ -452,32 +383,8 @@
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="../assets/js/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/datatables-bs4/dataTables.bootstrap4.min.js"></script>
-    <script src="../assets/js/datatables-responsive/dataTables.responsive.min.js"></script>
-    <script src="../assets/js/datatables-responsive/responsive.bootstrap4.min.js"></script>
-    <script src="../assets/js/datatables-buttons/dataTables.buttons.min.js"></script>
-    <script src="../assets/js/datatables-buttons/buttons.bootstrap4.min.js"></script>
-    <script src="../assets/js/jszip/jszip.min.js"></script>
-    <script src="../assets/js/pdfmake/pdfmake.min.js"></script>
-    <script src="../assets/js/pdfmake/vfs_fonts.js"></script>
-    <script src="../assets/js/datatables-buttons/buttons.html5.min.js"></script>
-    <script src="../assets/js/datatables-buttons/buttons.print.min.js"></script>
-    <script src="../assets/js/datatables-buttons/buttons.colVis.min.js"></script>
-
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
-
-    <!-- Page specific script -->
-    <script>
-        $(function () {
-            $("#purchaseTable").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            }).buttons().container().appendTo('#purchase_table_wrapper .col-md-6:eq(0)');
-        });
-    </script>
 </body>
 
 </html>
