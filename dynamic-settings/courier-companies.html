@@ -277,14 +277,21 @@
                                     <strong class="text-uppercase">courier information</strong>
                                 </h5>
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0" name="add_new_courier"
                                                 id="add_new_courier" placeholder="Courier Company Name" required>
                                             <label for="add_new_courier" class="form-label">Courier Company Name</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0" name="courier_shop_id"
+                                                id="courier_shop_id" placeholder="Courier Shop Id" required>
+                                            <label for="courier_shop_id" class="form-label">Courier Shop Id</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <select class="form-select rounded-0" id="courier_location"
                                                 name="courier_location">
@@ -296,7 +303,7 @@
                                                 Location</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control rounded-0"
                                                 name="add_courier_base_charge" id="add_courier_base_charge"
@@ -305,13 +312,21 @@
                                                 Charge</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0"
                                                 name="add_courier_extra_charge" id="add_courier_extra_charge"
                                                 placeholder="Courier Extra Charge" required>
                                             <label for="add_courier_extra_charge" class="form-label">Courier Extra
                                                 Charge</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0" name="maximum_weight"
+                                                id="maximum_weight" placeholder="Maximum Allowed Weight" required>
+                                            <label for="maximum_weight" class="form-label">Maximum Allowed
+                                                Weight</label>
                                         </div>
                                     </div>
                                 </div>
@@ -339,8 +354,8 @@
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Location</th>
-                                                <th>Base Charge</th>
-                                                <th>Extra Charge</th>
+                                                <th>Charge</th>
+                                                <th>Extra</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

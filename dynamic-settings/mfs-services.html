@@ -270,28 +270,25 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white mb-4">
                         <div class="p-4">
-                            <form action="#" class="needs-validation" novalidate id="ValidateForm">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12"></div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h5 class="mb-2 ps-0">
-                                            <strong class="text-uppercase">MFS Information</strong>
-                                        </h5>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0 mandatory_fields"
-                                                name="add_mfs_service" id="add_mfs_service"
-                                                placeholder="MFS Service Name" required>
-                                            <label for="add_mfs_service" class="form-label">MFS Service Name</label>
-                                        </div>
+                            <div class="mx-auto w-custom">
+                                <form class="needs-validation" id="addMfsTypeForm" novalidate>
+                                    <h5 class="mb-2 ps-0">
+                                        <strong class="text-uppercase">MFS Information</strong>
+                                    </h5>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control rounded-0 mandatory_fields"
+                                            name="add_mfs_service" id="add_mfs_service" placeholder="MFS Service Name"
+                                            required>
+                                        <label for="add_mfs_service" class="form-label">MFS Service Name</label>
                                     </div>
-                                </div>
-                                <div class="float-lg-end d-grid">
-                                    <button class="btn btn-outline-primary" type="addMfsService" name="addMfsService"
-                                        id="addMfsService">
-                                        <i class="fas fa-plus"></i>
-                                        Add New MFS Service</button>
-                                </div>
-                            </form>
+                                    <div class="float-lg-end d-grid">
+                                        <button class="btn btn-outline-primary" type="addMfsService"
+                                            name="addMfsService" id="addMfsService">
+                                            <i class="fas fa-plus"></i>
+                                            Add New MFS Service</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
