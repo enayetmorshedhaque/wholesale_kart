@@ -254,7 +254,7 @@
                     <div class="card shadow-sm rounded-0 bg-white mb-4">
                         <div class="p-4">
                             <div class="mx-auto w-custom">
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" id="addMfsTypeForm" novalidate>
                                     <h5 class="mb-2 ps-0">
                                         <strong class="text-uppercase">MFS Type Information</strong>
                                     </h5>
@@ -264,7 +264,7 @@
                                             placeholder="MFS Service Type" required>
                                         <label for="add_mfs_type_input_label" class="form-label">MFS Service
                                             Type</label>
-                                        <div id="mfs_type_feedback" class="feedback"></div>
+                                        <div id="mfs_type_feedback"></div>
                                     </div>
                                     <div class="float-lg-end d-grid">
                                         <button class="btn btn-outline-primary" type="addMfsType" id="addMfsType"
@@ -328,32 +328,17 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
 
+    <!-- jQuery Form Validation CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <!-- jQuery Form Validation Additional Methods CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
-
-    <script>
-            (() => {
-                'use strict'
-
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                const forms = document.querySelectorAll('.needs-validation')
-
-                // Loop over them and prevent submission
-                Array.from(forms).forEach(form => {
-                    form.addEventListener('submit', event => {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-            })()
-    </script>
 
     <!-- Custom JS -->
     <script src="../assets/js/custom-js/script.js"></script>
