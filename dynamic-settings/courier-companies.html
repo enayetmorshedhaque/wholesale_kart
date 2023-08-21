@@ -260,7 +260,7 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white mb-4">
                         <div class="p-4">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" novalidate id="addCourierInformation">
                                 <h5 class="mb-2 ps-0">
                                     <strong class="text-uppercase">courier information</strong>
                                 </h5>
@@ -372,7 +372,9 @@
                                                     <?php        
                                                         }else{
                                                     ?>
-                                                    <?php echo $rows['courier_name']?> (<?php echo $rows['courier_shop_id']?>)
+                                                    <?php echo $rows['courier_name']?>
+                                                    ((
+                                                    <?php echo ($rows['courier_shop_id'])?>))
                                                     <?php
                                                         }
                                                     ?>
@@ -387,7 +389,7 @@
                                                     <?php echo $rows['courier_extra_charge'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $rows['courier_maxium_allowed_weight'] ?>
+                                                    <?php echo $rows['courier_maximum_allowed_weight'] ?>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
@@ -442,6 +444,9 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
+
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>

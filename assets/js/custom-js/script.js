@@ -171,20 +171,21 @@ $(document).ready(function () {
             event.stopPropagation();
         } else {
             event.preventDefault();
+
+            // Serialize the form data into a JSON object
+            var formData = $("#addCourierInformation").serialize();
+
             $.ajax({
-                type: "POST",
-                url: "../assets/db/dynamic-settings-data-submit.php",
-                data: {
-                    "add_customer_type_btn": 1,
-                    "add_new_courier": add_new_courier,
-                },
+                type: 'POST',
+                url: '../assets/db/dynamic-settings-data-submit.php', // Change this to the path of your PHP script
+                data: formData,
                 success: function (response) {
                     Swal.fire({
                         toast: true,
                         title: 'Data ' + response,
                         position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
                         showConfirmButton: false,
-                        timer: 2000, // Duration in milliseconds (3 seconds in this example)
+                        timer: 2000, // Duration in milliseconds (2 seconds in this example)
                         timerProgressBar: true,
                         didOpen: (toast) => {
                             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -196,6 +197,26 @@ $(document).ready(function () {
             $("#add_new_courier").val("");
             $("#add_new_courier_feedback").html("").removeClass("valid-feedback");
             $("#add_new_courier").removeClass("is-valid");
+
+            $("#courier_shop_id").val("");
+            $("#courier_shop_id_feedback").html("").removeClass("valid-feedback");
+            $("#courier_shop_id").removeClass("is-valid");
+
+            $("#courier_location").val("");
+            $("#courier_location_feedback").html("").removeClass("valid-feedback");
+            $("#courier_location").removeClass("is-valid");
+
+            $("#add_courier_base_charge").val("");
+            $("#add_new_courier_feedback").html("").removeClass("valid-feedback");
+            $("#add_courier_base_charge").removeClass("is-valid");
+
+            $("#add_courier_extra_charge").val("");
+            $("#courier_base_charge_feedback").html("").removeClass("valid-feedback");
+            $("#add_courier_extra_charge").removeClass("is-valid");
+
+            $("#maximum_allowed_weight").val("");
+            $("#maximum_allowed_weight_feedback").html("").removeClass("valid-feedback");
+            $("#maximum_allowed_weight").removeClass("is-valid");
         }
     });
     // Courier company validation ends here
