@@ -45,6 +45,33 @@ $(document).ready(function () {
         if ($(".invalid-feedback:visible").length > 0 || $(".is-invalid:visible").length > 0) {
             event.preventDefault();
             event.stopPropagation();
+        } else {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "../assets/db/dynamic-settings-data-submit.php",
+                data: {
+                    "checking_submit_btn": 1,
+                    "add_mfs_type": mfs_type_input,
+                },
+                success: function (response) {
+                    Swal.fire({
+                        toast: true,
+                        title: 'Data ' + response,
+                        position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
+                        showConfirmButton: false,
+                        timer: 3000, // Duration in milliseconds (3 seconds in this example)
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                },
+            });
+            $("#add_mfs_type_input").val("");
+            $("#mfs_type_feedback").html("").removeClass("valid-feedback");
+            $("#add_mfs_type_input").removeClass("is-valid");
         }
     });
 });
