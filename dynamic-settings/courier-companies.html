@@ -1,10 +1,13 @@
+<?php
+    require('../assets/db/dynamic-settings-data-fetch.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WholesaleKart | MFS Services</title>
+    <title>WholesaleKart | Courier Companies</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -16,30 +19,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/css/fontawesome/all.min.css">
 
-
-
-    <!-- Tempus Dominus Styles -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/css/tempus-dominus.min.css"
-        crossorigin="anonymous">
-
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../assets/css/icheck-bootstrap/icheck-bootstrap.min.css">
-
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../assets/css/jqvmap/jqvmap.min.css">
-
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
 
+    <!-- Sweetalert CSS CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
-
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.css">
-
-    <!-- summernote -->
-    <link rel="stylesheet" href="../assets/css/summernote/summernote-bs4.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
@@ -50,6 +37,7 @@
         tbody,
         td,
         th {
+            vertical-align: middle !important;
             text-align: center;
         }
     </style>
@@ -272,7 +260,7 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white mb-4">
                         <div class="p-4">
-                            <form action="#" class="needs-validation" novalidate id="ValidateForm">
+                            <form class="needs-validation" novalidate>
                                 <h5 class="mb-2 ps-0">
                                     <strong class="text-uppercase">courier information</strong>
                                 </h5>
@@ -282,6 +270,7 @@
                                             <input type="text" class="form-control rounded-0" name="add_new_courier"
                                                 id="add_new_courier" placeholder="Courier Company Name" required>
                                             <label for="add_new_courier" class="form-label">Courier Company Name</label>
+                                            <div id="add_new_courier_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -289,18 +278,21 @@
                                             <input type="text" class="form-control rounded-0" name="courier_shop_id"
                                                 id="courier_shop_id" placeholder="Courier Shop Id" required>
                                             <label for="courier_shop_id" class="form-label">Courier Shop Id</label>
+                                            <div id="courier_shop_id_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <select class="form-select rounded-0" id="courier_location"
                                                 name="courier_location">
+                                                <option value="">Select Option</option>
                                                 <option value="1">Inside Dhaka</option>
                                                 <option value="2">Dhaka Suburb</option>
                                                 <option value="3">Outside Dhaka</option>
                                             </select>
                                             <label for="courier_location" class="form-label">Courier
                                                 Location</label>
+                                            <div id="courier_location_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -310,6 +302,7 @@
                                                 placeholder="Courier Base Charge" required>
                                             <label for="add_courier_base_charge" class="form-label">Courier Base
                                                 Charge</label>
+                                            <div id="courier_base_charge_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -319,14 +312,17 @@
                                                 placeholder="Courier Extra Charge" required>
                                             <label for="add_courier_extra_charge" class="form-label">Courier Extra
                                                 Charge</label>
+                                            <div id="courier_extra_charge_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0" name="maximum_weight"
-                                                id="maximum_weight" placeholder="Maximum Allowed Weight" required>
-                                            <label for="maximum_weight" class="form-label">Maximum Allowed
+                                            <input type="number" class="form-control rounded-0"
+                                                name="maximum_allowed_weight" id="maximum_allowed_weight"
+                                                placeholder="Maximum Allowed Weight" required>
+                                            <label for="maximum_allowed_weight" class="form-label">Maximum Allowed
                                                 Weight</label>
+                                            <div id="maximum_allowed_weight_feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -356,34 +352,65 @@
                                                 <th>Location</th>
                                                 <th>Charge</th>
                                                 <th>Extra</th>
+                                                <th>Maximum Allowed Weight</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                while($rows=mysqli_fetch_array($courier_companies_result)){
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Steadfast(28858)</td>
-                                                <td>Inside Dhaka</td>
-                                                <td>60</td>
-                                                <td>10</td>
-                                                <td>Edit</td>
+                                                <th>
+                                                    <?php echo $courier_companies_serial ?>
+                                                </th>
+                                                <td style="line-height: normal;">
+                                                    <?php
+                                                        if(empty($rows['courier_shop_id'])){
+                                                    ?>
+                                                    <?php echo $rows['courier_name'] ?>
+                                                    <?php        
+                                                        }else{
+                                                    ?>
+                                                    <?php echo $rows['courier_name']?> (<?php echo $rows['courier_shop_id']?>)
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['courier_location'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['courier_base_charge'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['courier_extra_charge'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['courier_maxium_allowed_weight'] ?>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="./update-mfs-types.html?id=<?php echo $rows['courier_id'] ?>"
+                                                            class="text-decoration-none text-black-50">
+                                                            <button type="button" class="btn btn-outline-dark">
+                                                                <i class="fa-solid fa-edit"></i>
+                                                            </button>
+                                                        </a>
+                                                        <pre></pre>
+                                                        <a href="./delete-mfs-types.html?id=<?php echo $rows['courier_id'] ?>"
+                                                            class="text-decoration-none text-black-50">
+                                                            <button type="button" class="btn btn-outline-danger">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Steadfast(28858)</td>
-                                                <td>Dhaka Suburb</td>
-                                                <td>100</td>
-                                                <td>20</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Steadfast(28858)</td>
-                                                <td>Outside Dhaka</td>
-                                                <td>100</td>
-                                                <td>20</td>
-                                                <td>Edit</td>
-                                            </tr>
+                                            <?php
+                                                $courier_companies_serial++;
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -402,6 +429,9 @@
     </div>
     <!-- ./wrapper -->
 
+    <!-- Bootstrap 5 -->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
     <!-- jQuery -->
     <script src="../assets/js/jquery/jquery.min.js"></script>
 
@@ -413,38 +443,14 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
 
-    <!-- Bootstrap 5 -->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-
-    <!-- ChartJS -->
-    <script src="../assets/js/chart.js/Chart.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="../assets/js/sparklines/sparkline.js"></script>
-
-    <!-- JQVMap -->
-    <script src="../assets/js/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../assets/js/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-    <!-- jQuery Knob Chart -->
-    <script src="../assets/js/jquery-knob/jquery.knob.min.js"></script>
-
-    <!-- daterangepicker -->
-    <script src="../assets/js/moment/moment.min.js"></script>
-    <script src="../assets/js/daterangepicker/daterangepicker.js"></script>
-
-    <!-- Tempus Dominus JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/js/tempus-dominus.min.js"
-        crossorigin="anonymous"></script>
-
-    <!-- Summernote -->
-    <script src="../assets/js/summernote/summernote-bs4.min.js"></script>
-
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/custom-js/script.js"></script>
 </body>
 
 </html>

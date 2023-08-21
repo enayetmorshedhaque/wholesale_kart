@@ -1,3 +1,6 @@
+<?php
+    require('../assets/db/dynamic-settings-data-fetch.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,30 +19,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/css/fontawesome/all.min.css">
 
-
-
-    <!-- Tempus Dominus Styles -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/css/tempus-dominus.min.css"
-        crossorigin="anonymous">
-
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../assets/css/icheck-bootstrap/icheck-bootstrap.min.css">
-
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../assets/css/jqvmap/jqvmap.min.css">
-
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
 
+    <!-- Sweetalert CSS CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
-
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.css">
-
-    <!-- summernote -->
-    <link rel="stylesheet" href="../assets/css/summernote/summernote-bs4.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
@@ -50,6 +37,7 @@
         tbody,
         td,
         th {
+            vertical-align: middle !important;
             text-align: center;
         }
     </style>
@@ -281,10 +269,11 @@
                                         <input type="text" class="form-control rounded-0" name="add_customer_type"
                                             id="add_customer_type" placeholder="Customer Type" required>
                                         <label for="add_customer_type" class="form-label">Customer Type</label>
+                                        <div id="customer_type_feedback"></div>
                                     </div>
                                     <div class="float-lg-end d-grid">
-                                        <button class="btn btn-outline-primary" type="addCustomerType"
-                                            name="addCustomerType" id="addCustomerType">
+                                        <button class="btn btn-outline-primary" type="addCustomerTypeButton"
+                                            name="addCustomerTypeButton" id="addCustomerTypeButton">
                                             <i class="fas fa-plus"></i>
                                             Add New Customer Type</button>
                                     </div>
@@ -309,16 +298,38 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                while($rows=mysqli_fetch_array($customer_type_result)){
+                                            ?>
                                             <tr>
-                                                <th>1</th>
-                                                <td>E-Commerce</td>
-                                                <td>Edit</td>
+                                                <th>
+                                                    <?php echo $customer_type_serial ?>
+                                                </th>
+                                                <td>
+                                                    <?php echo $rows['customer_type_value'] ?>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="./update-mfs-types.html?id=<?php echo $rows['customer_type_id'] ?>"
+                                                            class="text-decoration-none text-black-50">
+                                                            <button type="button" class="btn btn-outline-dark">
+                                                                <i class="fa-solid fa-edit"></i>
+                                                            </button>
+                                                        </a>
+                                                        <pre></pre>
+                                                        <a href="./delete-mfs-types.html?id=<?php echo $rows['customer_type_id'] ?>"
+                                                            class="text-decoration-none text-black-50">
+                                                            <button type="button" class="btn btn-outline-danger">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Library</td>
-                                                <td>Edit</td>
-                                            </tr>
+                                            <?php
+                                                $customer_type_serial++;
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -337,49 +348,31 @@
     </div>
     <!-- ./wrapper -->
 
+    <!-- Bootstrap 5 -->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
     <!-- jQuery -->
     <script src="../assets/js/jquery/jquery.min.js"></script>
 
     <!-- jQuery UI 1.11.4 -->
     <script src="../assets/js/jquery-ui/jquery-ui.min.js"></script>
 
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
-
-    <!-- Bootstrap 5 -->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-
-    <!-- ChartJS -->
-    <script src="../assets/js/chart.js/Chart.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="../assets/js/sparklines/sparkline.js"></script>
-
-    <!-- JQVMap -->
-    <script src="../assets/js/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../assets/js/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-    <!-- jQuery Knob Chart -->
-    <script src="../assets/js/jquery-knob/jquery.knob.min.js"></script>
-
-    <!-- daterangepicker -->
-    <script src="../assets/js/moment/moment.min.js"></script>
-    <script src="../assets/js/daterangepicker/daterangepicker.js"></script>
-
-    <!-- Tempus Dominus JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/js/tempus-dominus.min.js"
-        crossorigin="anonymous"></script>
-
-    <!-- Summernote -->
-    <script src="../assets/js/summernote/summernote-bs4.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
 
     <!-- AdminLTE App -->
     <script src="../assets/js/theme-js/adminlte.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/custom-js/script.js"></script>
 </body>
 
 </html>
