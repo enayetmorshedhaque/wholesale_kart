@@ -470,7 +470,7 @@ $(document).ready(function () {
 
         } else if ($(this).val().match(numbers)) {
 
-            $("#mfs_service_feedback").html("Numbers are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#social_messaging_feedback").html("Numbers are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
             $("#add_social_messaging_service").removeClass("is-valid").addClass("is-invalid");
 
         } else if ($(this).val().match(specialCharacters)) {
