@@ -476,8 +476,14 @@
                                                 <div class="form-floating mb-3">
                                                     <select class="form-select rounded-0" id="customer_mfs_type"
                                                         name="customer_mfs_type">
-                                                        <option value="1">Personal</option>
-                                                        <option value="2">Merchant</option>
+                                                        <?php
+                                                            while($rows=mysqli_fetch_array($mfs_type_result)){
+                                                        ?>
+                                                        <option value="<?php echo $rows['mfs_type_id']?>">
+                                                            <?php echo $rows['mfs_type_value']?>
+                                                            <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                     <label for="customer_mfs_type" class="form-label">Select MFS
                                                         Type</label>
