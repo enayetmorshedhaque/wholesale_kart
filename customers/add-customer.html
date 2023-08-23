@@ -1,3 +1,6 @@
+<?php
+    require('../assets/db/dynamic-settings-data-fetch.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -271,8 +274,14 @@
                                         <div class="form-floating mb-3">
                                             <select class="form-select rounded-0" id="customer_type"
                                                 name="customer_type">
-                                                <option value="1">E-Commerce</option>
-                                                <option value="2">Library</option>
+                                                <?php
+                                                    while($rows=mysqli_fetch_array($customer_type_result)){
+                                                ?>
+                                                <option value="<?php echo $rows['customer_type_id']?>">
+                                                    <?php echo $rows['customer_type_value']?>
+                                                    <?php
+                                                    }
+                                                ?>
                                             </select>
                                             <label for="customer_type" class="form-label">Customer Type</label>
                                         </div>
@@ -439,9 +448,14 @@
                                                 <div class="form-floating mb-3">
                                                     <select class="form-select rounded-0" id="customer_mfs_service"
                                                         name="customer_mfs_service">
-                                                        <option value="1">bKash</option>
-                                                        <option value="2">Rocket</option>
-                                                        <option value="3">Nagad</option>
+                                                        <?php
+                                                            while($rows=mysqli_fetch_array($mfs_service_result)){
+                                                        ?>
+                                                        <option value="<?php echo $rows['mfs_service_id']?>">
+                                                            <?php echo $rows['mfs_service_value']?>
+                                                            <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                     <label for="customer_mfs_service" class="form-label">Select
                                                         MFS
@@ -531,10 +545,14 @@
                                                     <select class="form-select rounded-0"
                                                         id="customer_social_contact_service"
                                                         name="customer_social_contact_service">
-                                                        <option value="1">IMO</option>
-                                                        <option value="2">WhatsApp</option>
-                                                        <option value="3">Viber</option>
-                                                        <option value="4">Telegram</option>
+                                                        <?php
+                                                            while($rows=mysqli_fetch_array($social_messaging_service_result)){
+                                                        ?>
+                                                        <option value="<?php echo $rows['social_messaging_id']?>">
+                                                            <?php echo $rows['social_messaging_value']?>
+                                                            <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                     <label for="customer_social_contact_service"
                                                         class="form-label">Select Social Messaging

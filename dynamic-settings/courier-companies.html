@@ -267,9 +267,9 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0" name="add_new_courier"
-                                                id="add_new_courier" placeholder="Courier Company Name" required>
-                                            <label for="add_new_courier" class="form-label">Courier Company Name</label>
+                                            <input type="text" class="form-control rounded-0" name="add_new_courier_name"
+                                                id="add_new_courier_name" placeholder="Courier Company Name" required>
+                                            <label for="add_new_courier_name" class="form-label">Courier Company Name</label>
                                             <div id="add_new_courier_feedback"></div>
                                         </div>
                                     </div>
@@ -373,8 +373,8 @@
                                                         }else{
                                                     ?>
                                                     <?php echo $rows['courier_name']?>
-                                                    ((
-                                                    <?php echo ($rows['courier_shop_id'])?>))
+                                                    (
+                                                    <?php echo ($rows['courier_shop_id'])?>)
                                                     <?php
                                                         }
                                                     ?>

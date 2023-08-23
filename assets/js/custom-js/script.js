@@ -2,29 +2,29 @@ $(document).ready(function () {
     $("form").addClass("was-validate");
 
     // Courier company validation starts here
-    $("#add_new_courier").on("blur", function () {
+    $("#add_new_courier_name").on("blur", function () {
         let numbers = /([0-9])/;
         let specialCharacters = /[^\w\s]/gi;
 
         if ($(this).val() === "" || $.trim(($(this).val())) === "") {
 
             $("#add_new_courier_feedback").html("Enter Courier Name.").removeClass("valid-feedback").addClass("invalid-feedback");
-            $("#add_new_courier").removeClass("is-valid").addClass("is-invalid");
+            $("#add_new_courier_name").removeClass("is-valid").addClass("is-invalid");
 
         } else if ($(this).val().match(numbers)) {
 
             $("#add_new_courier_feedback").html("Numbers are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
-            $("#add_new_courier").removeClass("is-valid").addClass("is-invalid");
+            $("#add_new_courier_name").removeClass("is-valid").addClass("is-invalid");
 
         } else if ($(this).val().match(specialCharacters)) {
 
             $("#add_new_courier_feedback").html("Special Characters are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
-            $("#add_new_courier").removeClass("is-valid").addClass("is-invalid");
+            $("#add_new_courier_name").removeClass("is-valid").addClass("is-invalid");
 
         } else {
 
             $("#add_new_courier_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
-            $("#add_new_courier").removeClass("is-invalid").addClass("is-valid");
+            $("#add_new_courier_name").removeClass("is-invalid").addClass("is-valid");
 
         }
     });
@@ -128,7 +128,7 @@ $(document).ready(function () {
     $("#addCourierService").on("click", function (event) {
 
         // Perform validation
-        let add_new_courier = $("#add_new_courier").val();
+        let add_new_courier = $("#add_new_courier_name").val();
         let courier_location = $("#courier_location").val();
         let add_courier_base_charge = $("#add_courier_base_charge").val();
         let add_courier_extra_charge = $("#add_courier_extra_charge").val();
@@ -143,7 +143,7 @@ $(document).ready(function () {
 
         if (add_new_courier_length <= 0) {
             $("#add_new_courier_feedback").html("This field is required.").removeClass("valid-feedback").addClass("invalid-feedback");
-            $("#add_new_courier").removeClass("is-valid").addClass("is-invalid");
+            $("#add_new_courier_name").removeClass("is-valid").addClass("is-invalid");
             isValid = false;
         }
 
@@ -173,10 +173,10 @@ $(document).ready(function () {
             event.preventDefault();
 
             // Serialize the form data into a JSON object
-            var formData = $("#addCourierInformation").serialize();
+            let formData = $("#addCourierInformation").serialize();
 
             $.ajax({
-                type: 'POST',
+                type: "POST",
                 url: '../assets/db/dynamic-settings-data-submit.php', // Change this to the path of your PHP script
                 data: formData,
                 success: function (response) {
@@ -194,9 +194,9 @@ $(document).ready(function () {
                     });
                 },
             });
-            $("#add_new_courier").val("");
+            $("#add_new_courier_name").val("");
             $("#add_new_courier_feedback").html("").removeClass("valid-feedback");
-            $("#add_new_courier").removeClass("is-valid");
+            $("#add_new_courier_name").removeClass("is-valid");
 
             $("#courier_shop_id").val("");
             $("#courier_shop_id_feedback").html("").removeClass("valid-feedback");

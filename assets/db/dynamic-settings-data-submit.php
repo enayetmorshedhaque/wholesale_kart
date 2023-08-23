@@ -6,8 +6,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 } else {
     // Insert Customer Type Data
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $add_new_courier = $_REQUEST['add_new_courier'];
+    if (isset($_REQUEST['add_new_courier_name'], $_REQUEST['courier_shop_id'], $_REQUEST['courier_location'], $_REQUEST['add_courier_base_charge'], $_REQUEST['add_courier_extra_charge'], $_REQUEST['maximum_allowed_weight'])) {
+        $add_new_courier = $_REQUEST['add_new_courier_name'];
         $courier_shop_id = $_REQUEST['courier_shop_id'];
         $courier_location_value = $_REQUEST['courier_location'];
         $add_courier_base_charge = $_REQUEST['add_courier_base_charge'];
@@ -30,7 +30,7 @@ if (!$conn) {
                 $courier_location = "Outside Dhaka";
                 break;
             default:
-                $courier_name = "Unknown Option";
+                $courier_location = "Unknown Option";
                 break;
         }
 
