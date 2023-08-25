@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#add_new_courier_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#add_new_courier_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_new_courier_name").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -32,7 +32,7 @@ $(document).ready(function () {
     $("#courier_shop_id").on("blur", function () {
         if ($(this).val().length > 0) {
 
-            $("#courier_shop_id_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#courier_shop_id_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#courier_shop_id").removeClass("is-invalid").addClass("is-valid");
 
         } else {
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#courier_location_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#courier_location_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#courier_location").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#courier_base_charge_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#courier_base_charge_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_courier_base_charge").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -105,7 +105,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#courier_extra_charge_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#courier_extra_charge_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_courier_extra_charge").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -114,7 +114,7 @@ $(document).ready(function () {
     $("#maximum_allowed_weight").on("blur", function () {
         if ($(this).val().length > 0) {
 
-            $("#maximum_allowed_weight_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#maximum_allowed_weight_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#maximum_allowed_weight").removeClass("is-invalid").addClass("is-valid");
 
         } else {
@@ -245,7 +245,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#customer_type_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#customer_type_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_customer_type").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -323,7 +323,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#mfs_type_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#mfs_type_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_mfs_type_input").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -401,7 +401,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#mfs_service_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#mfs_service_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_mfs_service").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -480,7 +480,7 @@ $(document).ready(function () {
 
         } else {
 
-            $("#social_messaging_feedback").html("Looks good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#social_messaging_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
             $("#add_social_messaging_service").removeClass("is-invalid").addClass("is-valid");
 
         }
@@ -534,5 +534,5 @@ $(document).ready(function () {
     });
     // Social Messaging Service validation starts here
 
-    // ==================================================================================================================================
+    // ================================================================================================================================== 
 });

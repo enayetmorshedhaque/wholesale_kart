@@ -19,31 +19,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/css/fontawesome/all.min.css">
 
-    <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-
-    <!-- Tempus Dominus Styles -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/css/tempus-dominus.min.css"
-        crossorigin="anonymous">
-
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../assets/css/icheck-bootstrap/icheck-bootstrap.min.css">
-
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../assets/css/jqvmap/jqvmap.min.css">
-
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
 
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
-
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.css">
-
-    <!-- summernote -->
-    <link rel="stylesheet" href="../assets/css/summernote/summernote-bs4.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom-style/custom-style.css">
@@ -266,7 +246,7 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white">
                         <div class="p-4">
-                            <form action="#" class="needs-validation" novalidate id="ValidateForm">
+                            <form class="needs-validation" novalidate id="addNewSupplierForm">
                                 <div class="row">
                                     <h5 class="mb-2">
                                         <strong class="text-uppercase">Business Information</strong>
@@ -278,7 +258,7 @@
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="supplier_name_bangla" class="form-label">Supplier Name
                                                 (Bangla)</label>
-                                            <div id="supplier-name-bangla-feedback" class="feedback"></div>
+                                            <div id="supplier_name_bangla_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -288,7 +268,7 @@
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="supplier_name_english" class="form-label">Supplier Name
                                                 (English)</label>
-                                            <div id="supplier-name-english-feedback" class="feedback"></div>
+                                            <div id="supplier_name_english_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -297,6 +277,7 @@
                                                 placeholder="Supplier Address" name="supplier_address"></textarea>
                                             <label for="supplier_address" class="form-label">Supplier
                                                 Address</label>
+                                            <div id="supplier_address_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -306,7 +287,7 @@
                                                 placeholder="Supplier Contact Number" required>
                                             <label for="supplier_contact" class="form-label">Supplier
                                                 Contact Number</label>
-                                            <div id="supplier-contact-feedback" class="feedback"></div>
+                                            <div id="supplier_contact_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -425,10 +406,11 @@
                                             <strong class="text-uppercase">mfs information</strong>
                                         </h5>
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <select class="form-select rounded-0" id="supplier_mfs_service"
                                                         name="supplier_mfs_service">
+                                                        <option value="">Select MFS Service</option>
                                                         <?php
                                                             while($rows=mysqli_fetch_array($mfs_service_result)){
                                                         ?>
@@ -438,24 +420,26 @@
                                                             }
                                                         ?>
                                                     </select>
-                                                    <label for="supplier_mfs_service" class="form-label">Select
-                                                        MFS
+                                                    <label for="supplier_mfs_service" class="form-label">MFS
                                                         Service</label>
+                                                    <div id="supplier_mfs_service_feedback"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <input type="number" class="form-control rounded-0"
                                                         name="supplier_mfs_number" id="supplier_mfs_number"
                                                         placeholder="MFS Number" required>
                                                     <label for="supplier_mfs_number" class="form-label">MFS
                                                         Number</label>
+                                                    <div id="supplier_mfs_number_feedback"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <select class="form-select rounded-0" id="supplier_mfs_type"
                                                         name="supplier_mfs_type">
+                                                        <option value="">Select MFS Type</option>
                                                         <?php
                                                             while($rows=mysqli_fetch_array($mfs_type_result)){
                                                         ?>
@@ -465,7 +449,7 @@
                                                             }
                                                         ?>
                                                     </select>
-                                                    <label for="supplier_mfs_type" class="form-label">Select MFS
+                                                    <label for="supplier_mfs_type" class="form-label">MFS
                                                         Type</label>
                                                 </div>
                                             </div>
@@ -476,8 +460,8 @@
                                             <strong class="text-uppercase">bank information</strong>
                                         </h5>
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <input type="number" class="form-control rounded-0"
                                                         name="supplier_bank_account_no" id="supplier_bank_account_no"
                                                         placeholder="Bank Account Number" required>
@@ -486,8 +470,8 @@
                                                         Number</label>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <input type="text" class="form-control rounded-0"
                                                         name="supplier_bank_name" id="supplier_bank_name"
                                                         placeholder="Bank Name" required>
@@ -495,8 +479,8 @@
                                                         Name</label>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
+                                            <div class="col-12 mb-3">
+                                                <div class="form-floating">
                                                     <input type="text" class="form-control rounded-0"
                                                         name="supplier_bank_branch_name" id="supplier_bank_branch_name"
                                                         placeholder="Bank Branch Name" required>
@@ -589,36 +573,6 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
-
-    <!-- jQuery Form Validation CDN Link -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-
-    <!-- jQuery Form Validation Additional Methods CDN Link -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-
-    <!-- ChartJS -->
-    <script src="../assets/js/chart.js/Chart.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="../assets/js/sparklines/sparkline.js"></script>
-
-    <!-- JQVMap -->
-    <script src="../assets/js/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../assets/js/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-    <!-- jQuery Knob Chart -->
-    <script src="../assets/js/jquery-knob/jquery.knob.min.js"></script>
-
-    <!-- daterangepicker -->
-    <script src="../assets/js/moment/moment.min.js"></script>
-    <script src="../assets/js/daterangepicker/daterangepicker.js"></script>
-
-    <!-- Tempus Dominus JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.11/dist/js/tempus-dominus.min.js"
-        crossorigin="anonymous"></script>
-
-    <!-- Summernote -->
-    <script src="../assets/js/summernote/summernote-bs4.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
