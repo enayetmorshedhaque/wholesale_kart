@@ -248,9 +248,13 @@
                         <div class="p-4">
                             <form class="needs-validation" novalidate id="addNewSupplierForm">
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">Business Information</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">Business Information</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0 mandatory_fields"
@@ -337,9 +341,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">owner information</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">owner information</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0" name="supplier_owner_name"
@@ -367,9 +375,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">key contact person</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">key contact person</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0"
@@ -401,141 +413,150 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">mfs information</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <select class="form-select rounded-0" id="supplier_mfs_service"
-                                                        name="supplier_mfs_service">
-                                                        <option value="">Select MFS Service</option>
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($mfs_service_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['mfs_service_id']?>">
-                                                            <?php echo $rows['mfs_service_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="supplier_mfs_service" class="form-label">MFS
-                                                        Service</label>
-                                                    <div id="supplier_mfs_service_feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="supplier_mfs_number" id="supplier_mfs_number"
-                                                        placeholder="MFS Number" required>
-                                                    <label for="supplier_mfs_number" class="form-label">MFS
-                                                        Number</label>
-                                                    <div id="supplier_mfs_number_feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <select class="form-select rounded-0" id="supplier_mfs_type"
-                                                        name="supplier_mfs_type">
-                                                        <option value="">Select MFS Type</option>
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($mfs_type_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['mfs_type_id']?>">
-                                                            <?php echo $rows['mfs_type_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="supplier_mfs_type" class="form-label">MFS
-                                                        Type</label>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="supplier_mfs_service"
+                                                name="supplier_mfs_service">
+                                                <option value="">Select MFS Service</option>
+                                                <?php
+                                                    while($rows=mysqli_fetch_array($mfs_service_result)){
+                                                ?>
+                                                <option value="<?php echo $rows['mfs_service_id']?>">
+                                                    <?php echo $rows['mfs_service_value']?>
+                                                    <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                            <label for="supplier_mfs_service" class="form-label">MFS
+                                                Service</label>
+                                            <div id="supplier_mfs_service_feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="supplier_mfs_number" id="supplier_mfs_number"
+                                                placeholder="MFS Number" required>
+                                            <label for="supplier_mfs_number" class="form-label">MFS
+                                                Number</label>
+                                            <div id="supplier_mfs_number_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="supplier_mfs_type"
+                                                name="supplier_mfs_type">
+                                                <option value="">Select MFS Type</option>
+                                                <?php
+                                                    while($rows=mysqli_fetch_array($mfs_type_result)){
+                                                ?>
+                                                <option value="<?php echo $rows['mfs_type_id']?>">
+                                                    <?php echo $rows['mfs_type_value']?>
+                                                    <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                            <label for="supplier_mfs_type" class="form-label">MFS
+                                                Type</label>
+                                            <div id="supplier_mfs_type_feedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">bank information</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="supplier_bank_account_no" id="supplier_bank_account_no"
-                                                        placeholder="Bank Account Number" required>
-                                                    <label for="supplier_bank_account_no" class="form-label">Bank
-                                                        Account
-                                                        Number</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        name="supplier_bank_name" id="supplier_bank_name"
-                                                        placeholder="Bank Name" required>
-                                                    <label for="supplier_bank_name" class="form-label">Bank
-                                                        Name</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <div class="form-floating">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        name="supplier_bank_branch_name" id="supplier_bank_branch_name"
-                                                        placeholder="Bank Branch Name" required>
-                                                    <label for="supplier_bank_branch_name" class="form-label">Branch
-                                                        Name</label>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="supplier_bank_account_no" id="supplier_bank_account_no"
+                                                placeholder="Bank Account Number" required>
+                                            <label for="supplier_bank_account_no" class="form-label">Bank
+                                                Account
+                                                Number</label>
+                                            <div id="supplier_bank_account_no_feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0" name="supplier_bank_name"
+                                                id="supplier_bank_name" placeholder="Bank Name" required>
+                                            <label for="supplier_bank_name" class="form-label">Bank
+                                                Name</label>
+                                            <div id="supplier_bank_name_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0"
+                                                name="supplier_bank_branch_name" id="supplier_bank_branch_name"
+                                                placeholder="Bank Branch Name" required>
+                                            <label for="supplier_bank_branch_name" class="form-label">Branch
+                                                Name</label>
+                                            <div id="supplier_bank_branch_name_feedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">social contact</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="supplier_social_contact_number"
-                                                        id="supplier_social_contact_number"
-                                                        placeholder="Social Contact Number" required>
-                                                    <label for="supplier_social_contact_number"
-                                                        class="form-label">Social Contact
-                                                        Number</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0"
-                                                        id="supplier_social_contact_service"
-                                                        name="supplier_social_contact_service">
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($social_messaging_service_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['social_messaging_id']?>">
-                                                            <?php echo $rows['social_messaging_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="supplier_social_contact_service"
-                                                        class="form-label">Select Social Messaging
-                                                        Service</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="email" class="form-control rounded-0"
-                                                        name="supplier_social_contact_email"
-                                                        id="supplier_social_contact_email"
-                                                        placeholder="Social Contact Email" required>
-                                                    <label for="supplier_social_contact_email" class="form-label">Social
-                                                        Contact
-                                                        Email</label>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="supplier_social_contact_number"
+                                                id="supplier_social_contact_number" placeholder="Social Contact Number"
+                                                required>
+                                            <label for="supplier_social_contact_number" class="form-label">Social
+                                                Contact
+                                                Number</label>
+                                            <div id="supplier_social_contact_number_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="supplier_social_contact_service"
+                                                name="supplier_social_contact_service">
+                                                <option value="">Select Social Messaging
+                                                    Service</option>
+                                                <?php
+                                                    while($rows=mysqli_fetch_array($social_messaging_service_result)){
+                                                ?>
+                                                <option value="<?php echo $rows['social_messaging_id']?>">
+                                                    <?php echo $rows['social_messaging_value']?>
+                                                    <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                            <label for="supplier_social_contact_service" class="form-label">Social
+                                                Messaging
+                                                Services</label>
+                                            <div id="supplier_social_contact_service_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control rounded-0"
+                                                name="supplier_social_contact_email" id="supplier_social_contact_email"
+                                                placeholder="Social Contact Email" required>
+                                            <label for="supplier_social_contact_email" class="form-label">Social
+                                                Contact
+                                                Email</label>
                                         </div>
                                     </div>
                                 </div>
