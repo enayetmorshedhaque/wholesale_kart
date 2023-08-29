@@ -267,13 +267,18 @@
                         <div class="p-4">
                             <form action="">
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">Business Information</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">Business Information</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <select class="form-select rounded-0" id="customer_type"
                                                 name="customer_type">
+                                                <option value="">Select Customer Type</option>
                                                 <?php
                                                     while($rows=mysqli_fetch_array($customer_type_result)){
                                                 ?>
@@ -284,6 +289,7 @@
                                                 ?>
                                             </select>
                                             <label for="customer_type" class="form-label">Customer Type</label>
+                                            <div id="customer_type_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -293,7 +299,7 @@
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="customer_name_bangla" class="form-label">Customer Name
                                                 (Bangla)</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_name_bangla_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -303,7 +309,7 @@
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="customer_name_english" class="form-label">Customer Name
                                                 (English)</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_name_english_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -312,7 +318,7 @@
                                                 placeholder="Supplier Address" name="customer_address"></textarea>
                                             <label for="customer_address" class="form-label">Customer
                                                 Address</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_address_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -321,7 +327,7 @@
                                                 id="customer_contact" placeholder="Supplier Contact Number" required>
                                             <label for="customer_contact" class="form-label">Customer
                                                 Contact Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_customer_contact_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -343,7 +349,7 @@
                                                 placeholder="Supplier BIN Number" required>
                                             <label for="customer_bin_number" class="form-label">Customer
                                                 BIN Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_bin_number_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -353,7 +359,7 @@
                                                 placeholder="Supplier TIN Number" required>
                                             <label for="customer_tin_number" class="form-label">Customer
                                                 TIN Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_tin_number_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -363,21 +369,25 @@
                                                 placeholder="Supplier VAT Percentage" required>
                                             <label for="customer_vat_percentage" class="form-label">Customer VAT
                                                 Percentage</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_vat_percentage_feedback"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">owner information</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">owner information</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0" name="customer_owner_name"
                                                 id="customer_owner_name" placeholder="Owner Name" required>
                                             <label for="customer_owner_name" class="form-label">Owner
                                                 Name</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_owner_name_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -387,7 +397,7 @@
                                                 placeholder="Owner Contact Number" required>
                                             <label for="customer_owner_contact" class="form-label">Owner
                                                 Contact Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_owner_contact_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -396,187 +406,204 @@
                                                 name="customer_owner_email" id="customer_owner_email"
                                                 placeholder="Owner Email" required>
                                             <label for="customer_owner_email" class="form-label">Owner Email</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_owner_email_feedback"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="mb-2">
-                                        <strong class="text-uppercase">key contact person</strong>
-                                    </h5>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <h5 class="mb-2">
+                                            <strong class="text-uppercase">key contact person</strong>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0"
-                                                name="customer_contact_person_name" id="customer_contact_person_name"
-                                                placeholder="Supplier Owner Name" required>
-                                            <label for="customer_contact_person_name" class="form-label">Contact Person
+                                                name="customer_key_contact_person_name"
+                                                id="customer_key_contact_person_name" placeholder="Supplier Owner Name"
+                                                required>
+                                            <label for="customer_key_contact_person_name" class="form-label">Contact
+                                                Person
                                                 Name</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_key_contact_person_name_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control rounded-0"
-                                                name="customer_contact_person_designation"
-                                                id="customer_contact_person_designation"
+                                                name="customer_key_contact_person_designation"
+                                                id="customer_key_contact_person_designation"
                                                 placeholder="Owner Contact Number" required>
-                                            <label for="customer_contact_person_designation" class="form-label">Contact
+                                            <label for="customer_key_contact_person_designation"
+                                                class="form-label">Contact
                                                 Person Designation</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_key_contact_person_designation_feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control rounded-0"
-                                                name="customer_contact_person_contact"
-                                                id="customer_contact_person_contact" placeholder="Contact Person Number"
-                                                required>
-                                            <label for="customer_contact_person_contact" class="form-label">Contact
+                                                name="customer_key_contact_person_contact"
+                                                id="customer_key_contact_person_contact"
+                                                placeholder="Contact Person Number" required>
+                                            <label for="customer_key_contact_person_contact" class="form-label">Contact
                                                 Person Number</label>
-                                            <div id="loginEmailValidation" class="feedback"></div>
+                                            <div id="customer_key_contact_person_contact_feedback"></div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">mfs Information</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0" id="customer_mfs_service"
-                                                        name="customer_mfs_service">
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($mfs_service_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['mfs_service_id']?>">
-                                                            <?php echo $rows['mfs_service_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="customer_mfs_service" class="form-label">Select
-                                                        MFS
-                                                        Service</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="customer_mfs_number" id="customer_mfs_number"
-                                                        placeholder="MFS Number" required>
-                                                    <label for="customer_mfs_number" class="form-label">MFS
-                                                        Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0" id="customer_mfs_type"
-                                                        name="customer_mfs_type">
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($mfs_type_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['mfs_type_id']?>">
-                                                            <?php echo $rows['mfs_type_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="customer_mfs_type" class="form-label">Select MFS
-                                                        Type</label>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="customer_mfs_service"
+                                                name="customer_mfs_service">
+                                                <option value="">Select
+                                                    MFS
+                                                    Service</option>
+                                                <?php
+                                                    while($rows=mysqli_fetch_array($mfs_service_result)){
+                                                ?>
+                                                <option value="<?php echo $rows['mfs_service_id']?>">
+                                                    <?php echo $rows['mfs_service_value']?>
+                                                    <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                            <label for="customer_mfs_service" class="form-label">MFS
+                                                Service</label>
+                                            <div id="customer_mfs_service_feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="customer_mfs_number" id="customer_mfs_number"
+                                                placeholder="MFS Number" required>
+                                            <label for="customer_mfs_number" class="form-label">MFS
+                                                Number</label>
+                                            <div id="customer_mfs_number_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="customer_mfs_type"
+                                                name="customer_mfs_type">
+                                                <option value="">Select MFS
+                                                    Type</option>
+                                                <?php
+                                                        while($rows=mysqli_fetch_array($mfs_type_result)){
+                                                    ?>
+                                                <option value="<?php echo $rows['mfs_type_id']?>">
+                                                    <?php echo $rows['mfs_type_value']?>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                            </select>
+                                            <label for="customer_mfs_type" class="form-label">MFS
+                                                Type</label>
+                                            <div id="customer_mfs_type_feedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">bank information</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="customer_bank_account_no" id="customer_bank_account_no"
-                                                        placeholder="Bank Account Number" required>
-                                                    <label for="customer_bank_account_no" class="form-label">Bank
-                                                        Account
-                                                        Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        name="customer_bank_name" id="customer_bank_name"
-                                                        placeholder="Bank Name" required>
-                                                    <label for="customer_bank_name" class="form-label">Bank
-                                                        Name</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        name="customer_bank_branch_name" id="customer_bank_branch_name"
-                                                        placeholder="Bank Branch Name" required>
-                                                    <label for="customer_bank_branch_name" class="form-label">Branch
-                                                        Name</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="customer_bank_account_no" id="customer_bank_account_no"
+                                                placeholder="Bank Account Number" required>
+                                            <label for="customer_bank_account_no" class="form-label">Bank
+                                                Account
+                                                Number</label>
+                                            <div id="customer_bank_account_no_feedback"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0" name="customer_bank_name"
+                                                id="customer_bank_name" placeholder="Bank Name" required>
+                                            <label for="customer_bank_name" class="form-label">Bank
+                                                Name</label>
+                                            <div id="customer_bank_name_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control rounded-0"
+                                                name="customer_bank_branch_name" id="customer_bank_branch_name"
+                                                placeholder="Bank Branch Name" required>
+                                            <label for="customer_bank_branch_name" class="form-label">Branch
+                                                Name</label>
+                                            <div id="customer_bank_branch_name_feedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
                                             <strong class="text-uppercase">social contact</strong>
                                         </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control rounded-0"
-                                                        name="customer_social_contact_number"
-                                                        id="customer_social_contact_number"
-                                                        placeholder="Social Contact Number" required>
-                                                    <label for="customer_social_contact_number"
-                                                        class="form-label">Social Contact
-                                                        Number</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <select class="form-select rounded-0"
-                                                        id="customer_social_contact_service"
-                                                        name="customer_social_contact_service">
-                                                        <?php
-                                                            while($rows=mysqli_fetch_array($social_messaging_service_result)){
-                                                        ?>
-                                                        <option value="<?php echo $rows['social_messaging_id']?>">
-                                                            <?php echo $rows['social_messaging_value']?>
-                                                            <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                    <label for="customer_social_contact_service"
-                                                        class="form-label">Select Social Messaging
-                                                        Service</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating mb-3">
-                                                    <input type="email" class="form-control rounded-0"
-                                                        name="customer_social_contact_email"
-                                                        id="customer_social_contact_email"
-                                                        placeholder="Social Contact Email" required>
-                                                    <label for="customer_social_contact_email" class="form-label">Social
-                                                        Contact
-                                                        Email</label>
-                                                    <div id="loginEmailValidation" class="feedback"></div>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control rounded-0"
+                                                name="customer_social_contact_number"
+                                                id="customer_social_contact_number" placeholder="Social Contact Number"
+                                                required>
+                                            <label for="customer_social_contact_number" class="form-label">Social
+                                                Contact
+                                                Number</label>
+                                            <div id="customer_social_contact_number_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select rounded-0" id="customer_social_contact_service"
+                                                name="customer_social_contact_service">
+                                                <option value="">Select
+                                                    Social Messaging
+                                                    Service</option>
+                                                <?php
+                                                        while($rows=mysqli_fetch_array($social_messaging_service_result)){
+                                                    ?>
+                                                <option value="<?php echo $rows['social_messaging_id']?>">
+                                                    <?php echo $rows['social_messaging_value']?>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                            </select>
+                                            <label for="customer_social_contact_service" class="form-label">Social
+                                                Messaging
+                                                Service</label>
+                                            <div id="customer_social_contact_service_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control rounded-0"
+                                                name="customer_social_contact_email" id="customer_social_contact_email"
+                                                placeholder="Social Contact Email" required>
+                                            <label for="customer_social_contact_email" class="form-label">Social
+                                                Contact
+                                                Email</label>
+                                            <div id="customer_social_contact_email_feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -585,18 +612,19 @@
                                         <i class="fas fa-plus"></i>
                                         Create New Customer</button>
                                 </div>
-                            </form>
                         </div>
+                        </form>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer text-center">
-            <strong>Copyright &copy; 2023 <a href="https://booksbd.net">booksbd.net</a>.</strong>
-            All rights reserved.
-        </footer>
+                </div>
+        </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer text-center">
+        <strong>Copyright &copy; 2023 <a href="https://booksbd.net">booksbd.net</a>.</strong>
+        All rights reserved.
+    </footer>
     </div>
     <!-- ./wrapper -->
 
