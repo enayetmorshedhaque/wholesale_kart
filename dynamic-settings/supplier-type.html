@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WholesaleKart | Courier Companies</title>
+    <title>WholesaleKart | Supplier Types</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -197,7 +197,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../dynamic-settings/courier-companies.html" class="nav-link active">
+                                    <a href="../dynamic-settings/courier-companies.html" class="nav-link">
                                         <i class="fa-solid fa-truck-ramp-box nav-icon"></i>
                                         <p>Courier Companies</p>
                                     </a>
@@ -227,7 +227,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../dynamic-settings/supplier-type.html" class="nav-link">
+                                    <a href="../dynamic-settings/supplier-type.html" class="nav-link active">
                                         <i class="fa-solid fa-building-user nav-icon"></i>
                                         <p>Supplier Types</p>
                                     </a>
@@ -248,12 +248,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add New Courier</h1>
+                            <h1 class="m-0">Add Supplier Type</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../dashboard.html">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Courier Companies</li>
+                                <li class="breadcrumb-item active">Supplier Type</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -266,82 +266,25 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white mb-4">
                         <div class="p-4">
-                            <form class="needs-validation" novalidate id="addCourierInformation">
-                                <h5 class="mb-2 ps-0">
-                                    <strong class="text-uppercase">courier information</strong>
-                                </h5>
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0"
-                                                name="add_new_courier_name" id="add_new_courier_name"
-                                                placeholder="Courier Company Name" required>
-                                            <label for="add_new_courier_name" class="form-label">Courier Company
-                                                Name</label>
-                                            <div id="add_new_courier_feedback"></div>
-                                        </div>
+                            <div class="mx-auto w-custom">
+                                <form class="needs-validation" id="addSupplierTypeForm" novalidate>
+                                    <h5 class="mb-2 ps-0">
+                                        <strong class="text-uppercase">Supplier type option</strong>
+                                    </h5>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control rounded-0" name="add_supplier_type"
+                                            id="add_supplier_type" placeholder="Supplier Type" required>
+                                        <label for="add_supplier_type" class="form-label">Supplier Type</label>
+                                        <div id="supplier_type_feedback"></div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0" name="courier_shop_id"
-                                                id="courier_shop_id" placeholder="Courier Shop Id" required>
-                                            <label for="courier_shop_id" class="form-label">Courier Shop Id</label>
-                                            <div id="courier_shop_id_feedback"></div>
-                                        </div>
+                                    <div class="float-lg-end d-grid">
+                                        <button class="btn btn-outline-primary" type="addSupplierTypeButton"
+                                            name="addSupplierTypeButton" id="addSupplierTypeButton">
+                                            <i class="fas fa-plus"></i>
+                                            Add New Supplier Type</button>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <select class="form-select rounded-0" id="courier_location"
-                                                name="courier_location">
-                                                <option value="">Select Option</option>
-                                                <option value="1">Inside Dhaka</option>
-                                                <option value="2">Dhaka Suburb</option>
-                                                <option value="3">Outside Dhaka</option>
-                                            </select>
-                                            <label for="courier_location" class="form-label">Courier
-                                                Location</label>
-                                            <div id="courier_location_feedback"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control rounded-0"
-                                                name="add_courier_base_charge" id="add_courier_base_charge"
-                                                placeholder="Courier Base Charge" required>
-                                            <label for="add_courier_base_charge" class="form-label">Courier Base
-                                                Charge</label>
-                                            <div id="courier_base_charge_feedback"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control rounded-0"
-                                                name="add_courier_extra_charge" id="add_courier_extra_charge"
-                                                placeholder="Courier Extra Charge" required>
-                                            <label for="add_courier_extra_charge" class="form-label">Courier Extra
-                                                Charge</label>
-                                            <div id="courier_extra_charge_feedback"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control rounded-0"
-                                                name="maximum_allowed_weight" id="maximum_allowed_weight"
-                                                placeholder="Maximum Allowed Weight" required>
-                                            <label for="maximum_allowed_weight" class="form-label">Maximum Allowed
-                                                Weight</label>
-                                            <div id="maximum_allowed_weight_feedback"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="float-lg-end d-grid">
-                                    <button class="btn btn-outline-primary" type="addCourierService"
-                                        name="addCourierService" id="addCourierService">
-                                        <i class="fas fa-plus"></i>
-                                        Add New
-                                        Courier</button>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -349,66 +292,38 @@
                         <div class="p-4">
                             <div class="row">
                                 <h5 class="mb-3 left-padding">
-                                    <strong class="text-uppercase">courier Service list</strong>
+                                    <strong class="text-uppercase">supplier type list</strong>
                                 </h5>
-                                <div class="col-12 table-responsive">
+                                <div class="col-12">
                                     <table class="table able-striped table-hover mb-2" id="invoiceList">
                                         <thead class="table-light">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>Location</th>
-                                                <th>Charge</th>
-                                                <th>Extra</th>
-                                                <th>Maximum Allowed Weight</th>
+                                                <th>Type</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                while($rows=mysqli_fetch_array($courier_companies_result)){
+                                                while($rows=mysqli_fetch_array($supplier_type_result)){
                                             ?>
                                             <tr>
                                                 <th>
-                                                    <?php echo $courier_companies_serial ?>
+                                                    <?php echo $supplier_type_serial ?>
                                                 </th>
-                                                <td style="line-height: normal;">
-                                                    <?php
-                                                        if(empty($rows['courier_shop_id'])){
-                                                    ?>
-                                                    <?php echo $rows['courier_name'] ?>
-                                                    <?php        
-                                                        }else{
-                                                    ?>
-                                                    <?php echo $rows['courier_name']?>
-                                                    (
-                                                    <?php echo ($rows['courier_shop_id'])?>)
-                                                    <?php
-                                                        }
-                                                    ?>
-                                                </td>
                                                 <td>
-                                                    <?php echo $rows['courier_location'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $rows['courier_base_charge'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $rows['courier_extra_charge'] ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $rows['courier_maximum_allowed_weight'] ?>
+                                                    <?php echo $rows['supplier_type_value'] ?>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="./update-mfs-types.html?id=<?php echo $rows['courier_id'] ?>"
+                                                        <a href="./update-supplier-type.html?id=<?php echo $rows['supplier_type_id'] ?>"
                                                             class="text-decoration-none text-black-50">
                                                             <button type="button" class="btn btn-outline-dark">
                                                                 <i class="fa-solid fa-edit"></i>
                                                             </button>
                                                         </a>
                                                         <pre></pre>
-                                                        <a href="./delete-mfs-types.html?id=<?php echo $rows['courier_id'] ?>"
+                                                        <a href="./delete-supplier-type.html?id=<?php echo $rows['supplier_type_id'] ?>"
                                                             class="text-decoration-none text-black-50">
                                                             <button type="button" class="btn btn-outline-danger">
                                                                 <i class="fa-solid fa-trash"></i>
@@ -418,7 +333,7 @@
                                                 </td>
                                             </tr>
                                             <?php
-                                                $courier_companies_serial++;
+                                                $supplier_type_serial++;
                                                 }
                                             ?>
                                         </tbody>
@@ -448,13 +363,13 @@
     <!-- jQuery UI 1.11.4 -->
     <script src="../assets/js/jquery-ui/jquery-ui.min.js"></script>
 
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
-
-    <!-- Sweetalert JS CDN Link -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>

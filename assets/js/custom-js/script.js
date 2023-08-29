@@ -534,5 +534,80 @@ $(document).ready(function () {
     });
     // Social Messaging Service validation starts here
 
-    // ================================================================================================================================== 
+    // ==================================================================================================================================
+
+    // Supplier Type validation starts here
+    $("#add_supplier_type").on("blur", function () {
+        let numbers = /([0-9])/;
+        let specialCharacters = /[^\w\s]/gi;
+
+        if ($(this).val() === "" || $.trim(($(this).val())) === "") {
+
+            $("#supplier_type_feedback").html("Enter Supplier Type.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#add_supplier_type").removeClass("is-valid").addClass("is-invalid");
+
+        } else if ($(this).val().match(numbers)) {
+
+            $("#supplier_type_feedback").html("Numbers are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#add_supplier_type").removeClass("is-valid").addClass("is-invalid");
+
+        } else if ($(this).val().match(specialCharacters)) {
+
+            $("#supplier_type_feedback").html("Special Characters are not allowed.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#add_supplier_type").removeClass("is-valid").addClass("is-invalid");
+
+        } else {
+
+            $("#supplier_type_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#add_supplier_type").removeClass("is-invalid").addClass("is-valid");
+
+        }
+    });
+
+    $("#addSupplierTypeButton").on("click", function (event) {
+
+        // Perform validation
+        let add_supplier_type = $("#add_supplier_type").val();
+        let input_length = add_supplier_type.length;
+        let isValid = true;
+
+        if (input_length <= 0) {
+            $("#supplier_type_feedback").html("This field is required.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#add_supplier_type").removeClass("is-valid").addClass("is-invalid");
+            isValid = false;
+        }
+
+        // Prevent form submission if there are errors
+        if ($(".invalid-feedback:visible").length > 0 || $(".is-invalid:visible").length > 0) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "../assets/db/dynamic-settings-data-submit.php",
+                data: {
+                    "add_supplier_type_btn": 1,
+                    "add_supplier_type": add_supplier_type,
+                },
+                success: function (response) {
+                    Swal.fire({
+                        toast: true,
+                        title: 'Data ' + response,
+                        position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
+                        showConfirmButton: false,
+                        timer: 2000, // Duration in milliseconds (3 seconds in this example)
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                },
+            });
+            $("#add_supplier_type").val("").removeClass("is-valid");
+            $("#supplier_type_feedback").html("").removeClass("valid-feedback");
+        }
+    });
+    // Supplier Type validation ends here
 });

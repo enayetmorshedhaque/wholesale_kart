@@ -100,5 +100,33 @@ if (!$conn) {
             echo "insertion failed";
         }
     }
+
+    // Insert Social Messaging Data
+    if (isset($_REQUEST['add_social_messaging_service_btn'])) {
+        $add_social_messaging_service = $_REQUEST['add_social_messaging_service'];
+
+        $sql = "INSERT INTO `dynamic_settings_social_messaging` (social_messaging_id, social_messaging_value) VALUES ('','$add_social_messaging_service')";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            echo "inserted successfully";
+        } else {
+            echo "insertion failed";
+        }
+    }
+
+    // Insert Supplier Type Data
+    if (isset($_REQUEST['add_supplier_type_btn'])) {
+        $add_supplier_type = $_REQUEST['add_supplier_type'];
+
+        $sql = "INSERT INTO `dynamic_settings_supplier_type` (supplier_type_id, supplier_type_value) VALUES ('','$add_supplier_type')";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            echo "inserted successfully";
+        } else {
+            echo "insertion failed";
+        }
+    }
 }
 mysqli_close($conn);

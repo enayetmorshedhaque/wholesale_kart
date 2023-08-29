@@ -6,7 +6,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Getting Customer Types Data
+// Getting Courier Companies Data
 $courier_companies_sql = "SELECT * FROM `dynamic_settings_courier_companies`";
 $courier_companies_result = mysqli_query($conn, $courier_companies_sql);
 
@@ -44,6 +44,14 @@ $social_messaging_service_result = mysqli_query($conn, $social_messaging_service
 
 if (mysqli_num_rows($social_messaging_service_result) > 0) {
     $social_messaging_service_serial = 1;
+}
+
+// Getting Supplier Types Data
+$supplier_type_sql = "SELECT * FROM `dynamic_settings_supplier_type`";
+$supplier_type_result = mysqli_query($conn, $supplier_type_sql);
+
+if (mysqli_num_rows($supplier_type_result) > 0) {
+    $supplier_type_serial = 1;
 }
 
 mysqli_close($conn);

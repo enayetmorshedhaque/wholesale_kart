@@ -2,6 +2,16 @@ $(document).ready(function () {
     $("form").addClass("was-validate");
 
     // Add New Supplier validation starts here
+    $("#supplier_type").on("blur", function () {
+        if ($(this).val() === "") {
+            $("#supplier_type_feedback").html("Select Supplier Type").removeClass("valid-feedback").addClass("invalid-feedback ");
+            $("#supplier_type").removeClass("is-valid").addClass("is-invalid");
+        } else {
+            $("#supplier_type_feedback").html("Looks Good!").removeClass("invalid-feedback").addClass("valid-feedback");
+            $("#supplier_type").removeClass("is-invalid").addClass("is-valid");
+        }
+    });
+
     $("#supplier_name_bangla").on("blur", function () {
         let bengaliCharacterPattern = /^[\u0980-\u09FF\s]+$/;
         let bengaliNumberPattern = /^[\u09E6-\u09EF]+$/;
@@ -304,6 +314,7 @@ $(document).ready(function () {
         // Perform validation
 
         // Business Information
+        let supplier_type = $("#supplier_type").val();
         let supplier_name_bangla = $("#supplier_name_bangla").val();
         let supplier_name_english = $("#supplier_name_english").val();
         let supplier_address = $("#supplier_address").val();
@@ -326,6 +337,7 @@ $(document).ready(function () {
         // ===========================================================================================================
 
         // Business Information Length
+        let supplier_type_input_length = supplier_type.length;
         let supplier_name_bengali_input_length = supplier_name_bangla.length;
         let supplier_name_english_input_length = supplier_name_english.length;
         let supplier_address_input_length = supplier_address.length;
@@ -346,6 +358,12 @@ $(document).ready(function () {
         let supplier_social_contact_service_input_length = supplier_social_contact_service.length;
 
         let isValid = true;
+
+        if (supplier_type_input_length <= 0) {
+            $("#supplier_type_feedback").html("This field is required.").removeClass("valid-feedback").addClass("invalid-feedback");
+            $("#supplier_type").removeClass("is-valid").addClass("is-invalid");
+            isValid = false;
+        }
 
         if (supplier_name_bengali_input_length <= 0) {
             $("#supplier_name_bangla_feedback").html("This field is required.").removeClass("valid-feedback").addClass("invalid-feedback");
