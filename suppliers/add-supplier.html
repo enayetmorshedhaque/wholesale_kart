@@ -22,6 +22,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
 
+    <!-- Sweetalert CSS CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
 
@@ -276,7 +279,7 @@
                                                 ?>
                                             </select>
                                             <label for="supplier_type" class="form-label">Supplier Type</label>
-                                            <div id="supplier_type_feedback"></div>
+                                            <div id="supplier_type_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -286,7 +289,7 @@
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="supplier_name_bangla" class="form-label">Supplier Name
                                                 (Bangla)</label>
-                                            <div id="supplier_name_bangla_feedback"></div>
+                                            <div id="supplier_name_bangla_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -296,7 +299,7 @@
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="supplier_name_english" class="form-label">Supplier Name
                                                 (English)</label>
-                                            <div id="supplier_name_english_feedback"></div>
+                                            <div id="supplier_name_english_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -305,7 +308,7 @@
                                                 placeholder="Supplier Address" name="supplier_address"></textarea>
                                             <label for="supplier_address" class="form-label">Supplier
                                                 Address</label>
-                                            <div id="supplier_address_feedback"></div>
+                                            <div id="supplier_address_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -315,7 +318,7 @@
                                                 placeholder="Supplier Contact Number" required>
                                             <label for="supplier_contact" class="form-label">Supplier
                                                 Contact Number</label>
-                                            <div id="supplier_contact_feedback"></div>
+                                            <div id="supplier_contact_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -454,7 +457,7 @@
                                             </select>
                                             <label for="supplier_mfs_service" class="form-label">MFS
                                                 Service</label>
-                                            <div id="supplier_mfs_service_feedback"></div>
+                                            <div id="supplier_mfs_service_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -464,7 +467,7 @@
                                                 placeholder="MFS Number" required>
                                             <label for="supplier_mfs_number" class="form-label">MFS
                                                 Number</label>
-                                            <div id="supplier_mfs_number_feedback"></div>
+                                            <div id="supplier_mfs_number_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -483,7 +486,7 @@
                                             </select>
                                             <label for="supplier_mfs_type" class="form-label">MFS
                                                 Type</label>
-                                            <div id="supplier_mfs_type_feedback"></div>
+                                            <div id="supplier_mfs_type_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -503,7 +506,7 @@
                                             <label for="supplier_bank_account_no" class="form-label">Bank
                                                 Account
                                                 Number</label>
-                                            <div id="supplier_bank_account_no_feedback"></div>
+                                            <div id="supplier_bank_account_no_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -512,7 +515,7 @@
                                                 id="supplier_bank_name" placeholder="Bank Name" required>
                                             <label for="supplier_bank_name" class="form-label">Bank
                                                 Name</label>
-                                            <div id="supplier_bank_name_feedback"></div>
+                                            <div id="supplier_bank_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -522,7 +525,7 @@
                                                 placeholder="Bank Branch Name" required>
                                             <label for="supplier_bank_branch_name" class="form-label">Branch
                                                 Name</label>
-                                            <div id="supplier_bank_branch_name_feedback"></div>
+                                            <div id="supplier_bank_branch_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -543,7 +546,7 @@
                                             <label for="supplier_social_contact_number" class="form-label">Social
                                                 Contact
                                                 Number</label>
-                                            <div id="supplier_social_contact_number_feedback"></div>
+                                            <div id="supplier_social_contact_number_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -564,7 +567,7 @@
                                             <label for="supplier_social_contact_service" class="form-label">Social
                                                 Messaging
                                                 Services</label>
-                                            <div id="supplier_social_contact_service_feedback"></div>
+                                            <div id="supplier_social_contact_service_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -612,6 +615,9 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
+
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>

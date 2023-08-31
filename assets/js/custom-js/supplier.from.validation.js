@@ -496,32 +496,34 @@ $(document).ready(function () {
             event.preventDefault();
             event.stopPropagation();
         } else {
-            // event.preventDefault();
-            // $.ajax({
-            //     type: "POST",
-            //     url: "../assets/db/dynamic-settings-data-submit.php",
-            //     data: {
-            //         "add_social_messaging_service_btn": 1,
-            //         "add_social_messaging_service": add_social_messaging_service,
-            //     },
-            //     success: function (response) {
-            //         Swal.fire({
-            //             toast: true,
-            //             title: 'Data ' + response,
-            //             position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
-            //             showConfirmButton: false,
-            //             timer: 2000, // Duration in milliseconds (3 seconds in this example)
-            //             timerProgressBar: true,
-            //             didOpen: (toast) => {
-            //                 toast.addEventListener('mouseenter', Swal.stopTimer)
-            //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
-            //             }
-            //         });
-            //     },
-            // });
-            // $("#add_social_messaging_service").val("");
-            // $("#social_messaging_feedback").html("").removeClass("valid-feedback");
-            // $("#add_social_messaging_service").removeClass("is-valid");
+            event.preventDefault();
+
+            // Serialize the form data into a JSON object
+            let supplierFormData = $("#addNewSupplierForm").serialize();
+
+            $.ajax({
+                type: "POST",
+                url: '../assets/db/add-new-supplier-customer-submit.php', // Change this to the path of your PHP script
+                data: supplierFormData,
+                success: function (response) {
+                    Swal.fire({
+                        toast: true,
+                        title: 'New supplier ' + response,
+                        position: 'top-end', // Change position as needed (top-start, top-end, bottom-start, bottom-end)
+                        showConfirmButton: false,
+                        timer: 2000, // Duration in milliseconds (2 seconds in this example)
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                },
+            });
+            $("#addNewSupplierForm input").val("").removeClass("is-valid");
+            $("#addNewSupplierForm select").val("").removeClass("is-valid");
+            $("#addNewSupplierForm textarea").val("").removeClass("is-valid");
+            $(".feedback").html("").removeClass("valid-feedback");
         }
     });
     // Add New Supplier validation ends here   
