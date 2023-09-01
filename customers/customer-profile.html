@@ -1,3 +1,6 @@
+<?php
+    require('../assets/db/supplier-customer-fetch.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -254,12 +257,37 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <?php
+                while ($customer_row = mysqli_fetch_assoc($customer_result)) {
+                    require '../assets/db/connection.php';
+
+                    $mfs_service = mysqli_query($conn, "SELECT mfs_service_value FROM dynamic_settings_mfs_services WHERE mfs_service_id = '" . mysqli_real_escape_string($conn, $customer_row['customer_mfs_service']) . "'");
+
+                    if ($mfs_service) {
+                        $mfs_row = mysqli_fetch_assoc($mfs_service);
+                    }
+
+                    $mfs_type = mysqli_query($conn, "SELECT mfs_type_value FROM dynamic_settings_mfs_type WHERE mfs_type_id = '" . mysqli_real_escape_string($conn, $customer_row['customer_mfs_type']) . "'");
+
+                    if ($mfs_type) {
+                        $mfs_type_row = mysqli_fetch_assoc($mfs_type);
+                    }
+
+                    $social = mysqli_query($conn, "SELECT social_messaging_value FROM dynamic_settings_social_messaging WHERE social_messaging_id = '" . mysqli_real_escape_string($conn, $customer_row['customer_social_contact_service']) . "'");
+
+                    if ($social) {
+                        $social_row = mysqli_fetch_assoc($social);
+                    }
+
+            ?>
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">PBS</h1>
+                            <h1 class="m-0">
+                                <?php echo $customer_row['customer_name_english'] ?>
+                            </h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -269,7 +297,9 @@
                                 <li class="breadcrumb-item">
                                     <a href="manage-customers.html">Manage Customers</a>
                                 </li>
-                                <li class="breadcrumb-item active">PBS</li>
+                                <li class="breadcrumb-item active">
+                                    <?php echo $customer_row['customer_name_english'] ?>
+                                </li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -280,195 +310,279 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="fa-solid fa-book fs-1"></i>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <i class="fa-solid fa-book fs-1"></i>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="mb-0 fw-semibold">Total Orders</p>
+                                                <span class="fw-bold fs-1">01</span>
+                                            </div>
                                         </div>
-                                        <div class="text-end">
-                                            <p class="mb-0 fw-semibold">Total Orders</p>
-                                            <span class="fw-bold fs-1">01</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <i class="fa-solid fa-tags fs-1"></i>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="mb-0 fw-semibold">Total Ordered Books</p>
+                                                <span class="fw-bold fs-1">10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <i class="fa-solid fa-receipt fs-1"></i>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="mb-0 fw-semibold">Total Purchase</p>
+                                                <span class="fw-bold fs-2">৳</span> <span
+                                                    class="fw-bold fs-1">5600</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <i class="fa-solid fa-wallet fs-1"></i>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="mb-0 fw-semibold">Total Due Amount</p>
+                                                <span class="fw-bold fs-2">৳</span> <span
+                                                    class="fw-bold fs-1">1000</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="fa-solid fa-tags fs-1"></i>
-                                        </div>
-                                        <div class="text-end">
-                                            <p class="mb-0 fw-semibold">Total Ordered Books</p>
-                                            <span class="fw-bold fs-1">10</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="fa-solid fa-receipt fs-1"></i>
-                                        </div>
-                                        <div class="text-end">
-                                            <p class="mb-0 fw-semibold">Total Purchase</p>
-                                            <span class="fw-bold fs-2">৳</span> <span class="fw-bold fs-1">5600</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="fa-solid fa-wallet fs-1"></i>
-                                        </div>
-                                        <div class="text-end">
-                                            <p class="mb-0 fw-semibold">Total Due Amount</p>
-                                            <span class="fw-bold fs-2">৳</span> <span class="fw-bold fs-1">1000</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <h4 class="mt-0 mb-3 fw-bold text-uppercase">supplier profile</h4>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Suppler Details
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            <span class="fw-bold">Panjeree Book Shop</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            <span>43 Shilpacharya Zainul Abedin Sarak (Old 16 Shantinagar),
-                                                Dhaka-1217</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            Email: <span>support@pbs.com.bd</span>
-                                        </p>
+                        <h4 class="mt-0 mb-3 fw-bold text-uppercase">customer profile</h4>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Customer Details
                                     </div>
-                                </div>
-                                <!-- <div class="card-footer">
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Owner Details
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            <span class="fw-bold">Abdullah Al Baki</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            <span>abdullahalbaki@pbs.com.bd</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            Cell: <span>01313770770</span>
-                                        </p>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_name_english'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                <span>
+                                                    <?php echo $customer_row['customer_address'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                Contact No: <span>
+                                                    <?php echo $customer_row['customer_contact'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
+                                    <!-- <div class="card-footer">
+                                    </div> -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Contact Person Details
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            <span class="fw-bold">Arafat Hossain Gourob</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            <span class="fw-normal">JR Marketing Officer</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            Cell: <span>01712345678</span>
-                                        </p>
+                            <div class="col-md-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Owner Details
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_owner_name'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                <span>
+                                                    <?php echo $customer_row['customer_owner_email'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                Cell: <span>
+                                                    <?php echo $customer_row['customer_owner_contact'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Customer Business Information
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            BIN Number: <span class="fw-bold">0016143440201</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            TIN Number: <span class="fw-bold">001614344020</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            VAT Percentage: <span class="fw-bold">10%</span>
-                                        </p>
+                            <div class="col-md-3">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Contact Person Details
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_key_contact_person_name'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                <span class="fw-normal">
+                                                    <?php echo $customer_row['customer_key_contact_person_designation'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                Cell: <span>
+                                                    <?php echo $customer_row['customer_key_contact_person_contact'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Payment Method Details
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            Payment Method: <span class="fw-bold">bKash</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            Number: <span class="fw-bold">01712345678</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            Account Type: <span class="fw-bold">Merchant</span>
-                                        </p>
+                            <div class="col-md-4">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Customer Business Information
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                BIN Number: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_bin_number'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                TIN Number: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_tin_number'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                VAT Percentage: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_vat_percentage'] ?>%
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border border-0 rounded-0 bg-white shadow-sm">
-                                <div class="card-header bg-white shadow-sm fw-bold">
-                                    Social Contact Details
+                            <div class="col-md-4">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Payment Method Details
+                                    </div>
+                                    <?php 
+                                        if(!empty($mfs_row['mfs_service_value'])){ 
+                                    ?>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                MFS Name: <span class="fw-bold">
+                                                    <?php echo $mfs_row['mfs_service_value'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                MFS Number: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_mfs_number'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                MFS Type: <span class="fw-bold">
+                                                    <?php echo $mfs_type_row['mfs_type_value'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        } else if(!empty($customer_row['customer_bank_account_no']) AND $customer_row['customer_bank_account_no'] !== "N/A"){ 
+                                    ?>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                Bank Account No: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_bank_account_no'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                Bank Name: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_bank_name'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                Branch Name: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_bank_branch_name'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        } else{ 
+                                    ?>
+                                    <div class="card-body" style="height: 120px;">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                Default Payment: <span class="fw-bold">
+                                                    Cash
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <p class="mb-1">
-                                            Messaging Number: <span class="fw-bold">01712345678</span>
-                                        </p>
-                                        <p class="mb-1">
-                                            Service Name: <span class="fw-bold">WhatsApp</span>
-                                        </p>
-                                        <p class="mb-0">
-                                            Email: <span class="fw-bold">N/A</span>
-                                        </p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border border-0 rounded-0 bg-white shadow-sm">
+                                    <div class="card-header bg-white shadow-sm fw-bold">
+                                        Social Contact Details
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p class="mb-1">
+                                                Messaging Number: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_social_contact_number'] ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-1">
+                                                Service Name: <span class="fw-bold">
+                                                    <?php 
+                                                        echo $social_row['social_messaging_value']
+                                                    ?>
+                                                </span>
+                                            </p>
+                                            <p class="mb-0">
+                                                Email: <span class="fw-bold">
+                                                    <?php echo $customer_row['customer_social_contact_email'] ?>
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php 
+                    }
+                    ?>
 
                     <div class="card border border-0 rounded-0 bg-white shadow-sm">
                         <div class="p-2">
