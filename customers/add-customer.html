@@ -22,6 +22,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../assets/css/theme-css/adminlte.min.css">
 
+    <!-- Sweetalert CSS CDN Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/css/OverlayScrollbars/OverlayScrollbars.min.css">
 
@@ -252,7 +255,7 @@
                 <div class="container-fluid">
                     <div class="card shadow-sm rounded-0 bg-white">
                         <div class="p-4">
-                            <form action="">
+                            <form class="needs-validation" novalidate id="addNewCustomerForm">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <h5 class="mb-2">
@@ -276,7 +279,7 @@
                                                 ?>
                                             </select>
                                             <label for="customer_type" class="form-label">Customer Type</label>
-                                            <div id="customer_type_feedback"></div>
+                                            <div id="customer_type_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -286,7 +289,7 @@
                                                 placeholder="Supplier Name (Bangla)" required>
                                             <label for="customer_name_bangla" class="form-label">Customer Name
                                                 (Bangla)</label>
-                                            <div id="customer_name_bangla_feedback"></div>
+                                            <div id="customer_name_bangla_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -296,7 +299,7 @@
                                                 placeholder="Supplier Name (English)" required>
                                             <label for="customer_name_english" class="form-label">Customer Name
                                                 (English)</label>
-                                            <div id="customer_name_english_feedback"></div>
+                                            <div id="customer_name_english_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -305,7 +308,7 @@
                                                 placeholder="Supplier Address" name="customer_address"></textarea>
                                             <label for="customer_address" class="form-label">Customer
                                                 Address</label>
-                                            <div id="customer_address_feedback"></div>
+                                            <div id="customer_address_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -314,7 +317,7 @@
                                                 id="customer_contact" placeholder="Supplier Contact Number" required>
                                             <label for="customer_contact" class="form-label">Customer
                                                 Contact Number</label>
-                                            <div id="customer_customer_contact_feedback"></div>
+                                            <div id="customer_customer_contact_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -374,7 +377,7 @@
                                                 id="customer_owner_name" placeholder="Owner Name" required>
                                             <label for="customer_owner_name" class="form-label">Owner
                                                 Name</label>
-                                            <div id="customer_owner_name_feedback"></div>
+                                            <div id="customer_owner_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -384,7 +387,7 @@
                                                 placeholder="Owner Contact Number" required>
                                             <label for="customer_owner_contact" class="form-label">Owner
                                                 Contact Number</label>
-                                            <div id="customer_owner_contact_feedback"></div>
+                                            <div id="customer_owner_contact_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -393,7 +396,7 @@
                                                 name="customer_owner_email" id="customer_owner_email"
                                                 placeholder="Owner Email" required>
                                             <label for="customer_owner_email" class="form-label">Owner Email</label>
-                                            <div id="customer_owner_email_feedback"></div>
+                                            <div id="customer_owner_email_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -414,7 +417,7 @@
                                             <label for="customer_key_contact_person_name" class="form-label">Contact
                                                 Person
                                                 Name</label>
-                                            <div id="customer_key_contact_person_name_feedback"></div>
+                                            <div id="customer_key_contact_person_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -426,7 +429,8 @@
                                             <label for="customer_key_contact_person_designation"
                                                 class="form-label">Contact
                                                 Person Designation</label>
-                                            <div id="customer_key_contact_person_designation_feedback"></div>
+                                            <div id="customer_key_contact_person_designation_feedback" class="feedback">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -437,7 +441,8 @@
                                                 placeholder="Contact Person Number" required>
                                             <label for="customer_key_contact_person_contact" class="form-label">Contact
                                                 Person Number</label>
-                                            <div id="customer_key_contact_person_contact_feedback"></div>
+                                            <div id="customer_key_contact_person_contact_feedback" class="feedback">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -467,7 +472,7 @@
                                             </select>
                                             <label for="customer_mfs_service" class="form-label">MFS
                                                 Service</label>
-                                            <div id="customer_mfs_service_feedback"></div>
+                                            <div id="customer_mfs_service_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -477,7 +482,7 @@
                                                 placeholder="MFS Number" required>
                                             <label for="customer_mfs_number" class="form-label">MFS
                                                 Number</label>
-                                            <div id="customer_mfs_number_feedback"></div>
+                                            <div id="customer_mfs_number_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -497,7 +502,7 @@
                                             </select>
                                             <label for="customer_mfs_type" class="form-label">MFS
                                                 Type</label>
-                                            <div id="customer_mfs_type_feedback"></div>
+                                            <div id="customer_mfs_type_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -517,7 +522,7 @@
                                             <label for="customer_bank_account_no" class="form-label">Bank
                                                 Account
                                                 Number</label>
-                                            <div id="customer_bank_account_no_feedback"></div>
+                                            <div id="customer_bank_account_no_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -526,7 +531,7 @@
                                                 id="customer_bank_name" placeholder="Bank Name" required>
                                             <label for="customer_bank_name" class="form-label">Bank
                                                 Name</label>
-                                            <div id="customer_bank_name_feedback"></div>
+                                            <div id="customer_bank_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -536,7 +541,7 @@
                                                 placeholder="Bank Branch Name" required>
                                             <label for="customer_bank_branch_name" class="form-label">Branch
                                                 Name</label>
-                                            <div id="customer_bank_branch_name_feedback"></div>
+                                            <div id="customer_bank_branch_name_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -557,7 +562,7 @@
                                             <label for="customer_social_contact_number" class="form-label">Social
                                                 Contact
                                                 Number</label>
-                                            <div id="customer_social_contact_number_feedback"></div>
+                                            <div id="customer_social_contact_number_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -579,7 +584,7 @@
                                             <label for="customer_social_contact_service" class="form-label">Social
                                                 Messaging
                                                 Service</label>
-                                            <div id="customer_social_contact_service_feedback"></div>
+                                            <div id="customer_social_contact_service_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -590,7 +595,7 @@
                                             <label for="customer_social_contact_email" class="form-label">Social
                                                 Contact
                                                 Email</label>
-                                            <div id="customer_social_contact_email_feedback"></div>
+                                            <div id="customer_social_contact_email_feedback" class="feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -629,6 +634,9 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
+
+    <!-- Sweetalert JS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
     <!-- overlayScrollbars -->
     <script src="../assets/js/overlayScrollbars/jquery.overlayScrollbars.min.js"></script>
